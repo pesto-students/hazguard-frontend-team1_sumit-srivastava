@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes as RouterRoutes, Navigate } from "react-router-dom";
-import Landing from "./Pages/Landing";
-import Home from "./Pages/App/Home";
+import Landing from "./Pages/Landing/Landing";
+import Home from "./Pages/App/Home/Home";
 
 export default function Routes() {
 	// function PrivateRoute({ children }) {
@@ -15,15 +15,7 @@ export default function Routes() {
 		<BrowserRouter>
 			<RouterRoutes>
 				<Route exact path="/" element={<Landing />} />
-				{/* <Route
-					exact
-					path="/app"
-					element={
-						<PrivateRoute>
-							<Home />
-						</PrivateRoute>
-					}
-				/> */}
+				<Route exact path="/home" element={<Home />} />
 			</RouterRoutes>
 		</BrowserRouter>
 	);

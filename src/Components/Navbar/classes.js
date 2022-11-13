@@ -11,6 +11,8 @@ export const classes = {
 		iconlist: {
 			body: `flex flex-row justify-between items-center`,
 			icons: `mr-[34px] cursor-pointer`,
+			logIcons:'mr-[34px] cursor-pointer no:hidden md:inline',
+			filIcons:'mr-[34px] cursor-pointer no:inline md:hidden',
 		},
 	},
 	profileBoard: {

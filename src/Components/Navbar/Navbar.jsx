@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { classes } from "./css/classes";
+import {classes} from "./classes";
 import { NavLink } from "react-router-dom";
-import Logout from "../../Assets/Logout";
-import Account from "../../Assets/Account";
-import Hamburger from "../../Assets/Hamburger";
+import {Account, Hamburger, Logout, Filter} from '../../Assets/library'
 
 export default function Navbar() {
 	const [currentPage, setCurrentPage] = useState("");
@@ -57,10 +55,13 @@ export default function Navbar() {
 						</li>
 					</ul>
 					<ul className={classes.navContainer.iconlist.body}>
-						<li className={classes.navContainer.iconlist.icons}>
+						<li className={classes.navContainer.iconlist.logIcons}>
 							<NavLink to="/login">
 								<Logout />
 							</NavLink>
+						</li>
+						<li className={classes.navContainer.iconlist.filIcons}>
+								< Filter />
 						</li>
 						<li className={classes.navContainer.iconlist.icons}>
 							<NavLink to="/account">
