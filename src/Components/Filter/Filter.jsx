@@ -11,12 +11,9 @@ const Filter = () => {
 					<p className={classes.sort.types.typeHeading}>Industry type</p>
 					<div className={classes.sort.types.selContainer.body}>
 						<p className={classes.sort.types.selContainer.text}>Chemical</p>
-						<DropDown
-							onClick={() => {
-								setToogleOne(!toggleOne);
-							}}
-						/>
-						<select name="industry-type" id="industry-type" className={toggleOne === false ? "no:hidden" : "flex"}>
+						<DropDown />
+						<select name="industry-type" id="industry-type" className="no:hidden">
+							Chemical
 							<option value="Chemical">Chemical</option>
 							<option value="Mechanical">Mechanical</option>
 							<option value="Oil-Chemical">Oil-Chemical</option>

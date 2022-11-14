@@ -5,6 +5,8 @@ import Logout from "./Logout";
 import Filter from "./Filter";
 import Search from "./Search";
 import DropDown from "./DropDown";
+import Views from "./Views";
+import Bookmark from "./Bookmark";
 
 //exporting
 export {
@@ -13,5 +15,7 @@ export {
     Logout,
     Filter,
     Search,
-    DropDown
+    DropDown,
+    Views,
+    Bookmark
 }

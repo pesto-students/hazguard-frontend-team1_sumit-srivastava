@@ -1,5 +1,5 @@
 export const classes={
-    body:'w-100% no:mt-[30px] no:mx-[15px] sm:mx-[30px] sm:mt-[30px] h-[120px] flex flex-row',
+    body:'w-100% no:mt-[30px] no:mx-[15px] md:mx-[30px] sm:mt-[30px] h-[120px] flex flex-row',
     sort:{
         body:'flex no:w-[100%] md:w-[80%] sm:h-[120px] rounded-[20px] overflow-hidden justify-between flex-wrap no:bg-[#ffffff] md:bg-transparent',
         types:{
