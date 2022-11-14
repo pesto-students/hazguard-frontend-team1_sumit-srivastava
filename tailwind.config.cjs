@@ -13,6 +13,7 @@ module.exports = {
 				},
 				fontFamily: {
 					Arial: ["Arial"],
+					Baloo: ['Baloo Thambi 2','cursiv']
 				},
 				extend: {
 					height: {
