@@ -7,6 +7,8 @@ import Search from "./Search";
 import DropDown from "./DropDown";
 import Views from "./Views";
 import Bookmark from "./Bookmark";
+import Curve from "./Curve";
+import Logo from "./Logo";
 
 //exporting
 export {
@@ -17,5 +19,7 @@ export {
     Search,
     DropDown,
     Views,
-    Bookmark
+    Bookmark,
+    Curve,
+    Logo,
 }
