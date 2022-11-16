@@ -1,8 +1,8 @@
 //importing all svgs
-import Account from "./Account";
-import Hamburger from "./Hamburger";
-import Logout from "./Logout";
-import Filter from "./Filter";
+import Account from "./Account.svg";
+import Hamburger from "./Hamburger.svg";
+import Logout from "./Logout.svg";
+import Filter from "./Filter.svg";
 import Search from "./Search";
 import DropDown from "./DropDown";
 import Views from "./Views";
