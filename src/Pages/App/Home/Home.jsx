@@ -1,5 +1,5 @@
 import Navbar from "../../../Components/Navbar/Navbar";
-import Filter from '../../../Components/Filter/Filter'
+import Filter from "../../../Components/Filter/Filter";
 import Post from "../../../Components/Post/Post";
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
 		<>
 			<Navbar />
 			<Filter />
-			<Post/>
+			<Post />
 		</>
 	);
 }

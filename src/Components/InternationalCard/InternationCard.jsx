@@ -3,7 +3,9 @@ import React from "react";
 const InternationCard = () => {
 	return (
 		<div className=" no:w-[100%] no:mt-[30px] md:w-[48%] md:mt-0 h-[100%] bg-gradient-to-tl from-[#180F55,60%] to-[#6A718F] rounded-[20px] flex flex-col justify-between items-center pb-[50px]">
-			<div className="w-[100%] h-[60px] bg-[#272343] rounded-t-[20px] flex justify-center items-center font-[Arial] font-[700] text-[#fff] no:text-[18px] md:text-[20px]">International Subscription</div>
+			<div className="w-[100%] h-[60px] bg-[#272343] rounded-t-[20px] flex justify-center items-center font-[Arial] font-[700] text-[#fff] no:text-[18px] md:text-[20px]">
+				International Subscription
+			</div>
 			<div className="text-[Arial] no:text-[20px] md:text-[30px] text-[#fff]">
 				<span className="text-[Baloo] font-[400] no:text-[50px] md:text-[100px] text-[#fff]">89</span>$
 			</div>

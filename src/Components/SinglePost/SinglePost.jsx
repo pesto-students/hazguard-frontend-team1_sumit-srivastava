@@ -1,6 +1,6 @@
 import React from "react";
 import { Views, Bookmark } from "../../Assets/library";
-import {classes} from './classes'
+import { classes } from "./classes";
 
 const SinglePost = () => {
 	return (

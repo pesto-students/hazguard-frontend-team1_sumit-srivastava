@@ -1,5 +1,5 @@
 export const toggleFilter = () => {
-    return {
-        type: 'toggle-filter'
-    };
+	return {
+		type: "toggle-filter",
+	};
 };

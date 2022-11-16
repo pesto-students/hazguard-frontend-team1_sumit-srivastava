@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
-import toggleMenu  from "./Reducer";
-
+import toggleMenu from "./Reducer";
 
 const rootReducer = combineReducers({
-    reducer:toggleMenu
+	reducer: toggleMenu,
 });
 
 export default rootReducer;

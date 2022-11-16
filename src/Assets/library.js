@@ -9,13 +9,4 @@ import Views from "./Views";
 import Bookmark from "./Bookmark";
 
 //exporting
-export {
-    Account,
-    Hamburger,
-    Logout,
-    Filter,
-    Search,
-    DropDown,
-    Views,
-    Bookmark
-}
+export { Account, Hamburger, Logout, Filter, Search, DropDown, Views, Bookmark };
