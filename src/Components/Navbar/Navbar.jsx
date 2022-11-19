@@ -20,7 +20,7 @@ export default function Navbar() {
 			<div className={classes.navContainer.navbar.body}>
 				<nav className={classes.navContainer.navbar.navlinks}>
 					<div className="md:hidden ml-[30px] cursor-pointer">
-						<img src={Hamburger} alt="Hamburger" className="w-[4em] h-[4em]" />
+						<img src={Hamburger} alt="Hamburger" className="w-[3em] h-[3em]" />
 					</div>
 					<ul className={classes.navContainer.navbar.linklist}>
 						<li className={`${classes.navContainer.navbar.page}${path === "/home" ? pageStyle : ""}`}>
@@ -39,15 +39,15 @@ export default function Navbar() {
 					<ul className={classes.navContainer.iconlist.body}>
 						<li className={classes.navContainer.iconlist.logIcons}>
 							<NavLink to="/login">
-								<img src={Logout} alt="Logout" className="no:w-[4em] no:h-[4em] md:w-[3em]" />
+								<img src={Logout} alt="Logout" className="no:w-[3em] no:h-[3em] md:w-[2.5em]" />
 							</NavLink>
 						</li>
 						<li className={classes.navContainer.iconlist.filIcons}>
-							<img src={Filter} alt="Filter" className="no:w-[4em] no:h-[4em]" />
+							<img src={Filter} alt="Filter" className="no:w-[3em] no:h-[3em]" />
 						</li>
 						<li className={classes.navContainer.iconlist.icons}>
 							<NavLink to="/account">
-								<img src={Account} alt="Account" className="no:w-[4em] no:h-[4em] md:w-[3em]" />
+								<img src={Account} alt="Account" className="no:w-[3em] no:h-[3em] md:w-[2.5em]" />
 							</NavLink>
 						</li>
 					</ul>

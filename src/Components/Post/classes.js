@@ -1,4 +1,4 @@
 export const classes = {
-	body: " md:w-[100%] no:mx-[15px] md:mx-[30px] h-[700px] mt-[30px] flex justify-between items-center",
-	left: "no:w-[100%] md:w-[78.5%] h-[100%] flex flex-col items-stretch justify-between",
+	body: " w-[100vw] h-[720px] mt-[30px] flex justify-between items-center no:px-[15px] md:px-[30px]",
+	left: " no:w-[100%]  md:w-[80%] h-[100%] flex flex-col items-stretch justify-between overflow-y-scroll",
 };

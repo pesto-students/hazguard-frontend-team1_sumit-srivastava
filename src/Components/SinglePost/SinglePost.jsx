@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Views, Bookmark } from "../../Assets/library";
 import { classes } from "./classes";
 
 const SinglePost = () => {
+	const [isSaved,setSaved] = useState(false)
+	const handleBookmark = () =>{
+
+	}
 	return (
 		<div className={classes.body}>
 			<div className={classes.headline}>
@@ -21,8 +25,8 @@ const SinglePost = () => {
 						<p className={classes.footer.buttonBody.views.text}>107</p>
 					</div>
 					<button className={classes.footer.buttonBody.solution}>Solution</button>
-					<button className={classes.footer.buttonBody.bookmark}>
-						<Bookmark />
+					<button className={classes.footer.buttonBody.bookmark} onClick={handleBookmark}>
+						<img src={Bookmark} alt='Bookmark' />
 					</button>
 				</div>
 			</div>

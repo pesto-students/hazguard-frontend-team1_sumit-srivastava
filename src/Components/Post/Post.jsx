@@ -11,6 +11,8 @@ const Post = () => {
 				<SinglePost />
 				<SinglePost />
 				<SinglePost />
+				<SinglePost />
+				<SinglePost />
 			</div>
 			<SortBy />
 		</div>

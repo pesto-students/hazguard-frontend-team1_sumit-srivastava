@@ -1,8 +1,8 @@
 export const classes = {
-	body: "no:hidden md:flex w-[19.5%] h-[100%] bg-[#fff] ml-[30px] rounded-[20px] flex-col justify-center items-center",
+	body: "no:hidden md:flex w-[20%] h-[100%] bg-[#fff] ml-[30px] rounded-[20px] flex-col justify-center items-center",
 	button: {
 		body: "w-[100%] h-[15%] flex justify-center items-center",
-		buttonText: "w-[70%] h-[40px] bg-[#EED132] rounded-[30px] font-[Arial] font-[700] text-[#fff] no:text-[15px] lg:text-[18px]",
+		buttonText: "w-[70%] h-[40px] bg-[#EED132] rounded-[30px] font-[Arial] font-[700] text-[#fff] no:text-[15px] lg:text-[18px] hover:bg-[rgba(238,209,50,0.8)]",
 	},
 	sortBy: {
 		body: "w-[80%] h-[30%] flex flex-col justify-center items-start",
