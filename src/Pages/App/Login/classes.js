@@ -12,9 +12,9 @@ export const classes = {
 			body: "flex flex-col justify-center items-center w-[80%]",
 			inputs: "w-[90%] font-[Arial] font-[700] text-[20px] text-[#677094] my-[10px] w-[90%] outline-none border-none ",
 			img: "w-[90%] h-[5px] ss:mt-[10px]",
-			button1: "bg-[#EED132] no:mt-[40px] ss:mt-[40px] w-[60%] no:h-[30px] ss:h-[35px] lg:h-[40px] no:rounded-[25px] lg:rounded-[20px] text-[#fff] font-[700] font-[Arial] no:text-[14px] ss:text-[20px] lg:text-[20px]",
+			button1: "bg-[#EED132] no:mt-[40px] ss:mt-[40px] w-[60%] no:h-[30px] ss:h-[35px] lg:h-[40px] no:rounded-[25px] lg:rounded-[20px] text-[#fff] font-[700] font-[Arial] no:text-[14px] ss:text-[18px] lg:text-[20px] hover:bg-[rgba(238,209,50,0.8)]",
 			or: "font-[Arial] font-[700] text-[20px] text-[#677094] mt-[10px]",
-			button2: "bg-[#EED132] no:mt-[5px] ss:mt-[10px] w-[60%] no:h-[30px] ss:h-[35px] lg:h-[40px] no:rounded-[25px] lg:rounded-[20px] text-[#fff] font-[700] font-[Arial] no:text-[14px] ss:text-[20px] lg:text-[25px]",
+			button2: "bg-[#EED132] no:mt-[5px] ss:mt-[10px] w-[60%] no:h-[30px] ss:h-[35px] lg:h-[40px] no:rounded-[25px] lg:rounded-[20px] text-[#fff] font-[700] font-[Arial] no:text-[14px] ss:text-[18px] lg:text-[20px] hover:bg-[rgba(238,209,50,0.8)]",
 		},
 	},
 };

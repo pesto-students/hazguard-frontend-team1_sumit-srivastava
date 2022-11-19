@@ -9,6 +9,7 @@ import Views from "./Views";
 import Bookmark from "./Bookmark.svg";
 import Curve from "./Curve";
 import Logo from "./Logo";
+import BackArrow from './BackArrow.svg'
 
 //exporting
-export { Account, Hamburger, Logout, Filter, Search, DropDown, Views, Bookmark, Curve, Logo };
+export { Account, Hamburger, Logout, Filter, Search, DropDown, Views, Bookmark, Curve, Logo, BackArrow };

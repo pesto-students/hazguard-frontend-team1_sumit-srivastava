@@ -6,7 +6,9 @@
 	font-family: "Almendra";
 	src: url("https://fonts.googleapis.com/css2?family=Almendra:wght@700&display=swap");
 }
-
+*{
+	transition: all 0.3s;
+}
 body {
 	box-sizing: border-box;
 	background-color: #e8e8e8;
