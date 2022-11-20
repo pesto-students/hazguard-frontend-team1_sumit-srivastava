@@ -8,6 +8,7 @@ import Signup from "./Pages/App/Signup/Signup";
 import Login from "./Pages/App/Login/Login";
 import Account from "./Pages/App/Account/Account";
 import Post from "./Pages/App/Post/PostPage";
+import Share from "./Pages/App/Share/Share";
 
 export default function Routes() {
 	// function PrivateRoute({ children }) {
@@ -28,6 +29,7 @@ export default function Routes() {
 				<Route exact path="/login" element={<Login />} />
 				<Route exact path="/account" element={<Account />} />
 				<Route exact path="/post" element={<Post />} />
+				<Route exact path="/share" element={<Share />} />
 			</RouterRoutes>
 		</BrowserRouter>
 	);

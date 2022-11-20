@@ -1,29 +1,30 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { BackArrow } from "../../../Assets/library";
+import {classes} from './classes'
 
 const Post = () => {
 	return (
-		<div className="w-[100vw] h-[100vh] px-[15px] py-[15px] ">
-			<div className="w-[100%] h-[100%] bg-[#fff] rounded-[20px] px-[20px] py-[20px] overflow-y-hidden">
-				<div className="w-[100%] h-[5%] flex justify-between items-center py-[10px]">
+		<div className={classes.page.body}>
+			<div className={classes.page.card.body}>
+				<div className={classes.page.card.heading.body}>
 					<NavLink to="/home">
-						<img src={BackArrow} alt="back" className="" />
+						<img src={BackArrow} alt="back" />
 					</NavLink>
-					<p className="font-[Arial] font-[700] text-[#677094] no:text-[12px] md:text-[20px]">Godrej Industry</p>
-					<p className="font-[Arial] font-[700] text-[#677094] no:text-[12px] md:text-[20px]">20:33 30/07/2022</p>
+					<p className={classes.page.card.heading.name}>Godrej Industry</p>
+					<p className={classes.page.card.heading.date}>20:33 30/07/2022</p>
 				</div>
-				<div className="w-[100%] h-[30%] flex flex-col justify-center items-start py-[20px] no:leading-[18px] md:leading-[25px]">
-					<div className="font-[Arial] font-[700] text-[#677094] no:text-[15px] md:text-[24px]">Problem Statement</div>
-					<div className="font-[Arial] font-[700] text-[#272343] no:text-[15px] md:text-[20px] no:leadin4rempx] md:leading-[21px] no:overflow-y-scroll md:overflow-auto">
+				<div className={classes.page.card.problem.body}>
+					<div className={classes.page.card.problem.title}>Problem Statement</div>
+					<div className={classes.page.card.problem.statement}>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi ipsam provident sunt officiis iure beatae porro? Culpa voluptatem ipsa, facere in iste officiis est voluptas!
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, reiciendis saepe! Nostrum, amet? Laborum, molestiae distinctio? Numquam voluptates libero consequuntur.
 					</div>
 				</div>
-				<div className="w-[100%] h-[65%] flex justify-center items-start flex-wrap">
-					<div className="no:w-[100%] md:w-[50%] no:h-[70%] md:h-[100%] overflow-y-scroll">
-						<div className="font-[Arial] font-[700] text-[#677094] no:text-[15px] md:text-[24px] no:leading-[19px] md:leading-[25px]">Solution</div>
-						<div className="font-[Arial] font-[700] text-[#677094] no:text-[15px] md:text-[18px] no:leading-[17px] md:leading-[20px] py-[10px]">
+				<div className={classes.page.card.solution.body}>
+					<div className={classes.page.card.solution.text.body}>
+						<div className={classes.page.card.solution.text.title}>Solution</div>
+						<div className={classes.page.card.solution.text.statement}>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur enim qui, fuga tenetur dolorum dicta unde culpa esse magnam quae nulla nam necessitatibus, porro nostrum
 							tempore alias pariatur eos maiores, asperiores rem aliquam? A vitae praesentium sit autem facere reiciendis voluptatum quisquam, cumque non sed accusantium, sapiente dolore
 							nisi excepturi minus quas ut molestias aliquam saepe maxime repellendus eius cupiditate quos labore! Dicta sed eum alias recusandae, voluptatum expedita provident, deserunt
@@ -37,13 +38,13 @@ const Post = () => {
 							Exercitationem incidunt quaerat, nemo hic quos error libero commodi delectus amet dignissimos nobis porro, optio tenetur id voluptas est fugiat!
 						</div>
 					</div>
-					<div className="no:w-[100%] md:w-[50%] no:h-[30%] md:h-[90%] flex flex-wrap justify-center items-start self-center overflow-y-scroll">
-						<img src="../../../../public/image1.jpg" alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
-						<img src="../../../../public/image2.jpg" alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
-						<img src="../../../../public/image3.jpg" alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
-						<img src="../../../../public/image4.jpg" alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
-						<img src="../../../../public/image3.jpg" alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
-						<img src="../../../../public/image2.jpg" alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
+					<div className={classes.page.card.solution.image.body}>
+						<img src="../../../../public/image1.jpg" alt="" className={classes.page.card.solution.image.singleImage} />
+						<img src="../../../../public/image2.jpg" alt="" className={classes.page.card.solution.image.singleImage} />
+						<img src="../../../../public/image3.jpg" alt="" className={classes.page.card.solution.image.singleImage} />
+						<img src="../../../../public/image4.jpg" alt="" className={classes.page.card.solution.image.singleImage} />
+						<img src="../../../../public/image3.jpg" alt="" className={classes.page.card.solution.image.singleImage} />
+						<img src="../../../../public/image2.jpg" alt="" className={classes.page.card.solution.image.singleImage} />
 					</div>
 				</div>
 			</div>
