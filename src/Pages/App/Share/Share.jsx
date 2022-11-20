@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "../../../Components/Navbar/Navbar";
-import {classes} from './classes'
+import { classes } from "./classes";
 
 const Share = () => {
 	return (
 		<>
+			<Navbar />
 			<div className={classes.page.body}>
-				<Navbar />
 				<div className={classes.page.maincard}>
 					<div className={classes.page.cardOne.body}>
 						<div className={classes.page.cardOne.heading}>Hazard Information</div>

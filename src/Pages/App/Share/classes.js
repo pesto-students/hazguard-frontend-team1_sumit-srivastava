@@ -1,7 +1,7 @@
 export const classes = {
     page:{
-        body:'w-[100vw] h-[100vh] flex flex-col justify-center items-center pb-[30px]',
-        maincard:'w-[100%] h-[calc(100%-180px)] flex justify-center items-center mt-[30px] no:px-[15px] md:px-[30px] no:flex-wrap md:flex-nowrap',
+        body:'w-[100vw] h-[100vh] flex flex-col justify-center items-center mt-[30px] pb-[30px]',
+        maincard:'w-[100%] h-[calc(100%)] flex justify-center items-center no:px-[15px] md:px-[30px] no:flex-wrap md:flex-nowrap',
         cardOne:{
             body:'no:w-[100%] md:w-[50%] h-[100%] bg-[#fff] rounded-[20px] no:mb-[15px] md:mb-[0px] md:mr-[15px] px-[20px] py-[20px] flex justify-center items-center flex-col',
             heading:'font-[Arial] font-[700] text-[#272343] text-[20px] mb-[30px] self-start',

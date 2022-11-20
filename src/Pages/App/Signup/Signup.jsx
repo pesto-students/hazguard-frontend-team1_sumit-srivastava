@@ -2,6 +2,7 @@ import React from "react";
 import Divider from "../../../Assets/Divider.svg";
 import Logo from "../../../Assets/Logo.svg";
 import {classes} from './classes'
+import { NavLink } from "react-router-dom";
 
 const Signup = () => {
 	return (
@@ -21,9 +22,9 @@ const Signup = () => {
 					<img src={Divider} alt="Divider" className={classes.right.form.img} />
 					<input type="text" name="RePassword" placeholder="Re-enter Password" className={classes.right.form.inputs} />
 					<img src={Divider} alt="Divider" className={classes.right.form.img} />
-					<button className={classes.right.form.button1}>Continue</button>
+					<button className={classes.right.form.button1}><NavLink to="/login">Signup</NavLink></button>
 					<div className={classes.right.form.or}>or connect with google</div>
-					<button className={classes.right.form.button2}>Try as Demo user</button>
+					<button className={classes.right.form.button2}><NavLink to="/home">Try as Demo user</NavLink></button>
 				</form>
 			</div>
 		</div>
