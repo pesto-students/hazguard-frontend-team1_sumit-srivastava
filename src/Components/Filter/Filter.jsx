@@ -46,7 +46,7 @@ const Filter = () => {
 			</div>
 			<div className={classes.search.body}>
 				<input type="text" className={classes.search.searchInput} placeholder="search here" />
-				<Search />
+				<img src={Search} alt='search' />
 			</div>
 		</div>
 	);

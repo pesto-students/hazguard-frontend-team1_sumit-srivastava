@@ -22,7 +22,7 @@ const SinglePost = () => {
 				<p className={classes.footer.type}>Hazard Type: Safety</p>
 				<div className={classes.footer.buttonBody.body}>
 					<div className={classes.footer.buttonBody.views.body}>
-						<Views />
+						<img src={Views} alt='views'/>
 						<p className={classes.footer.buttonBody.views.text}>107</p>
 					</div>
 					<NavLink to="/post"><button className={classes.footer.buttonBody.solution}>Solution</button></NavLink>

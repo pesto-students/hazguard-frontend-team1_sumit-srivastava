@@ -2,6 +2,7 @@ import React from "react";
 import {classes} from './classes'
 import Divider from "../../../Assets/Divider.svg";
 import Logo from "../../../Assets/Logo.svg";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
 	return (
@@ -25,6 +26,9 @@ const Login = () => {
 					<div className={classes.right.form.or}>or connect with google</div>
 					<button className={classes.right.form.button2}>Try as Demo user</button>
 				</form>
+				<NavLink to='/signup'>
+					<p className="font-[Arial] font-[400] text-[#677094] text-[15px] mt-[10px] cursor-default">new user? <span className="font-[Arial] font-[400] text-[#EED132] text-[15px] cursor-pointer">create new account</span></p>
+				</NavLink>
 			</div>
 		</div>
 	);
