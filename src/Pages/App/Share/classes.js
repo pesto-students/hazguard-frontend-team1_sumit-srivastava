@@ -10,9 +10,9 @@ export const classes = {
                 field:{
                     body:'w-[90%] flex flex-col justify-center items-start mb-[30px]',
                     label:'font-[Arial] font-[400] text-[#272343] text-[18px]',
-                    select:'border-[1px] border-solid border-[#272343] w-[100%] h-[40px] text-center'
+                    select:'border-[1px] border-solid border-[#272343] w-[100%] h-[40px] text-center font-[Arial] font-[700] text-[#677094] text-[15px] w-[100%] text-center cursor-pointer '
                 },
-                button:'self-center bg-[#EED132] w-[150px] h-[40px] rounded-[20px] font-[Arial] font-[700] text-[#fff] text-[20px]'
+                button:'self-center bg-[#EED132] w-[150px] h-[40px] rounded-[20px] font-[Arial] font-[700] text-[#fff] text-[20px] hover:bg-[rgba(238,209,50,0.8)]'
             },
             formTwo:{
                 body:'no:w-[100%] md:w-[50%] h-[100%] bg-[#fff] rounded-[20px] no:mt-[15px] md:mt-[0px] md:ml-[15px] px-[20px] py-[20px] flex flex-col justify-start items-center',
@@ -22,7 +22,7 @@ export const classes = {
                     label:'self-start font-[Arial] font-[400] text-[#272343] text-[18px]',
                     textarea:'border-[1px] border-solid border-[#272343] w-[100%] max-h-[200px] px-[10px] py-[10px] font-[Arial] font-[500] text-[#677094] text-[20px]'
                 },
-                button:'self-center bg-[#EED132] w-[150px] h-[40px] rounded-[20px] font-[Arial] font-[700] text-[#fff] text-[20px]'
+                button:'self-center bg-[#EED132] w-[150px] h-[40px] rounded-[20px] font-[Arial] font-[700] text-[#fff] text-[20px] hover:bg-[rgba(238,209,50,0.8)]'
             }
         }
     }

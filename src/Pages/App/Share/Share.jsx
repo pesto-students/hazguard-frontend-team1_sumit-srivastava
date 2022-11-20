@@ -16,25 +16,69 @@ const Share = () => {
 									Hazard Type<span className=" text-red-600">*</span>
 								</label>
 								<select name="type" id="type" className={classes.page.cardOne.formOne.field.select}>
-									<option value="" defaultChecked>
+									<option
+										value=""
+										defaultChecked
+										className="font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
 										----------------Default----------------
 									</option>
-									<option value=""></option>
-									<option value=""></option>
-									<option value=""></option>
+									<option
+										value="Biological"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Biological
+									</option>
+									<option
+										value="Chemical"
+										className="font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Chemical
+									</option>
+									<option
+										value="Physical"
+										className="font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Physical
+									</option>
+									<option
+										value="Safety"
+										className="font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Safety
+									</option>
 								</select>
 							</div>
 							<div className={classes.page.cardOne.formOne.field.body}>
-								<label htmlFor="type" className={classes.page.cardOne.formOne.field.label}>
+								<label htmlFor="level" className={classes.page.cardOne.formOne.field.label}>
 									Hazard Level<span className=" text-red-600">*</span>
 								</label>
-								<select name="type" id="type" className={classes.page.cardOne.formOne.field.select}>
-									<option value="" defaultChecked>
+								<select name="level" id="level" className={classes.page.cardOne.formOne.field.select}>
+									<option
+										value=""
+										defaultChecked
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
 										----------------Default----------------
 									</option>
-									<option value=""></option>
-									<option value=""></option>
-									<option value=""></option>
+									<option
+										value="Low"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Low
+									</option>
+									<option
+										value="Moderate"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Moderate
+									</option>
+									<option
+										value="High"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										High
+									</option>
 								</select>
 							</div>
 							<div className={classes.page.cardOne.formOne.field.body}>
@@ -45,9 +89,66 @@ const Share = () => {
 									<option value="" defaultChecked>
 										----------------Default----------------
 									</option>
-									<option value=""></option>
-									<option value=""></option>
-									<option value=""></option>
+									<option
+										value="Chemical"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Chemical
+									</option>
+									<option
+										value="Oil&Gas-Production"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Oil & Gas Production
+									</option>
+									<option
+										value="Mining"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Mining
+									</option>
+									<option
+										value="Agriculture"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Agriculture
+									</option>
+									<option
+										value="Apparel"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Apparel
+									</option>
+									<option
+										value="Construction"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Construction
+									</option>
+									<option
+										value="Forestry"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Forestry
+									</option>
+									<option
+										value="Shipping"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Shipping
+									</option>
+									<option
+										value="Transport"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Transport
+									</option>
+									<option
+										value="Utilities"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Utilities
+									</option>
 								</select>
 							</div>
 							<div className={classes.page.cardOne.formOne.field.body}>
@@ -58,23 +159,31 @@ const Share = () => {
 									<option value="" defaultChecked>
 										----------------Default----------------
 									</option>
-									<option value=""></option>
-									<option value=""></option>
-									<option value=""></option>
+									<option
+										value="Economical"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Economical
+									</option>
+									<option
+										value="Physical"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Physical
+									</option>
+									<option
+										value="Manpower"
+										className=" font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center hover:text-[#fff] cursor-pointer"
+									>
+										Manpower
+									</option>
 								</select>
 							</div>
 							<div className={classes.page.cardOne.formOne.field.body}>
 								<label htmlFor="type" className={classes.page.cardOne.formOne.field.label}>
 									Damage affection time<span className=" text-red-600">*</span>
 								</label>
-								<select name="type" id="type" className={classes.page.cardOne.formOne.field.select}>
-									<option value="" defaultChecked>
-										----------------Default----------------
-									</option>
-									<option value=""></option>
-									<option value=""></option>
-									<option value=""></option>
-								</select>
+								<input type="text" id="type" className={`${classes.page.cardOne.formOne.field.select} cursor-text`} />
 							</div>
 							<button type="save" className={classes.page.cardOne.formOne.button}>
 								Save

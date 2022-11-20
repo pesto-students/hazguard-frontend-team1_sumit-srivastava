@@ -107,7 +107,7 @@ const Filter = () => {
 						{filter.hazard && (
 							<div className="bg-[#fff] absolute w-[200px] h-[120px] mt-[150px] ml-[50px] shadow-[4px_4px_4px_rgba(0,0,0,0.3),-4px_-4px_4px_rgba(0,0,0,0.3)] flex flex-col justify-center items-center rounded-[20px]">
 								<option
-									value="Biologicall"
+									value="Biological"
 									className="font-[Arial] font-[700] text-[#677094] text-[15px] h-[30px] hover:bg-[#677094] w-[100%] text-center rounded-tr-[20px] rounded-tl-[20px] hover:text-[#fff] cursor-pointer"
 								>
 									Biological
