@@ -7,9 +7,9 @@ import Search from "./Search";
 import DropDown from "./down-arrow.svg";
 import Views from "./Views";
 import Bookmark from "./Bookmark.svg";
-import Curve from "./Curve";
+import Bookmarked from "./Bookmarked.svg";
 import Logo from "./Logo";
 import BackArrow from './BackArrow.svg'
 
 //exporting
-export { Account, Hamburger, Logout, Filter, Search, DropDown, Views, Bookmark, Curve, Logo, BackArrow };
+export { Account, Hamburger, Logout, Filter, Search, DropDown, Views, Bookmark,Bookmarked, Logo, BackArrow };

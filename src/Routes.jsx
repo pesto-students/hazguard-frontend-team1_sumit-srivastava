@@ -7,6 +7,7 @@ import Saved from "./Pages/App/Saved/Saved";
 import Signup from "./Pages/App/Signup/Signup";
 import Login from "./Pages/App/Login/Login";
 import Account from "./Pages/App/Account/Account";
+import Post from "./Pages/App/Post/PostPage";
 
 export default function Routes() {
 	// function PrivateRoute({ children }) {
@@ -26,6 +27,7 @@ export default function Routes() {
 				<Route exact path="/signup" element={<Signup />} />
 				<Route exact path="/login" element={<Login />} />
 				<Route exact path="/account" element={<Account />} />
+				<Route exact path="/post" element={<Post />} />
 			</RouterRoutes>
 		</BrowserRouter>
 	);

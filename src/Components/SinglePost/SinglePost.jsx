@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Views, Bookmark } from "../../Assets/library";
 import { classes } from "./classes";
 
@@ -24,7 +25,7 @@ const SinglePost = () => {
 						<Views />
 						<p className={classes.footer.buttonBody.views.text}>107</p>
 					</div>
-					<button className={classes.footer.buttonBody.solution}>Solution</button>
+					<NavLink to="/post"><button className={classes.footer.buttonBody.solution}>Solution</button></NavLink>
 					<button className={classes.footer.buttonBody.bookmark} onClick={handleBookmark}>
 						<img src={Bookmark} alt='Bookmark' />
 					</button>
