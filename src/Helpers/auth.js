@@ -37,7 +37,6 @@ export async function verify(token) {
 export async function login(user) {
 	try {
 		const response = await fetch(Login_API, {
-			credentials: "include",
 			method: "POST",
 			headers: {
 				Accept: "application/json",
@@ -52,12 +51,12 @@ export async function login(user) {
 	}
 }
 
-export async function profile() {
+export async function profile(accessToken) {
 	try {
 		const response = await fetch(Profile_API, {
-			credentials: "include",
 			method: "GET",
 			headers: {
+				Authorization: `Bearer ${accessToken}`,
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
@@ -69,15 +68,15 @@ export async function profile() {
 	}
 }
 
-export async function logout() {
+export async function logout(refreshToken) {
 	try {
 		const response = await fetch(Logout_API, {
-			credentials: "include",
-			method: "GET",
+			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
+			body: JSON.stringify({ token: refreshToken }),
 		});
 		return await response.json();
 	} catch (err) {

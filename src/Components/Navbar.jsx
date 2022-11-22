@@ -5,6 +5,8 @@ import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleFilter, toggleNavbar } from "../Store/Actions/Actions";
 import SideSortBy from "./SideSortBy";
+import { logout } from "../Helpers/auth";
+import { setAccessToken, setRefreshToken, setUserData } from "../Store/storingData";
 
 export default function Navbar() {
 	//function to get a current path location
@@ -23,6 +25,26 @@ export default function Navbar() {
 
 	console.log(navbar.navbar, navbar.toggle);
 
+	const refreshToken = useSelector((state) => state.refreshToken);
+	const signOut = (e) => {
+		e.preventDefault();
+		logout(refreshToken)
+			.then(async (response) => {
+				if (!response?.error) {
+					dispatch(setUserData({}));
+					dispatch(setAccessToken(""));
+					dispatch(setRefreshToken(""));
+					navigate("/login");
+					toast.success("You are logged out!");
+				} else if (response?.error) {
+					return toast.error(response?.message);
+				}
+			})
+			.catch((e) => {
+				toast.error("Not able to log out! Please try again!");
+				console.log(e);
+			});
+	};
 	return (
 		<div className="w-[100vw] h-[120px] no:mt-[15px] md:mt-[30px] flex flex-row no:px-[15px] md:px-[30px]">
 			<div className="no:w-[100%] md:w-[80%] h-[100%] bg-[#272343] rounded-[20px] flex overflow-hidden md:mr-[30px]">

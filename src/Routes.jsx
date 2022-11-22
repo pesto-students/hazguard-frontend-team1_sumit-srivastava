@@ -9,6 +9,7 @@ import Login from "./Pages/Login";
 import Account from "./Pages/Account";
 import Post from "./Pages/PostPage";
 import Share from "./Pages/Share";
+import Verify from "./Pages/Verify";
 
 export default function Routes() {
 	// function PrivateRoute({ children }) {
@@ -30,6 +31,7 @@ export default function Routes() {
 				<Route exact path="/account" element={<Account />} />
 				<Route exact path="/post" element={<Post />} />
 				<Route exact path="/share" element={<Share />} />
+				<Route exact path="/verify/:token" element={<Verify />} />
 			</RouterRoutes>
 		</BrowserRouter>
 	);

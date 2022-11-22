@@ -1,35 +1,130 @@
-import React from "react";
-import Divider from "../Assets/Divider.svg";
+import { useState } from "react";
 import Logo from "../Assets/Logo.svg";
-import { NavLink } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { login, profile } from "../Helpers/auth";
+import { useDispatch } from "react-redux";
+import { setAccessToken, setRefreshToken, setUserData } from "../Store/storingData";
 
 const Login = () => {
+	const dispatch = useDispatch();
+	const [values, setValues] = useState({
+		email: "",
+		password: "",
+	});
+	const navigate = useNavigate();
+	const { email, password } = values;
+	const handleChange = (name) => (event) => {
+		setValues({ ...values, [name]: event.target.value });
+	};
+	const loginUser = (e) => {
+		e.preventDefault();
+		if (email !== "" && password !== "") {
+			login(values)
+				.then(async (response) => {
+					if (!response?.error) {
+						setValues({
+							email: "",
+							password: "",
+						});
+						dispatch(
+							setUserData(
+								await profile(response?.accessToken)
+									.then((response) => {
+										if (!response?.error) {
+											return response;
+										} else if (response?.error) {
+											return toast.error(response?.message);
+										}
+									})
+									.catch((e) => {
+										toast.error("Not able to verify! Please try again!");
+										console.log(e);
+									})
+							)
+						);
+						dispatch(setAccessToken(response?.accessToken));
+						dispatch(setRefreshToken(response?.refreshToken));
+						navigate("/");
+					} else if (response?.error) {
+						return toast.error(response?.message);
+					}
+				})
+				.catch((e) => {
+					toast.error("Not able to login! Please try again!");
+					console.log(e);
+				});
+		} else {
+			return toast.warning("Please enter all the fields!");
+		}
+	};
 	return (
-		<div className="no:w-[80%] ss:w-[60%] h-[70%] bg-[#fff] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-[20px] flex justify-center items-center">
-			<div className="w-[50%] h-[100%] rounded-tl-[20px] rounded-bl-[20px] bg-[#677094] overflow-hidden no:hidden lg:flex flex-col justify-center items-center">
-				<img src={Logo} alt="logo" className="w-[150px] h-[150px]" />
-				<p className="font-[Almendra] font-[700] text-[90px] text-[#EED132] w-[100%] flex justify-center items-center">Welcome</p>
+		<div className="mt-24 flex justify-center items-center">
+			<div className="w-2/5 py-[151px] rounded-tl-2xl rounded-bl-2xl bg-[#677094] flex flex-col justify-center items-center">
+				<img src={Logo} alt="app logo" className="w-40 h-40 mb-6" />
+				<h1 className="font-[Almendra] font-semibold text-8xl text-[#EED132]">Welcome</h1>
 			</div>
-			<div className="no:w-[100%] lg:w-[50%] h-[100%] flex flex-col justify-center items-center max-w-[570px]">
-				<div className="w-[100%] flex justify-center items-center font-[Arial] no:mb-[40px] ss:mb-[60px] font-[700] text-[40px] text-[#677094]">Login</div>
-				<form action="/home" className="flex flex-col justify-center items-center w-[80%]">
-					<input type="text" name="Email" placeholder="Email Address" className="w-[90%] font-[Arial] font-[700] text-[20px] text-[#677094] my-[10px] outline-none border-none" />
-					<img src={Divider} alt="Divider" className="w-[90%] h-[5px] ss:mt-[10px]" />
-					<input type="text" name="Password" placeholder="Enter Password" className="w-[90%] font-[Arial] font-[700] text-[20px] text-[#677094] my-[10px] outline-none border-none" />
-					<img src={Divider} alt="Divider" className="w-[90%] h-[5px] ss:mt-[10px]" />
-					<button className="bg-[#EED132] no:mt-[40px] ss:mt-[40px] w-[60%] no:h-[30px] ss:h-[35px] lg:h-[40px] no:rounded-[25px] lg:rounded-[20px] text-[#fff] font-[700] font-[Arial] no:text-[14px] ss:text-[18px] lg:text-[20px] hover:bg-[rgba(238,209,50,0.8)]">
-						<NavLink to="/home">Login</NavLink>
-					</button>
-					<div className="font-[Arial] font-[700] text-[20px] text-[#677094] mt-[10px]">or connect with google</div>
-					<button className="bg-[#EED132] no:mt-[5px] ss:mt-[10px] w-[60%] no:h-[30px] ss:h-[35px] lg:h-[40px] no:rounded-[25px] lg:rounded-[20px] text-[#fff] font-[700] font-[Arial] no:text-[14px] ss:text-[18px] lg:text-[20px] hover:bg-[rgba(238,209,50,0.8)]">
-						<NavLink to="/home">Try as Demo user</NavLink>
+			<div className="w-2/5 py-24 rounded-tr-2xl rounded-br-2xl bg-[#fff] flex flex-col justify-center items-center">
+				<h2 className="text-center text-3xl font-bold capitalize">Sign In</h2>
+				<form className="mt-8 w-80">
+					<div className="mb-4">
+						<label htmlFor="email" className="font-medium text-lg">
+							Email Address
+						</label>
+						<input id="email" name="email" type="email" autoComplete="email" required className="w-full pt-2 pb-1" value={email} onChange={handleChange("email")} />
+						<svg width="100%" height="5px" className="rounded-md" viewBox="0 0 500 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<line y1="3" x2="500" y2="3" stroke="url(#paint0_linear_43_448)" strokeWidth="6" />
+							<defs>
+								<linearGradient id="paint0_linear_43_448" x1="0" y1="6" x2="500" y2="6" gradientUnits="userSpaceOnUse">
+									<stop stopColor="#272343" />
+									<stop offset="1" stopColor="#EED132" />
+								</linearGradient>
+							</defs>
+						</svg>
+					</div>
+					<div className="mb-4">
+						<label htmlFor="password" className="font-medium text-lg">
+							Password
+						</label>
+						<input
+							id="password"
+							name="password"
+							type="password"
+							pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
+							autoComplete="current-password"
+							required
+							className="w-full pt-2 pb-1"
+							value={password}
+							onChange={handleChange("password")}
+						/>
+						<svg width="100%" height="5px" className="rounded-md" viewBox="0 0 500 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<line y1="3" x2="500" y2="3" stroke="url(#paint0_linear_43_448)" strokeWidth="6" />
+							<defs>
+								<linearGradient id="paint0_linear_43_448" x1="0" y1="6" x2="500" y2="6" gradientUnits="userSpaceOnUse">
+									<stop stopColor="#272343" />
+									<stop offset="1" stopColor="#EED132" />
+								</linearGradient>
+							</defs>
+						</svg>
+					</div>
+					<button
+						onClick={(e) => {
+							loginUser(e);
+						}}
+						type="submit"
+						className="mt-10 py-3 text-lg font-semibold w-full rounded-2xl bg-[#EED132]"
+					>
+						LOGIN
 					</button>
 				</form>
-				<NavLink to="/signup">
-					<p className="font-[Arial] font-[400] text-[#677094] text-[15px] mt-[10px] cursor-default">
-						new user? <span className="font-[Arial] font-[400] text-[#EED132] text-[15px] cursor-pointer">create new account</span>
+				<div className="mt-9">
+					<p className="text-md text-center font-light">
+						Not registered?&nbsp;
+						<Link className="font-semibold" to="/register">
+							Register
+						</Link>
 					</p>
-				</NavLink>
+				</div>
 			</div>
 		</div>
 	);
