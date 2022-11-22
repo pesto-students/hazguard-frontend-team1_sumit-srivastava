@@ -55,9 +55,9 @@ const Register = () => {
 				<h1 className=" text-[100px] font-[Almendra] font-bold text-[#EED132]">Welcome</h1>
 			</div>
 			<div className="sxl:w-full md:w-1/2 h-full flex flex-col justify-center items-center ">
-				<h2 className="font-semibold font-[Arial] text-[30px] text-[#272343]">Sign Up</h2>
-				<form className="w-3/5 h-[80%] flex flex-col justify-center items-center">
-					<div className="w-full flex flex-col justify-center items-start border-b-4 border-solid border-b-[#EED132] my-3">
+				<h2 className="font-semibold text-[35px] text-[#272343]">Sign Up</h2>
+				<form className="w-3/5 h-[75%] flex flex-col justify-center items-center">
+					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
 						<label htmlFor="firstName" className="font-semibold text-[#272343]">
 							First Name
 						</label>
@@ -67,7 +67,7 @@ const Register = () => {
 							type="text"
 							autoComplete="firstName"
 							required
-							className="my-1"
+							className="my-1 w-full placeholder:text-[15px]"
 							placeholder="Enter Your Firstname"
 							value={firstName}
 							onChange={handleChange("firstName")}
@@ -82,7 +82,7 @@ const Register = () => {
 							</defs>
 						</svg> */}
 					</div>
-					<div className="w-full flex flex-col justify-center items-start border-b-4 border-solid border-b-[#EED132] my-3">
+					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
 						<label htmlFor="email" className="font-semibold text-[#272343]">
 							Email Address
 						</label>
@@ -92,7 +92,7 @@ const Register = () => {
 							type="email"
 							autoComplete="email"
 							required
-							className="my-1"
+							className="my-1 w-full placeholder:text-[15px]"
 							placeholder="Enter Your Email Address"
 							value={email}
 							onChange={handleChange("email")}
@@ -107,7 +107,7 @@ const Register = () => {
 							</defs>
 						</svg> */}
 					</div>
-					<div className="w-full flex flex-col justify-center items-start border-b-4 border-solid border-b-[#EED132] my-3">
+					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
 						<label htmlFor="companyName" className="font-semibold text-[#272343]">
 							Company Name
 						</label>
@@ -117,7 +117,7 @@ const Register = () => {
 							type="companyName"
 							autoComplete="companyName"
 							required
-							className="my-1"
+							className="my-1 w-full placeholder:text-[15px]"
 							placeholder="Enter Your Company Name"
 							value={companyName}
 							onChange={handleChange("companyName")}
@@ -132,7 +132,7 @@ const Register = () => {
 							</defs>
 						</svg> */}
 					</div>
-					<div className="w-full flex flex-col justify-center items-start border-b-4 border-solid border-b-[#EED132] my-3">
+					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
 						<label htmlFor="password1" className="font-semibold text-[#272343]">
 							New Password
 						</label>
@@ -144,7 +144,7 @@ const Register = () => {
 							autoComplete="current-password1"
 							required
 							placeholder="Enter Your Password"
-							className="my-1"
+							className="my-1 w-full placeholder:text-[15px]"
 							value={password1}
 							onChange={handleChange("password1")}
 						/>
@@ -158,7 +158,7 @@ const Register = () => {
 							</defs>
 						</svg> */}
 					</div>
-					<div className="w-full flex flex-col justify-center items-start border-b-4 border-solid border-b-[#EED132] my-3">
+					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
 						<label htmlFor="password2" className="font-semibold text-[#272343]">
 							Confirm Password
 						</label>
@@ -170,7 +170,7 @@ const Register = () => {
 							autoComplete="current-password2"
 							required
 							placeholder="Enter Your Password Again"
-							className="my-1"
+							className="my-1 w-full placeholder:text-[15px]"
 							value={password2}
 							onChange={handleChange("password2")}
 						/>
@@ -189,13 +189,13 @@ const Register = () => {
 							signupUser(e);
 						}}
 						type="submit"
-						className="bg-[#EED132] text-white sxl:text-[15px] md:text-[17px] rounded-3xl font-bold w-2/5 h-[7%] mt-3"
+						className="bg-[#EED132] text-black sxl:text-[13px] md:text-[17px] rounded-3xl font-bold w-2/5 h-[7%] mt-3"
 					>
 						REGISTER
 					</button>
 				</form>
 				<div className="mt-2">
-					<p className="font-[Arial]">
+					<p>
 						Already registered?&nbsp;
 						<Link className="text-[#EED132] font-semibold" to="/login">
 							Login
