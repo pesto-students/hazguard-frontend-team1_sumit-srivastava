@@ -2,9 +2,9 @@ const initialState = {
 	toggle: false,
 	navbar: false,
 	industry: false,
-	hazard:false,
-	level:1,
-	location:''
+	hazard: false,
+	level: 1,
+	location: "",
 };
 
 const navbarReducer = (state = initialState, action) => {

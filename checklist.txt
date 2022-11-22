@@ -1,0 +1,6 @@
+lightBlue: "#5775E8"
+darkBlue: "#272343"
+pageBackground: "#E8E8E8"
+lightFont: "#677094"
+lightGrey: "#B7B6B6"
+primaryYellow: "#EED132"

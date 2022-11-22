@@ -4,7 +4,7 @@ import filterReducer from "./FilterReducer";
 
 const rootReducer = combineReducers({
 	navbarReducer: navbarReducer,
-	filterReducer: filterReducer
+	filterReducer: filterReducer,
 });
 
 export default rootReducer;

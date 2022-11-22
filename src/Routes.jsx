@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter, Route, Routes as RouterRoutes, Navigate } from "react-router-dom";
-import Landing from "./Pages/Landing/Landing";
-import Home from "./Pages/App/Home/Home";
-import Pricing from "./Pages/App/Pricing/Pricing";
-import Saved from "./Pages/App/Saved/Saved";
-import Signup from "./Pages/App/Signup/Signup";
-import Login from "./Pages/App/Login/Login";
-import Account from "./Pages/App/Account/Account";
-import Post from "./Pages/App/Post/PostPage";
-import Share from "./Pages/App/Share/Share";
+import Landing from "./Pages/Landing";
+import Home from "./Pages/Home";
+import Pricing from "./Pages/Pricing";
+import Saved from "./Pages/Saved";
+import Register from "./Pages/Register";
+import Login from "./Pages/Login";
+import Account from "./Pages/Account";
+import Post from "./Pages/PostPage";
+import Share from "./Pages/Share";
 
 export default function Routes() {
 	// function PrivateRoute({ children }) {
@@ -25,7 +25,7 @@ export default function Routes() {
 				<Route exact path="/home" element={<Home />} />
 				<Route exact path="/pricing" element={<Pricing />} />
 				<Route exact path="/saved" element={<Saved />} />
-				<Route exact path="/signup" element={<Signup />} />
+				<Route exact path="/register" element={<Register />} />
 				<Route exact path="/login" element={<Login />} />
 				<Route exact path="/account" element={<Account />} />
 				<Route exact path="/post" element={<Post />} />

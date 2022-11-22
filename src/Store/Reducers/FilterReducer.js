@@ -1,12 +1,12 @@
 const initialState = {
 	industry: false,
-	indValue:'',
+	indValue: "",
 	hazard: false,
-	hazValue:'',
+	hazValue: "",
 	level: false,
-	levelValue:'',
+	levelValue: "",
 	location: false,
-	locValue:''
+	locValue: "",
 };
 
 const filterReducer = (state = initialState, action) => {
