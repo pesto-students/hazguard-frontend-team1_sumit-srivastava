@@ -33,13 +33,13 @@ export default function Navbar() {
 			});
 	};
 	return (
-		<div className="w-[100vw] h-[120px] no:mt-[15px] md:mt-[30px] flex flex-row no:px-[15px] md:px-[30px]">
-			<div className="no:w-[100%] md:w-[80%] h-[100%] bg-[#272343] rounded-[20px] flex overflow-hidden md:mr-[30px]">
+		<div className="w-[100vw] h-[120px] sxl:mt-[15px] md:mt-[30px] flex flex-row sxl:px-[15px] md:px-[30px]">
+			<div className="sxl:w-[100%] md:w-[80%] h-[100%] bg-[#272343] rounded-[20px] flex overflow-hidden md:mr-[30px]">
 				<nav className="h-[100%] w-[100%] flex flex-row justify-between items-center px-5">
 					<div className="md:hidden ml-[30px] cursor-pointer">
 						<img src={Hamburger} alt="Hamburger" className="w-[3em] h-[3em]" />
 					</div>
-					<ul className="w-[40%] no:hidden md:flex flex-row justify-between items-center text-[#FFFFFF] text-2xl font-semibold">
+					<ul className="w-[40%] sxl:hidden md:flex flex-row justify-between items-center text-[#FFFFFF] text-2xl font-semibold">
 						<li className={`px-4 py-1 ${location === "/home" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
 							<Link to="/home">Home</Link>
 						</li>
@@ -85,25 +85,25 @@ export default function Navbar() {
 						<SideSortBy />
 					</div> */}
 					<ul className="flex flex-row justify-between items-center">
-						<li className="mr-[34px] cursor-pointer no:hidden md:inline">
+						<li className="mr-[34px] cursor-pointer sxl:hidden md:inline">
 							<button type="button" onClick={(e) => signOut(e)} className="flex justify-center items-center">
-								<img src={Logout} alt="Logout" className="no:w-[3em] no:h-[3em] md:w-[2.5em]" />
+								<img src={Logout} alt="Logout" className="sxl:w-[3em] sxl:h-[3em] md:w-[2.5em]" />
 							</button>
 						</li>
 						<li className="mr-[34px] cursor-pointer">
 							<Link to="/account">
-								<img src={Account} alt="Account" className="no:w-[3em] no:h-[3em] md:w-[2.5em]" />
+								<img src={Account} alt="Account" className="sxl:w-[3em] sxl:h-[3em] md:w-[2.5em]" />
 							</Link>
 						</li>
 					</ul>
 				</nav>
 			</div>
-			<div className="no:hidden md:w-[20%] h-[100%] bg-[#FFFFFF] rounded-[20px] md:flex overflow-hidden justify-center items-center px-[20px]">
+			<div className="sxl:hidden md:w-[20%] h-[100%] bg-[#FFFFFF] rounded-[20px] md:flex overflow-hidden justify-center items-center px-[20px]">
 				<div className="min-w-[70px] min-h-[70px] rounded-[50%] bg-[#272343] flex justify-center items-center">
 					<p className="text-[#FFF] text-[35px]">G</p>
 				</div>
-				<div className="no:hidden lg:flex flex-col justify-center items-start ml-[10px] w-[80%]">
-					<p className="text-[1.4em] text-[#677094]">Hi,</p>
+				<div className="sxl:hidden lg:flex flex-col justify-center items-start ml-[10px] w-[80%]">
+					<p className="text-[1.4em] text-[#677094]">Hello,</p>
 					<p className="text-[1.4em] font-[700] text-[#272343]">{userData?.firstName}</p>
 				</div>
 			</div>

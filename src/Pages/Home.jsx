@@ -14,7 +14,7 @@ const Home = () => {
 	const { industryType, hazardType, hazardLevel, location, search } = values;
 	return (
 		<Base>
-			<div className="w-[100vw] h-[100vh] overflow-hidden">
+			<div className="w-[100vw] overflow-hidden">
 				<Filter values={values} setValues={setValues} industryType={industryType} hazardType={hazardType} hazardLevel={hazardLevel} location={location} search={search} />
 				<Post />
 			</div>
