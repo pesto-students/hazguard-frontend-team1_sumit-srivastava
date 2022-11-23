@@ -9,14 +9,14 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 
 export default function Navbar() {
-	//state for Sidebar in Smaller width devices
+	//State management for Sidebar sliders for Smaller width devices
 	const [isNavOpen, setNavOpen] = useState(false);
 	const [isFilterOpen, setFilterOpen] = useState(false);
 
 	//Hook to get current page for styling
 	const location = useLocation().pathname;
 
-	//Hook to navigate pages
+	//Hook to navigate through different pages
 	const navigate = useNavigate();
 
 	//State management: Redux Store
