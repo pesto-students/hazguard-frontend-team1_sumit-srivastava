@@ -45,7 +45,7 @@ const Login = () => {
 						);
 						dispatch(setAccessToken(response?.accessToken));
 						dispatch(setRefreshToken(response?.refreshToken));
-						navigate("/");
+						navigate("/home");
 					} else if (response?.error) {
 						return toast.error(response?.message);
 					}
@@ -62,12 +62,12 @@ const Login = () => {
 		<div className="bg-white w-4/5 h-4/5 absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%] min-h-[600px] rounded-3xl flex justify-center items-center">
 			<div className="sxl:hidden w-1/2 h-full bg-[#677094] rounded-tl-3xl rounded-bl-3xl md:flex flex-col justify-center items-center">
 				<img src={Logo} alt="app logo" className="w-[200px]" />
-				<h1 className=" text-[100px] font-[Almendra] font-bold text-[#EED132]">Welcome</h1>
+				<h1 className="text-[100px] font-[Almendra] font-bold text-[#EED132]">Welcome</h1>
 			</div>
-			<div className="sxl:w-full md:w-1/2 h-full flex flex-col justify-center items-center ">
-				<h2 className="font-semibold font-[Arial] text-[30px] text-[#272343]">Sign In</h2>
+			<div className="sxl:w-full py-20 md:w-1/2 h-full flex flex-col justify-center items-center">
+				<h2 className="font-semibold text-4xl text-[#272343]">Sign In</h2>
 				<form className="w-3/5 h-[75%] flex flex-col justify-center items-center">
-					<div className="w-full flex flex-col justify-center items-start border-b-4 border-solid border-b-[#EED132] my-3">
+					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
 						<label htmlFor="email" className="font-semibold text-[#272343]">
 							Email Address
 						</label>
@@ -77,22 +77,13 @@ const Login = () => {
 							type="email"
 							autoComplete="email"
 							required
-							className="my-1"
+							className="my-1 w-full placeholder:text-[15px]"
 							placeholder="Enter Your Email Address"
 							value={email}
 							onChange={handleChange("email")}
 						/>
-						{/* <svg width="100%" height="5px" className="rounded-md" viewBox="0 0 500 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<line y1="3" x2="500" y2="3" stroke="url(#paint0_linear_43_448)" strokeWidth="6" />
-							<defs>
-								<linearGradient id="paint0_linear_43_448" x1="0" y1="6" x2="500" y2="6" gradientUnits="userSpaceOnUse">
-									<stop stopColor="#272343" />
-									<stop offset="1" stopColor="#EED132" />
-								</linearGradient>
-							</defs>
-						</svg> */}
 					</div>
-					<div className="w-full flex flex-col justify-center items-start border-b-4 border-solid border-b-[#EED132] my-3">
+					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
 						<label htmlFor="password" className="font-semibold text-[#272343]">
 							Password
 						</label>
@@ -104,34 +95,25 @@ const Login = () => {
 							autoComplete="current-password"
 							required
 							placeholder="Enter Your Password"
-							className="my-1"
+							className="my-1 w-full placeholder:text-[15px]"
 							value={password}
 							onChange={handleChange("password")}
 						/>
-						{/* <svg width="100%" height="5px" className="rounded-md" viewBox="0 0 500 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<line y1="3" x2="500" y2="3" stroke="url(#paint0_linear_43_448)" strokeWidth="6" />
-							<defs>
-								<linearGradient id="paint0_linear_43_448" x1="0" y1="6" x2="500" y2="6" gradientUnits="userSpaceOnUse">
-									<stop stopColor="#272343" />
-									<stop offset="1" stopColor="#EED132" />
-								</linearGradient>
-							</defs>
-						</svg> */}
 					</div>
 					<button
 						onClick={(e) => {
 							loginUser(e);
 						}}
 						type="submit"
-						className="bg-[#EED132] text-white sxl:text-[15px] md:text-[17px] rounded-3xl font-bold w-2/5 h-[7%] mt-10"
+						className="bg-[#EED132] text-black sxl:text-[15px] md:text-[17px] rounded-3xl font-semibold w-3/5 h-[9%] mt-10"
 					>
 						LOGIN
 					</button>
 				</form>
-				<div className="mt-9">
-					<p className="font-[Arial]">
+				<div className="mt-9 text-sm">
+					<p>
 						Not registered yet?&nbsp;
-						<Link className="text-[#EED132] font-semibold" to="/register">
+						<Link className="text-black font-bold" to="/register">
 							Register
 						</Link>
 					</p>

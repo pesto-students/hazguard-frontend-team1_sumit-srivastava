@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const dataSlice = createSlice({
 	name: "data",
 	initialState: {
-		userData: {},
+		userData: "",
 		refreshToken: "",
 		accessToken: "",
 	},

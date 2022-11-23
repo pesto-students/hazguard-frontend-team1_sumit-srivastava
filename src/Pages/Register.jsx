@@ -32,7 +32,7 @@ const Register = () => {
 								password2: "",
 							});
 							toast.success("Verification mail sent!");
-							navigate("/");
+							navigate("/login");
 						} else if (response?.error) {
 							return toast.error(response?.message);
 						}
@@ -52,10 +52,10 @@ const Register = () => {
 		<div className="bg-white w-4/5 h-4/5 absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%] min-h-[600px] rounded-3xl flex justify-center items-center">
 			<div className="sxl:hidden w-1/2 h-full bg-[#677094] rounded-tl-3xl rounded-bl-3xl md:flex flex-col justify-center items-center">
 				<img src={Logo} alt="app logo" className="w-[200px]" />
-				<h1 className=" text-[100px] font-[Almendra] font-bold text-[#EED132]">Welcome</h1>
+				<h1 className="text-[100px] font-[Almendra] font-bold text-[#EED132]">Welcome</h1>
 			</div>
-			<div className="sxl:w-full md:w-1/2 h-full flex flex-col justify-center items-center ">
-				<h2 className="font-semibold text-[35px] text-[#272343]">Sign Up</h2>
+			<div className="sxl:w-full md:w-1/2 h-full flex flex-col justify-center items-center">
+				<h2 className="font-semibold text-4xl text-[#272343]">Sign Up</h2>
 				<form className="w-3/5 h-[75%] flex flex-col justify-center items-center">
 					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
 						<label htmlFor="firstName" className="font-semibold text-[#272343]">
@@ -72,15 +72,6 @@ const Register = () => {
 							value={firstName}
 							onChange={handleChange("firstName")}
 						/>
-						{/* <svg width="100%" height="5" className="" viewBox="0 0 500 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<line y1="3" x2="500" y2="3" stroke="url(#paint0_linear_43_448)" strokeWidth="6" />
-							<defs>
-								<linearGradient id="paint0_linear_43_448" x1="0" y1="6" x2="500" y2="6" gradientUnits="userSpaceOnUse">
-									<stop stopColor="#272343" />
-									<stop offset="1" stopColor="#EED132" />
-								</linearGradient>
-							</defs>
-						</svg> */}
 					</div>
 					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
 						<label htmlFor="email" className="font-semibold text-[#272343]">
@@ -97,15 +88,6 @@ const Register = () => {
 							value={email}
 							onChange={handleChange("email")}
 						/>
-						{/* <svg width="100%" height="5px" className="" viewBox="0 0 500 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<line y1="3" x2="500" y2="3" stroke="url(#paint0_linear_43_448)" strokeWidth="6" />
-							<defs>
-								<linearGradient id="paint0_linear_43_448" x1="0" y1="6" x2="500" y2="6" gradientUnits="userSpaceOnUse">
-									<stop stopColor="#272343" />
-									<stop offset="1" stopColor="#EED132" />
-								</linearGradient>
-							</defs>
-						</svg> */}
 					</div>
 					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
 						<label htmlFor="companyName" className="font-semibold text-[#272343]">
@@ -122,15 +104,6 @@ const Register = () => {
 							value={companyName}
 							onChange={handleChange("companyName")}
 						/>
-						{/* <svg width="100%" height="5px" className="" viewBox="0 0 500 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<line y1="3" x2="500" y2="3" stroke="url(#paint0_linear_43_448)" strokeWidth="6" />
-							<defs>
-								<linearGradient id="paint0_linear_43_448" x1="0" y1="6" x2="500" y2="6" gradientUnits="userSpaceOnUse">
-									<stop stopColor="#272343" />
-									<stop offset="1" stopColor="#EED132" />
-								</linearGradient>
-							</defs>
-						</svg> */}
 					</div>
 					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
 						<label htmlFor="password1" className="font-semibold text-[#272343]">
@@ -148,15 +121,6 @@ const Register = () => {
 							value={password1}
 							onChange={handleChange("password1")}
 						/>
-						{/* <svg width="100%" height="5px" className="" viewBox="0 0 500 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<line y1="3" x2="500" y2="3" stroke="url(#paint0_linear_43_448)" strokeWidth="6" />
-							<defs>
-								<linearGradient id="paint0_linear_43_448" x1="0" y1="6" x2="500" y2="6" gradientUnits="userSpaceOnUse">
-									<stop stopColor="#272343" />
-									<stop offset="1" stopColor="#EED132" />
-								</linearGradient>
-							</defs>
-						</svg> */}
 					</div>
 					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
 						<label htmlFor="password2" className="font-semibold text-[#272343]">
@@ -174,30 +138,21 @@ const Register = () => {
 							value={password2}
 							onChange={handleChange("password2")}
 						/>
-						{/* <svg width="100%" height="5px" className="" viewBox="0 0 500 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<line y1="3" x2="500" y2="3" stroke="url(#paint0_linear_43_448)" strokeWidth="6" />
-							<defs>
-								<linearGradient id="paint0_linear_43_448" x1="0" y1="6" x2="500" y2="6" gradientUnits="userSpaceOnUse">
-									<stop stopColor="#272343" />
-									<stop offset="1" stopColor="#EED132" />
-								</linearGradient>
-							</defs>
-						</svg> */}
 					</div>
 					<button
 						onClick={(e) => {
 							signupUser(e);
 						}}
 						type="submit"
-						className="bg-[#EED132] text-black sxl:text-[13px] md:text-[17px] rounded-3xl font-bold w-2/5 h-[7%] mt-3"
+						className="bg-[#EED132] text-black sxl:text-[13px] md:text-[17px] rounded-3xl font-semibold w-3/5 h-[9%] mt-5"
 					>
 						REGISTER
 					</button>
 				</form>
-				<div className="mt-2">
+				<div className="mt-3 text-sm">
 					<p>
 						Already registered?&nbsp;
-						<Link className="text-[#EED132] font-semibold" to="/login">
+						<Link className="text-black font-bold" to="/login">
 							Login
 						</Link>
 					</p>

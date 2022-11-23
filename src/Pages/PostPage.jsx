@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import { BackArrow } from "../Assets/library";
 
@@ -10,20 +9,20 @@ const Post = () => {
 					<NavLink to="/home">
 						<img src={BackArrow} alt="back" />
 					</NavLink>
-					<p className="font-[Arial] font-[700] text-[#677094] no:text-[12px] md:text-[20px]">Godrej Industry</p>
-					<p className="font-[Arial] font-[700] text-[#677094] no:text-[12px] md:text-[20px]">20:33 30/07/2022</p>
+					<p className=" font-[700] text-[#677094] no:text-[12px] md:text-[20px]">Godrej Industry</p>
+					<p className=" font-[700] text-[#677094] no:text-[12px] md:text-[20px]">20:33 30/07/2022</p>
 				</div>
 				<div className="w-[100%] h-[30%] flex flex-col justify-center items-start py-[20px] no:leading-[18px] md:leading-[25px]">
-					<div className="font-[Arial] font-[700] text-[#677094] no:text-[15px] md:text-[24px]">Problem Statement</div>
-					<div className="font-[Arial] font-[700] text-[#272343] no:text-[15px] md:text-[20px] no:leadin4rempx] md:leading-[21px] no:overflow-y-scroll md:overflow-auto">
+					<div className=" font-[700] text-[#677094] no:text-[15px] md:text-[24px]">Problem Statement</div>
+					<div className=" font-[700] text-[#272343] no:text-[15px] md:text-[20px] no:leadin4rempx] md:leading-[21px] no:overflow-y-scroll md:overflow-auto">
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi ipsam provident sunt officiis iure beatae porro? Culpa voluptatem ipsa, facere in iste officiis est voluptas!
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, reiciendis saepe! Nostrum, amet? Laborum, molestiae distinctio? Numquam voluptates libero consequuntur.
 					</div>
 				</div>
 				<div className="w-[100%] h-[65%] flex justify-center items-start flex-wrap">
 					<div className="no:w-[100%] md:w-[50%] no:h-[70%] md:h-[100%] overflow-y-scroll">
-						<div className="font-[Arial] font-[700] text-[#677094] no:text-[15px] md:text-[24px] no:leading-[19px] md:leading-[25px]">Solution</div>
-						<div className="font-[Arial] font-[700] text-[#677094] no:text-[15px] md:text-[18px] no:leading-[17px] md:leading-[20px] py-[10px]">
+						<div className=" font-[700] text-[#677094] no:text-[15px] md:text-[24px] no:leading-[19px] md:leading-[25px]">Solution</div>
+						<div className=" font-[700] text-[#677094] no:text-[15px] md:text-[18px] no:leading-[17px] md:leading-[20px] py-[10px]">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur enim qui, fuga tenetur dolorum dicta unde culpa esse magnam quae nulla nam necessitatibus, porro nostrum
 							tempore alias pariatur eos maiores, asperiores rem aliquam? A vitae praesentium sit autem facere reiciendis voluptatum quisquam, cumque non sed accusantium, sapiente dolore
 							nisi excepturi minus quas ut molestias aliquam saepe maxime repellendus eius cupiditate quos labore! Dicta sed eum alias recusandae, voluptatum expedita provident, deserunt

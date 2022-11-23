@@ -1,4 +1,3 @@
-import React from "react";
 import InternationCard from "../Components/InternationCard";
 import NationalCard from "../Components/NationalCard";
 import Base from "./Base";
