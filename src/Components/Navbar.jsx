@@ -6,13 +6,25 @@ import SideSortBy from "./SideSortBy";
 import { logout } from "../Helpers/auth";
 import { setAccessToken, setRefreshToken, setUserData } from "../Store/storingData";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 export default function Navbar() {
+	//state for Sidebar in Smaller width devices
+	const [isNavOpen, setNavOpen] = useState(false);
+	const [isFilterOpen, setFilterOpen] = useState(false);
+
+	//Hook to get current page for styling
 	const location = useLocation().pathname;
+
+	//Hook to navigate pages
 	const navigate = useNavigate();
+
+	//State management: Redux Store
 	const dispatch = useDispatch();
 	const refreshToken = useSelector((state) => state.refreshToken);
 	const userData = useSelector((state) => state.userData);
+
+	//Signout Button handler
 	const signOut = (e) => {
 		e.preventDefault();
 		logout(refreshToken)
@@ -37,7 +49,14 @@ export default function Navbar() {
 			<div className="sxl:w-[100%] md:w-[80%] h-[100%] bg-[#272343] rounded-[20px] flex overflow-hidden md:mr-[30px]">
 				<nav className="h-[100%] w-[100%] flex flex-row justify-between items-center px-5">
 					<div className="md:hidden ml-[30px] cursor-pointer">
-						<img src={Hamburger} alt="Hamburger" className="w-[3em] h-[3em]" />
+						<img
+							src={Hamburger}
+							alt="Hamburger"
+							className="w-[3em] h-[3em]"
+							onClick={() => {
+								setNavOpen(!isNavOpen);
+							}}
+						/>
 					</div>
 					<ul className="w-[40%] sxl:hidden md:flex flex-row justify-between items-center text-[#FFFFFF] text-2xl font-semibold">
 						<li className={`px-4 py-1 ${location === "/home" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
@@ -53,41 +72,64 @@ export default function Navbar() {
 							<Link to="/pricing">Pricing</Link>
 						</li>
 					</ul>
-					{/* <div className="absolute top-0 left-0 w-[40vw] h-[100%] bg-[#fff] shadow-[4px_0px_4px_rgba(0,0,0,0.25)] px-[20px] py-[20px]">
-						<Link to="/home">
-							<img src={BackArrow} alt="back" className="" />
-						</Link>
-						<ul className="h-[60%] flex flex-col justify-center items-center">
-							<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
-								<Link to="/home">Home</Link>
-							</li>
-							<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
-								<Link to="/share">Share</Link>
-							</li>
-							<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
-								<Link to="/saved">Saved</Link>
-							</li>
-							<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
-								<Link to="/pricing">Pricing</Link>
-							</li>
-							<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
-								<Link to="/account">Account</Link>
-							</li>
-							<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
-								<Link to="/login">Logout</Link>
-							</li>
-						</ul>
-					</div>
-					<div className="absolute top-0 right-0 w-[50vw] h-[100%] bg-[#fff] shadow-[-4px_0px_4px_rgba(0,0,0,0.25)] px-[20px] py-[20px]">
-						<Link to="/home">
-							<img src={BackArrow} alt="back" className="rotate-180" />
-						</Link>
-						<SideSortBy />
-					</div> */}
+					{isNavOpen && (
+						<div className="absolute top-0 left-0 w-[40vw] h-[100%] bg-[#fff] shadow-[4px_0px_4px_rgba(0,0,0,0.25)] px-[20px] py-[20px]">
+							<Link to="/home">
+								<img
+									src={BackArrow}
+									alt="back"
+									className=""
+									onClick={() => {
+										setNavOpen(!isNavOpen);
+									}}
+								/>
+							</Link>
+							<ul className="h-[60%] flex flex-col justify-center items-center">
+								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
+									<Link to="/home">Home</Link>
+								</li>
+								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
+									<Link to="/share">Share</Link>
+								</li>
+								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
+									<Link to="/saved">Saved</Link>
+								</li>
+								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
+									<Link to="/pricing">Pricing</Link>
+								</li>
+								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
+									<Link to="/account">Account</Link>
+								</li>
+								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
+									<Link to="/login">Logout</Link>
+								</li>
+							</ul>
+						</div>
+					)}
+					{isFilterOpen && (
+						<div className="absolute top-0 right-0 w-[50vw] h-[100%] bg-[#fff] shadow-[-4px_0px_4px_rgba(0,0,0,0.25)] px-[20px] py-[20px]">
+							<Link to="/home">
+								<img
+									src={BackArrow}
+									alt="back"
+									className="rotate-180"
+									onClick={() => {
+										setFilterOpen(!isFilterOpen);
+									}}
+								/>
+							</Link>
+							<SideSortBy />
+						</div>
+					)}
 					<ul className="flex flex-row justify-between items-center">
 						<li className="mr-[34px] cursor-pointer sxl:hidden md:inline">
 							<button type="button" onClick={(e) => signOut(e)} className="flex justify-center items-center">
 								<img src={Logout} alt="Logout" className="sxl:w-[3em] sxl:h-[3em] md:w-[2.5em]" />
+							</button>
+						</li>
+						<li className="mr-[34px] cursor-pointer sxl:inline md:hidden ">
+							<button type="button" onClick={(e) => setFilterOpen(!isFilterOpen)} className="flex justify-center items-center">
+								<img src={Filter} alt="Logout" className="sxl:w-[3em] sxl:h-[3em] md:w-[2.5em]" />
 							</button>
 						</li>
 						<li className="mr-[34px] cursor-pointer">
