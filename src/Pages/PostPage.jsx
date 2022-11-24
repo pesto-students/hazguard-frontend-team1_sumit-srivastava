@@ -1,14 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BackArrow } from "../Assets/library";
+import image1 from "../Assets/image1.jpg";
+import image2 from "../Assets/image2.jpg";
+import image3 from "../Assets/image3.jpg";
+import image4 from "../Assets/image4.jpg";
 
 const Post = () => {
 	return (
 		<div className="w-[100vw] h-[100vh] px-[15px] py-[15px]">
 			<div className="w-[100%] h-[100%] bg-[#fff] rounded-[20px] px-[20px] py-[20px] overflow-y-hidden">
 				<div className="w-[100%] h-[5%] flex justify-between items-center py-[10px]">
-					<NavLink to="/home">
+					<Link to="/home">
 						<img src={BackArrow} alt="back" />
-					</NavLink>
+					</Link>
 					<p className=" font-[700] text-[#677094] no:text-[12px] md:text-[20px]">Godrej Industry</p>
 					<p className=" font-[700] text-[#677094] no:text-[12px] md:text-[20px]">20:33 30/07/2022</p>
 				</div>
@@ -37,12 +41,12 @@ const Post = () => {
 						</div>
 					</div>
 					<div className="no:w-[100%] md:w-[50%] no:h-[30%] md:h-[90%] flex flex-wrap justify-center items-start self-center overflow-y-scroll">
-						<img src="../../../../public/image1.jpg" alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
-						<img src="../../../../public/image2.jpg" alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
-						<img src="../../../../public/image3.jpg" alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
-						<img src="../../../../public/image4.jpg" alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
-						<img src="../../../../public/image3.jpg" alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
-						<img src="../../../../public/image2.jpg" alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
+						<img src={image1} alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
+						<img src={image2} alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
+						<img src={image3} alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
+						<img src={image4} alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
+						<img src={image3} alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
+						<img src={image2} alt="" className="no:w-[50%] no:h-[100%] md:w-[50%] md:h-[50%]" />
 					</div>
 				</div>
 			</div>

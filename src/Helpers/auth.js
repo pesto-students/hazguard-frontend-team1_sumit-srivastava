@@ -1,4 +1,4 @@
-import { Register_API, Login_API, Verify_API, Profile_API, Logout_API } from "../backend";
+import { Register_API, Login_API, Verify_API, Profile_API, Logout_API, UpdateProfile_API } from "../backend";
 import { toast } from "react-toastify";
 
 export async function signup(user) {
@@ -77,6 +77,24 @@ export async function logout(refreshToken) {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({ token: refreshToken }),
+		});
+		return await response.json();
+	} catch (err) {
+		toast.error("Not able to logout! Please try again!");
+		return console.log(err);
+	}
+}
+
+export async function updateProfile(user, accessToken) {
+	try {
+		const response = await fetch(UpdateProfile_API, {
+			method: "POST",
+			headers: {
+				Authorization: `Bearer ${accessToken}`,
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(user),
 		});
 		return await response.json();
 	} catch (err) {

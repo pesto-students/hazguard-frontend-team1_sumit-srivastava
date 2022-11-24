@@ -1,6 +1,19 @@
 import Base from "./Base";
 
 const Share = () => {
+	const [values, setValues] = useState({
+		type: "",
+		industry: "",
+		hazardLevel: "",
+		effectDuration: "",
+		problem: "",
+		solution: "",
+		date: "",
+		companyName: "",
+		state: "",
+		country: "",
+	});
+	const { type, industry, hazardLevel, effectDuration, problem, solution, date, companyName, state, country } = values;
 	return (
 		<>
 			<Base>

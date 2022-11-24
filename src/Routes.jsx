@@ -19,16 +19,16 @@ export default function Routes() {
 		if (userData && refreshToken && accessToken) {
 			return children;
 		} else {
-			return <Navigate to="/login" replace={false} />;
+			return <Navigate to="/login" replace={true} />;
 		}
 	}
 	return (
 		<BrowserRouter>
 			<RouterRoutes>
 				<Route exact path="/" element={<Landing />} />
-				<Route exact path="/register" element={!userData ? <Register /> : <Navigate to="/home" replace={false} />} />
-				<Route exact path="/verify/:token" element={!userData ? <Verify /> : <Navigate to="/home" replace={false} />} />
-				<Route exact path="/login" element={!userData ? <Login /> : <Navigate to="/home" replace={false} />} />
+				<Route exact path="/register" element={!userData ? <Register /> : <Navigate to="/home" replace={true} />} />
+				<Route exact path="/verify/:token" element={!userData ? <Verify /> : <Navigate to="/home" replace={true} />} />
+				<Route exact path="/login" element={!userData ? <Login /> : <Navigate to="/home" replace={true} />} />
 				<Route
 					exact
 					path="/home"
@@ -67,7 +67,7 @@ export default function Routes() {
 				/>
 				<Route
 					exact
-					path="/post"
+					path="/post/:id"
 					element={
 						<PrivateRoute>
 							<Post />

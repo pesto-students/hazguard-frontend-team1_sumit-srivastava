@@ -24,3 +24,15 @@ select {
 .removeScrollbar::-webkit-scrollbar {
 	display: none;
 }
+
+.heroslider .slick-next {
+	position: absolute;
+	top: 45%;
+	right: 15px;
+}
+.heroslider .slick-prev {
+	position: absolute;
+	top: 45%;
+	margin-left: 15px;
+	z-index: 1;
+}
