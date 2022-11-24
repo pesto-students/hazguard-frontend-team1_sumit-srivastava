@@ -45,7 +45,7 @@ export default function Navbar() {
 			});
 	};
 	return (
-		<div className="w-[100vw] h-[120px] sxl:mt-[15px] md:mt-[30px] flex flex-row sxl:px-[15px] md:px-[30px]">
+		<div className="w-[100vw] sxl:h-[100px] md:h-[120px] sxl:mt-[15px] md:mt-[30px] flex flex-row sxl:px-[15px] md:px-[30px]">
 			<div className="sxl:w-[100%] md:w-[80%] h-[100%] bg-[#272343] rounded-[20px] flex overflow-hidden md:mr-[30px]">
 				<nav className="h-[100%] w-[100%] flex flex-row justify-between items-center px-5">
 					<div className="md:hidden ml-[30px] cursor-pointer">
@@ -58,18 +58,21 @@ export default function Navbar() {
 							}}
 						/>
 					</div>
-					<ul className="w-[40%] sxl:hidden md:flex flex-row justify-between items-center text-[#FFFFFF] text-2xl font-semibold">
-						<li className={`px-4 py-1 ${location === "/home" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
+					<ul className="w-[50%] sxl:hidden md:flex flex-row justify-between items-center text-[#FFFFFF] text-xl font-semibold">
+						<li className={`px-3 py-1 ${location === "/home" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
 							<Link to="/home">Home</Link>
 						</li>
-						<li className={`px-4 py-1 ${location === "/share" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
+						<li className={`px-3 py-1 ${location === "/share" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
 							<Link to="/share">Share</Link>
 						</li>
-						<li className={`px-4 py-1 ${location === "/saved" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
+						<li className={`px-3 py-1 ${location === "/saved" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
 							<Link to="/saved">Saved</Link>
 						</li>
-						<li className={`px-4 py-1 ${location === "/pricing" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
-							<Link to="/pricing">Pricing</Link>
+						<li className={`px-3 py-1 min-w-[130px] text-center ${location === "/mypost" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
+							<Link to="/mypost">My Posts</Link>
+						</li>
+						<li className={`px-3 py-1 ${location === "/leaderboard" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
+							<Link to="/leaderboard">Leaderboard</Link>
 						</li>
 					</ul>
 					{isNavOpen && (
@@ -95,7 +98,7 @@ export default function Navbar() {
 									<Link to="/saved">Saved</Link>
 								</li>
 								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
-									<Link to="/pricing">Pricing</Link>
+									<Link to="/mypost">My Post</Link>
 								</li>
 								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
 									<Link to="/account">Account</Link>

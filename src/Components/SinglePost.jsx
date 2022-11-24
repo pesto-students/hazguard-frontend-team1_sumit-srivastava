@@ -13,10 +13,11 @@ const SinglePost = () => {
 				Perspiciatis provident tenetur dolorem iure atque at ex iste illum tempora voluptate!
 			</div>
 			<div className="w-[100%] h-[45%] max-h-[50px] px-3 flex sxl:flex-col md:flex-row justify-between sxl:items-between md:items-center">
-				<div className="sxl:w-full md:w-3/5 h-[40%] flex sxl:justify-center md:justify-between items-center mb-1">
-					<p className=" text-[#677094] md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-0md:text-[15px] font-[700]">Hazard Type: Safety</p>
-					<p className=" text-[#677094] md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mx-1 md:mx-0 md:text-[15px] font-[700]">Hazard Level: Low</p>
-					<p className=" text-[#677094] md:inline-block sxl:text-[12px] sm:text-[14px] sxl:ml-1 md:ml-0 md:text-[15px] font-[700]">Preferred Industry: Chemical</p>
+				<div className="sxl:w-full md:w-fit h-[40%] flex sxl:justify-start md:justify-between items-center mb-1">
+					<p className=" text-white w-fit bg-red-400  md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-0md:text-[15px] px-2 py-1 font-normal rounded-sm">Safety</p>
+					<p className=" text-white w-fit bg-yellow-400  md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-0md:text-[15px] px-2 py-1 font-normal rounded-sm">Chemical</p>
+					<p className=" text-white w-fit bg-blue-400  md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-0md:text-[15px] px-2 py-1 font-normal rounded-sm">Low</p>
+					<p className=" text-white w-fit bg-green-400  md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-0md:text-[15px] px-2 py-1 font-normal rounded-sm">30 days</p>
 				</div>
 				<div className="sxl:w-full md:w-2/5 h-[60%] flex sxl:justify-end md:justify-end items-center mt-1">
 					<div className="flex mr-4">

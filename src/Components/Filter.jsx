@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, location, search }) => {
 	const handleChange = (name) => (event) => {
 		setValues({ ...values, [name]: event.target.value });
@@ -14,7 +16,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						name="industryType"
 						value={industryType}
 						onChange={handleChange("industryType")}
-						className="sxl:py-1 md:py-2 px-0 w-auto text-sm text-[#677094] font-medium bg-transparent border-0 border-b-2 border-[#677094]"
+						className={`sxl:py-1 md:py-2 px-0 w-auto text-sm text-red-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]`}
 					>
 						<option>Industry type</option>
 						<option value="Agriculture">Agriculture</option>
@@ -38,7 +40,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						name="hazardType"
 						value={hazardType}
 						onChange={handleChange("hazardType")}
-						className="sxl:py-1 md:py-2 px-0 w-auto text-sm text-[#677094] font-medium bg-transparent border-0 border-b-2 border-[#677094]"
+						className="sxl:py-1 md:py-2 px-0 w-auto text-sm text-yellow-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 					>
 						<option>Hazard type</option>
 						<option value="Safety">Safety</option>
@@ -56,7 +58,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						name="hazardLevel"
 						value={hazardLevel}
 						onChange={handleChange("hazardLevel")}
-						className="sxl:py-1 md:py-2 px-0 w-auto text-sm text-[#677094] font-medium bg-transparent border-0 border-b-2 border-[#677094]"
+						className="sxl:py-1 md:py-2 px-0 w-auto text-sm text-blue-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 					>
 						<option>Hazard level</option>
 						<option value="Low">Low</option>
