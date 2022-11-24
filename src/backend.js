@@ -11,3 +11,5 @@ export const UpdateProfile_API = `${BACKEND}api/auth/updateprofile`;
 // Hazard APIs
 export const AddHazard_API = `${BACKEND}api/create/hazard`;
 export const DeleteHazard_API = `${BACKEND}api/delete/hazard`;
+export const ReadAllHazards_API = `${BACKEND}api/read/allhazards`;
+export const ReadAllHazardsOfUser_API = `${BACKEND}api/read/allhazardsofuser`;

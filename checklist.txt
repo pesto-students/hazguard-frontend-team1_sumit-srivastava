@@ -6,11 +6,11 @@ lightGrey: "#B7B6B6"
 primaryYellow: "#EED132"
 
 payment integration
-add hazard
+add hazard mein image
 delete hazard
-read hazards
 landing page
 readmes
 after register mandatorily add other details
 view count
-update profile
+edit profile
+edit hazard
