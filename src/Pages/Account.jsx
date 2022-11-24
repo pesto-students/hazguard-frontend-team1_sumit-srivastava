@@ -15,7 +15,7 @@ const Account = () => {
 		setProfilePicture(event.target.value);
 	};
 	return (
-		<div className="h-[1080px] w-[100vw] px-[15px] py-[15px]">
+		<div className="sxl:h-[100%] md:h-[1080px] w-[100vw] px-[15px] py-[15px]">
 			<div className="w-[100%] h-[100%] bg-[#fff] rounded-[20px] px-[20px] py-[20px] flex">
 				<NavLink to="/home">
 					<img src={BackArrow} alt="back" className="absolute top-[30px] left-[30px]" />
@@ -160,7 +160,7 @@ const Account = () => {
 									/>
 								</div>
 							</div>
-							<button className="bg-[#EED132] text-[#000] md:mt-[30px] sxl:w-[150px] md:w-[200px] min-h-[28px] sxl:h-[35px] md:h-[35px] rounded-[40px]  sxl:text-[18px] md:text-[18px] font-[700] hover:bg-[rgba(238,209,50,0.8)]">
+							<button className="bg-[#EED132] text-[#000] mt-[30px] sxl:w-[150px] md:w-[200px] min-h-[28px] sxl:h-[40px] md:h-[40px] rounded-[40px]  sxl:text-[18px] md:text-[18px] font-[700] hover:bg-[rgba(238,209,50,0.8)]">
 								Save & Exit
 							</button>
 						</form>
