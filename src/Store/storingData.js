@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
 
 const dataSlice = createSlice({
 	name: "data",
@@ -7,6 +6,12 @@ const dataSlice = createSlice({
 		userData: "",
 		refreshToken: "",
 		accessToken: "",
+		newPostDataType: "",
+		newPostDataHazardLevel: "",
+		newPostDataEffectDuration: "",
+		newPostDataProblem: "",
+		newPostDataSolution: "",
+		newPostDataDate: "",
 	},
 	reducers: {
 		setUserData(state, action) {
@@ -18,9 +23,51 @@ const dataSlice = createSlice({
 		setAccessToken(state, action) {
 			state["accessToken"] = action.payload;
 		},
+		setNewPostDataType(state, action) {
+			state["newPostDataType"] = action.payload;
+		},
+		setNewPostDataHazardLevel(state, action) {
+			state["newPostDataHazardLevel"] = action.payload;
+		},
+		setNewPostDataEffectDuration(state, action) {
+			state["newPostDataEffectDuration"] = action.payload;
+		},
+		setNewPostDataProblem(state, action) {
+			state["newPostDataProblem"] = action.payload;
+		},
+		setNewPostDataSolution(state, action) {
+			state["newPostDataSolution"] = action.payload;
+		},
+		setNewPostDataDate(state, action) {
+			state["newPostDataDate"] = action.payload;
+		},
+		setInitialState(state, action) {
+			state = {
+				userData: "",
+				refreshToken: "",
+				accessToken: "",
+				newPostDataType: "",
+				newPostDataHazardLevel: "",
+				newPostDataEffectDuration: "",
+				newPostDataProblem: "",
+				newPostDataSolution: "",
+				newPostDataDate: "",
+			};
+		},
 	},
 });
 
-export const { setUserData, setRefreshToken, setAccessToken } = dataSlice.actions;
+export const {
+	setUserData,
+	setRefreshToken,
+	setAccessToken,
+	setNewPostDataType,
+	setNewPostDataHazardLevel,
+	setNewPostDataEffectDuration,
+	setNewPostDataProblem,
+	setNewPostDataSolution,
+	setNewPostDataDate,
+	setInitialState,
+} = dataSlice.actions;
 
 export default dataSlice.reducer;

@@ -14,7 +14,7 @@ export async function addHazard(info, accessToken) {
 		});
 		return await response.json();
 	} catch (err) {
-		toast.error("Not able to register! Please try again!");
+		toast.error("Not able to add hazard! Please try again!");
 		return console.log(err);
 	}
 }
@@ -32,7 +32,7 @@ export async function deleteHazard(info, accessToken) {
 		});
 		return await response.json();
 	} catch (err) {
-		toast.error("Not able to verify! Please try again!");
+		toast.error("Not able to delete hazard! Please try again!");
 		return console.log(err);
 	}
 }

@@ -37,7 +37,7 @@ const Account = () => {
 							change image
 						</button>
 						<input type="file" name="profile" id="profile" className="hidden" onChange={handleProfilePicture} />
-						<form action="/" className="sxl:w-[90%] md:w-[80%] h-[80%] flex flex-col justify-center items-center mt-[50px]">
+						<form className="sxl:w-[90%] md:w-[80%] h-[80%] flex flex-col justify-center items-center mt-[50px]">
 							<div className="flex w-[100%] mb-[10px] sxl:flex-wrap md:flex-nowrap">
 								<div className="flex flex-col sxl:w-[100%] md:w-[50%] md:mr-[20px] sxl:mt-[5px] md:mt-[0px]">
 									<label htmlFor="companyName" className="text-[#272343]  text-[15px] font-[700]">

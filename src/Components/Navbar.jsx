@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import SideSortBy from "./SideSortBy";
 import { logout } from "../Helpers/auth";
-import { setAccessToken, setRefreshToken, setUserData } from "../Store/storingData";
+import { setInitialState } from "../Store/storingData";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
@@ -30,9 +30,7 @@ export default function Navbar() {
 		logout(refreshToken)
 			.then(async (response) => {
 				if (!response?.error) {
-					dispatch(setUserData(""));
-					dispatch(setAccessToken(""));
-					dispatch(setRefreshToken(""));
+					dispatch(setInitialState(""));
 					navigate("/login");
 					toast.success("You are logged out!");
 				} else if (response?.error) {
@@ -62,14 +60,14 @@ export default function Navbar() {
 						<li className={`px-3 py-1 ${location === "/home" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
 							<Link to="/home">Home</Link>
 						</li>
-						<li className={`px-3 py-1 ${location === "/share" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
-							<Link to="/share">Share</Link>
+						<li className={`px-3 py-1 ${location === "/addhazard" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
+							<Link to="/addhazard">Share</Link>
 						</li>
 						<li className={`px-3 py-1 ${location === "/saved" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
 							<Link to="/saved">Saved</Link>
 						</li>
-						<li className={`px-3 py-1 min-w-[130px] text-center ${location === "/mypost" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
-							<Link to="/mypost">My Posts</Link>
+						<li className={`px-3 py-1 ${location === "/myposts" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
+							<Link to="/myposts">My Posts</Link>
 						</li>
 						<li className={`px-3 py-1 ${location === "/leaderboard" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
 							<Link to="/leaderboard">Leaderboard</Link>
@@ -92,13 +90,13 @@ export default function Navbar() {
 									<Link to="/home">Home</Link>
 								</li>
 								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
-									<Link to="/share">Share</Link>
+									<Link to="/addhazard">Share</Link>
 								</li>
 								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
 									<Link to="/saved">Saved</Link>
 								</li>
 								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
-									<Link to="/mypost">My Post</Link>
+									<Link to="/myposts">My Post</Link>
 								</li>
 								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
 									<Link to="/account">Account</Link>

@@ -1,16 +1,5 @@
 import { BrowserRouter, Route, Routes as RouterRoutes, Navigate } from "react-router-dom";
-// import Landing from "./Pages/Landing";
-// import Home from "./Pages/Home";
-// import Pricing from "./Pages/Pricing";
-// import Saved from "./Pages/Saved";
-// import Register from "./Pages/Register";
-// import Login from "./Pages/Login";
-// import Account from "./Pages/Account";
-// import Post from "./Pages/PostPage";
-// import Share from "./Pages/Share";
-// import Verify from "./Pages/Verify";
-// import MyPosts from "./Pages/MyPosts";
-import { Landing, Home, Pricing, Saved, Register, Login, Account, Post, Share, Verify, MyPosts, Leaderboard } from "./Pages/Library";
+import { Landing, Home, Saved, Register, Login, Account, Post, AddHazard, Verify, MyPosts, Leaderboard } from "./Pages/Library";
 import { useSelector } from "react-redux";
 
 export default function Routes() {
@@ -51,7 +40,7 @@ export default function Routes() {
 				/> */}
 				<Route
 					exact
-					path="/mypost"
+					path="/myposts"
 					element={
 						<PrivateRoute>
 							<MyPosts />
@@ -96,10 +85,10 @@ export default function Routes() {
 				/>
 				<Route
 					exact
-					path="/share"
+					path="/addhazard"
 					element={
 						<PrivateRoute>
-							<Share />
+							<AddHazard />
 						</PrivateRoute>
 					}
 				/>
