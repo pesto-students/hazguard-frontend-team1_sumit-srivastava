@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 * {
-	transition: all 0.3s;
+	-webkit-transition: 0.25s all ease;
+	-moz-transition: 0.25s all ease;
+	-ms-transition: 0.25s all ease;
+	-o-transition: 0.25s all ease;
+	transition: 0.25s all ease;
 }
 
 body {
@@ -21,18 +25,19 @@ select {
 	outline: none;
 }
 
-.removeScrollbar::-webkit-scrollbar {
-	display: none;
-}
-
 .heroslider .slick-next {
 	position: absolute;
 	top: 45%;
 	right: 15px;
 }
+
 .heroslider .slick-prev {
 	position: absolute;
 	top: 45%;
 	margin-left: 15px;
 	z-index: 1;
+}
+
+.removeScrollbar::-webkit-scrollbar {
+	display: none;
 }

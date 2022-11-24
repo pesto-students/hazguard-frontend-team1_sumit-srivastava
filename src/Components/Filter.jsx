@@ -1,12 +1,14 @@
+import { useState } from "react";
+
 const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, location, search }) => {
 	const handleChange = (name) => (event) => {
 		setValues({ ...values, [name]: event.target.value });
 	};
 	return (
-		<div className="w-[100vw] no:mt-[30px] md:mt-[30px] h-[120px] flex flex-row no:px-[15px] md:px-[30px]">
-			<div className="flex no:w-[100%] md:w-[80%] sm:h-[120px] rounded-[20px] overflow-hidden no:flex-wrap md:flex-nowrap justify-between no:bg-[#ffffff] md:bg-transparent md:mr-[30px]">
-				<div className="w-[25%] mx-[15px] no:first:mx-[15px] md:first:ml-[0px] no:last:mx-[15px] md:last:mx-[0px] no:min-w-fit bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
-					<label htmlFor="industryType" className="text-[#272343] no:text-[15px] sm:text-[22px] font-semibold">
+		<div className="w-[100vw] mt-[30px] h-[120px] flex sxl:px-[15px] md:px-[30px]">
+			<div className="flex sxl:w-[100%] md:w-[80%] h-[120px] rounded-[20px] overflow-hidden sxl:flex-wrap md:flex-nowrap sxl:justify-between md:justify-center items-center sxl:bg-[#ffffff] md:bg-transparent md:mr-[30px] sxl:px-5 md:px-0 sxl:py-1">
+				<div className="sxl:w-fit md:w-[25%] sxl:h-fit md:h-full  mr-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+					<label htmlFor="industryType" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Industry Type
 					</label>
 					<select
@@ -14,9 +16,9 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						name="industryType"
 						value={industryType}
 						onChange={handleChange("industryType")}
-						className="block py-2.5 px-0 text-sm text-gray-500 bg-transparent border-0 border-b-2"
+						className={`sxl:py-1 md:py-2 px-0 w-auto text-sm text-red-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]`}
 					>
-						<option>Choose a industry type</option>
+						<option>Industry type</option>
 						<option value="Agriculture">Agriculture</option>
 						<option value="Apparel">Apparel</option>
 						<option value="Oil & Gas Production">Oil & Gas Production</option>
@@ -29,8 +31,8 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						<option value="Utilities">Utilities</option>
 					</select>
 				</div>
-				<div className="w-[25%] mx-[15px] no:first:mx-[15px] md:first:mx-[0px] no:last:mx-[15px] md:last:mx-[0px] no:min-w-fit bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
-					<label htmlFor="hazardType" className="text-[#272343] no:text-[15px] sm:text-[22px] font-semibold">
+				<div className="sxl:w-fit md:w-[25%] sxl:h-fit md:h-full  mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+					<label htmlFor="hazardType" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Hazard Type
 					</label>
 					<select
@@ -38,17 +40,17 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						name="hazardType"
 						value={hazardType}
 						onChange={handleChange("hazardType")}
-						className="block py-2.5 px-0 text-sm text-gray-500 bg-transparent border-0 border-b-2"
+						className="sxl:py-1 md:py-2 px-0 w-auto text-sm text-yellow-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 					>
-						<option>Choose a hazard type</option>
+						<option>Hazard type</option>
 						<option value="Safety">Safety</option>
 						<option value="Biological">Biological</option>
 						<option value="Physical">Physical</option>
 						<option value="Chemical">Chemical</option>
 					</select>
 				</div>
-				<div className="w-[25%] mx-[15px] no:first:mx-[15px] md:first:mx-[0px] no:last:mx-[15px] md:last:mx-[0px] no:min-w-fit bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
-					<label htmlFor="hazardLevel" className="text-[#272343] no:text-[15px] sm:text-[22px] font-semibold">
+				<div className="sxl:w-fit md:w-[25%] sxl:h-fit md:h-full  mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+					<label htmlFor="hazardLevel" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Hazard Level
 					</label>
 					<select
@@ -56,28 +58,34 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						name="hazardLevel"
 						value={hazardLevel}
 						onChange={handleChange("hazardLevel")}
-						className="block py-2.5 px-0 text-sm text-gray-500 bg-transparent border-0 border-b-2"
+						className="sxl:py-1 md:py-2 px-0 w-auto text-sm text-blue-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 					>
-						<option>Choose a hazard level</option>
+						<option>Hazard level</option>
 						<option value="Low">Low</option>
 						<option value="Moderate">Moderate</option>
 						<option value="High">High</option>
 					</select>
 				</div>
-				<div className="w-[25%] mx-[15px] no:first:mx-[15px] md:first:mx-[0px] no:last:mx-[15px] md:last:mr-[0px] no:min-w-fit bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
-					<label htmlFor="location" className="text-[#272343] no:text-[15px] sm:text-[22px] font-semibold">
+				<div className="sxl:w-fit md:w-[25%] sxl:h-fit md:h-full  ml-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+					<label htmlFor="location" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Location
 					</label>
-					<select id="location" name="location" value={location} onChange={handleChange("location")} className="block py-2.5 px-0 text-sm text-gray-500 bg-transparent border-0 border-b-2">
-						<option>Choose a location</option>
+					<select
+						id="location"
+						name="location"
+						value={location}
+						onChange={handleChange("location")}
+						className="sxl:py-1 md:py-2 px-0 w-auto text-sm text-[#677094] font-medium bg-transparent border-0 border-b-2 border-[#677094]"
+					>
+						<option>Location</option>
 						<option value="Delhi, India">Delhi, India</option>
 						<option value="Gujarat, India">Gujarat, India</option>
 						<option value="Maharashtra, India">Maharashtra, India</option>
 					</select>
 				</div>
 			</div>
-			<div className="w-[20%] mx-[15px] no:first:mx-[15px] md:first:mx-[0px] no:last:mx-[15px] md:last:mx-[0px] no:min-w-fit bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
-				<label htmlFor="search" className="text-[#272343] no:text-[15px] sm:text-[22px] font-semibold">
+			<div className="sxl:hidden w-[20%] mx-[15px] sxl:first:mx-[15px] md:first:mx-[0px] sxl:last:mx-[15px] md:last:mx-[0px] sxl:min-w-fit bg-[#ffffff] md:rounded-[20px] md:flex flex-col justify-center items-center">
+				<label htmlFor="search" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 					Search
 				</label>
 				<input
