@@ -12,5 +12,5 @@ View Count
 Work for Friday
 1. Landing Page
 2. ReadMe
-3. Delete, Save/Unsave, Edit, Public/Hidden Hazard API
+3. Save/Unsave, Edit, Public/Hidden Hazard API
 4. Edit Profile, After Take All Details
