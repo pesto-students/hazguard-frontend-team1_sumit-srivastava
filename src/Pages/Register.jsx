@@ -144,12 +144,12 @@ const Register = () => {
 							signupUser(e);
 						}}
 						type="submit"
-						className="bg-[#EED132] text-black sxl:text-[13px] md:text-[17px] rounded-3xl font-semibold w-3/5 h-[9%] mt-5"
+						className="bg-[#EED132] text-black sxl:text-[13px] md:text-[17px] rounded-3xl font-semibold w-3/5 h-[9%] mt-5 py-2"
 					>
 						REGISTER
 					</button>
 				</form>
-				<div className="mt-3 text-sm">
+				<div className="mt-5 text-sm">
 					<p>
 						Already registered?&nbsp;
 						<Link className="text-black font-bold" to="/login">

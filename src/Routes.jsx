@@ -1,8 +1,13 @@
 import { BrowserRouter, Route, Routes as RouterRoutes, Navigate } from "react-router-dom";
 import { Landing, Home, Saved, Register, Login, Account, Post, AddHazard, Verify, MyPosts, Leaderboard } from "./Pages/Library";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { readAllHazards, readAllHazardsOfUser } from "./Helpers/hazard";
+import { setAllHazards, setAllHazardsOfUser } from "./Store/storingData";
 
 export default function Routes() {
+	const dispatch = useDispatch();
+	const checkChange = useSelector((state) => state.checkChange);
 	const userData = useSelector((state) => state.userData);
 	const refreshToken = useSelector((state) => state.refreshToken);
 	const accessToken = useSelector((state) => state.accessToken);
@@ -13,6 +18,40 @@ export default function Routes() {
 			return <Navigate to="/login" replace={true} />;
 		}
 	}
+	useEffect(() => {
+		const getAllHazards = async () => {
+			const allHazards = await readAllHazards(accessToken)
+				.then((response) => {
+					if (!response?.error) {
+						return response;
+					} else if (response?.error) {
+						return toast.error(response?.message);
+					}
+				})
+				.catch((e) => {
+					toast.error("Not able to verify! Please try again!");
+					console.log(e);
+				});
+			dispatch(setAllHazards(allHazards.data));
+		};
+		getAllHazards();
+		const getAllHazardsOfUser = async () => {
+			const allHazardsOfUser = await readAllHazardsOfUser(accessToken)
+				.then((response) => {
+					if (!response?.error) {
+						return response;
+					} else if (response?.error) {
+						return toast.error(response?.message);
+					}
+				})
+				.catch((e) => {
+					toast.error("Not able to verify! Please try again!");
+					console.log(e);
+				});
+			dispatch(setAllHazardsOfUser(allHazardsOfUser.data));
+		};
+		getAllHazardsOfUser();
+	}, [checkChange]);
 	return (
 		<BrowserRouter>
 			<RouterRoutes>

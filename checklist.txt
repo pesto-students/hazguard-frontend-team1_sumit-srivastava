@@ -5,12 +5,13 @@ lightFont: "#677094"
 lightGrey: "#B7B6B6"
 primaryYellow: "#EED132"
 
-payment integration
-add hazard mein image
-delete hazard
-landing page
-readmes
-after register mandatorily add other details
-view count
-edit profile
-edit hazard
+Payment Integration
+Add Images In Hazard
+View Count
+
+Work for Friday
+1. Landing Page
+2. ReadMe
+3. Delete, Save/Unsave, Edit, Public/Hidden Hazard API
+4. Edit Profile, After Take All Details
+5. Effect Duration

@@ -4,30 +4,41 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { addHazard } from "../Helpers/hazard";
 import { useSelector, useDispatch } from "react-redux";
-import { setNewPostDataType, setNewPostDataHazardLevel, setNewPostDataEffectDuration, setNewPostDataProblem, setNewPostDataSolution, setNewPostDataDate } from "../Store/storingData";
+import {
+	setNewPostDataIndustry,
+	setNewPostDataType,
+	setNewPostDataHazardLevel,
+	setNewPostDataEffectDuration,
+	setNewPostDataProblem,
+	setNewPostDataSolution,
+	setNewPostDataDateOccurred,
+} from "../Store/storingData";
 
 const AddHazard = () => {
 	const userData = useSelector((state) => state.userData);
 	const accessToken = useSelector((state) => state.accessToken);
 	const [values, setValues] = useState({
-		industry: userData.industry,
 		department: userData.department,
 		companyName: userData.companyName,
 		state: userData.state,
 		country: userData.country,
 	});
-	const { industry, department, companyName, state, country } = values;
+	const { department, companyName, state, country } = values;
+	const newPostDataIndustry = useSelector((state) => state.newPostDataIndustry);
 	const newPostDataType = useSelector((state) => state.newPostDataType);
 	const newPostDataHazardLevel = useSelector((state) => state.newPostDataHazardLevel);
 	const newPostDataEffectDuration = useSelector((state) => state.newPostDataEffectDuration);
 	const newPostDataProblem = useSelector((state) => state.newPostDataProblem);
 	const newPostDataSolution = useSelector((state) => state.newPostDataSolution);
-	const newPostDataDate = useSelector((state) => state.newPostDataDate);
+	const newPostDataDateOccurred = useSelector((state) => state.newPostDataDateOccurred);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const handleChange = (e, field) => {
 		e.preventDefault();
 		switch (field) {
+			case "industry":
+				dispatch(setNewPostDataIndustry(e.target.value));
+				break;
 			case "type":
 				dispatch(setNewPostDataType(e.target.value));
 				break;
@@ -43,22 +54,22 @@ const AddHazard = () => {
 			case "solution":
 				dispatch(setNewPostDataSolution(e.target.value));
 				break;
-			case "date":
-				dispatch(setNewPostDataDate(e.target.value));
+			case "dateOccurred":
+				dispatch(setNewPostDataDateOccurred(e.target.value));
 				break;
 		}
 	};
 	const createHazard = (e) => {
 		e.preventDefault();
 		if (
+			newPostDataIndustry !== "" &&
 			newPostDataType !== "" &&
-			industry !== "" &&
 			department !== "" &&
 			newPostDataHazardLevel !== "" &&
 			newPostDataEffectDuration !== "" &&
 			newPostDataProblem !== "" &&
 			newPostDataSolution !== "" &&
-			newPostDataDate !== "" &&
+			newPostDataDateOccurred !== "" &&
 			companyName !== "" &&
 			state !== "" &&
 			country !== ""
@@ -66,13 +77,13 @@ const AddHazard = () => {
 			addHazard(
 				{
 					type: newPostDataType,
-					industry: industry,
+					industry: newPostDataIndustry,
 					department: department,
 					hazardLevel: newPostDataHazardLevel,
 					effectDuration: newPostDataEffectDuration,
 					problem: newPostDataProblem,
 					solution: newPostDataSolution,
-					date: newPostDataDate,
+					dateOccurred: newPostDataDateOccurred,
 					companyName: companyName,
 					state: state,
 					country: country,
@@ -82,18 +93,18 @@ const AddHazard = () => {
 				.then((response) => {
 					if (!response?.error) {
 						setValues({
-							industry: "",
 							department: "",
 							companyName: "",
 							state: "",
 							country: "",
 						});
+						dispatch(setNewPostDataIndustry(""));
 						dispatch(setNewPostDataType(""));
 						dispatch(setNewPostDataHazardLevel(""));
 						dispatch(setNewPostDataEffectDuration(""));
 						dispatch(setNewPostDataProblem(""));
 						dispatch(setNewPostDataSolution(""));
-						dispatch(setNewPostDataDate(""));
+						dispatch(setNewPostDataDateOccurred(""));
 						toast.success("Hazard added!");
 						navigate("/myposts");
 					} else if (response?.error) {
@@ -112,7 +123,7 @@ const AddHazard = () => {
 		<>
 			<Base>
 				<div className="w-full sxl:h-full sm:h-[800px] sxl:p-[15px] sm:p-[30px]">
-					<div className="w-full h-full bg-white rounded-2xl p-[30px] flex flex-col justify-center items-center">
+					<div className="w-full h-full bg-white rounded-2xl p-[30px] md:pr-12 flex flex-col justify-center items-center">
 						<h1 className="text-center font-semibold text-[28px] text-[#272343] mb-10">Hazard Information</h1>
 						<form className="w-full flex justify-center items-center sxl:flex-wrap sm:flex-nowrap">
 							<div className="sxl:w-full sm:w-2/5 flex flex-col justify-center items-center">
@@ -153,19 +164,32 @@ const AddHazard = () => {
 										</select>
 									</div>
 									<div className="flex flex-col justify-center items-start my-4">
-										<label htmlFor="hazardLevel" className="text-[#272343] ml-1">
-											Preferrable Industries<span className="text-red-600">*</span>
+										<label htmlFor="industry" className="text-[#272343] ml-1">
+											Industry<span className="text-red-600">*</span>
 										</label>
-										<select id="hazardLevel" name="hazardLevel" className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]">
-											<option>Preferrable Industries</option>
-											<option value="Low">Low</option>
-											<option value="Moderate">Moderate</option>
-											<option value="High">High</option>
+										<select
+											id="industry"
+											name="industry"
+											value={newPostDataIndustry}
+											onChange={(e) => handleChange(e, "industry")}
+											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
+										>
+											<option>Industry Type</option>
+											<option value="Agriculture">Agriculture</option>
+											<option value="Apparel">Apparel</option>
+											<option value="Oil & Gas Production">Oil & Gas Production</option>
+											<option value="Construction">Construction</option>
+											<option value="Manufacturing">Manufacturing</option>
+											<option value="Mining">Mining</option>
+											<option value="Forestry">Forestry</option>
+											<option value="Shipping">Shipping</option>
+											<option value="Transport">Transport</option>
+											<option value="Utilities">Utilities</option>
 										</select>
 									</div>
 									<div className="flex flex-col justify-center items-start my-4">
-										<label htmlFor="effectDuration" className="">
-											Effect Duration<span className="text-red-600">*</span>
+										<label htmlFor="effectDuration" className="text-[#272343] ml-1">
+											Effect Duration (in Hours)<span className="text-red-600">*</span>
 										</label>
 										<input
 											id="effectDuration"
@@ -178,23 +202,23 @@ const AddHazard = () => {
 										/>
 									</div>
 									<div className="flex flex-col justify-center items-start mt-2">
-										<label htmlFor="date" className="">
-											Date<span className="text-red-600">*</span>
+										<label htmlFor="dateOccurred" className="text-[#272343] ml-1">
+											Date Of Occurrence<span className="text-red-600">*</span>
 										</label>
 										<input
-											id="date"
-											name="date"
+											id="dateOccurred"
+											name="dateOccurred"
 											type="date"
 											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
-											value={newPostDataDate}
-											onChange={(e) => handleChange(e, "date")}
+											value={newPostDataDateOccurred}
+											onChange={(e) => handleChange(e, "dateOccurred")}
 										/>
 									</div>
 								</div>
 							</div>
 							<div className="sxl:w-full sm:w-3/5 sxl:mt-10 sm:mt-0">
 								<div className="flex flex-col justify-center items-start mb-4">
-									<label htmlFor="problem" className="">
+									<label htmlFor="problem" className="mb-2 text-lg">
 										Problem Of Hazard<span className="text-red-600">*</span>
 									</label>
 									<textarea
@@ -210,7 +234,7 @@ const AddHazard = () => {
 									/>
 								</div>
 								<div className="flex flex-col justify-center items-start mt-4">
-									<label htmlFor="solution" className="">
+									<label htmlFor="solution" className="mb-2 text-lg">
 										Solution of Hazard<span className="text-red-600">*</span>
 									</label>
 									<textarea
