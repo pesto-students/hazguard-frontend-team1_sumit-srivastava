@@ -1,11 +1,11 @@
-import { increaseViewCount } from "../Helpers/hazard";
+import { deleteHazard, increaseViewCount } from "../Helpers/hazard";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { setCheckChange } from "../Store/storingData";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const SinglePost = ({ data }) => {
+const SinglePost = ({ data, fromMyPosts }) => {
 	const dispatch = useDispatch();
 	const accessToken = useSelector((state) => state.accessToken);
 	const navigate = useNavigate();
@@ -17,6 +17,26 @@ const SinglePost = ({ data }) => {
 					navigate(`/post/${hazardId}`);
 					dispatch(setCheckChange());
 					if (response?.error) {
+						return toast.error(response?.message);
+					}
+				})
+				.catch((e) => {
+					toast.error("Not able to increase view count! Please try again!");
+					console.log(e);
+				});
+		} else {
+			return toast.warning("Did not get Hazard Id!");
+		}
+	};
+	const removeHazard = (e, hazardId) => {
+		e.preventDefault();
+		if (hazardId) {
+			deleteHazard({ hazardId: hazardId }, accessToken)
+				.then((response) => {
+					if (!response?.error) {
+						toast.success("Deleted!");
+						dispatch(setCheckChange());
+					} else if (response?.error) {
 						return toast.error(response?.message);
 					}
 				})
@@ -47,6 +67,39 @@ const SinglePost = ({ data }) => {
 					</p>
 				</div>
 				<div className="sxl:w-full md:w-2/5 h-[60%] flex sxl:justify-end md:justify-end items-center">
+					{fromMyPosts && (
+						<>
+							<Link to={`/edithazard/${data.hazardId}`} className="flex mr-4">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24}>
+									<path fill="none" d="M0 0h24v24H0z" />
+									<path
+										fill="#000"
+										d="M9.243 19H21v2H3v-4.243l9.9-9.9 4.242 4.244L9.242 19zm5.07-13.556l2.122-2.122a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414l-2.122 2.121-4.242-4.242z"
+									/>
+								</svg>
+							</Link>
+							<button
+								onClick={(e) => {
+									removeHazard(e, data.hazardId);
+								}}
+								className="flex mr-4"
+							>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={25} height={25}>
+									<path fill="none" d="M0 0h24v24H0z" />
+									<path fill="#000" d="M4 8h16v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8zm3-3V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2h5v2H2V5h5zm2-1v1h6V4H9zm0 8v6h2v-6H9zm4 0v6h2v-6h-2z" />
+								</svg>
+							</button>
+						</>
+					)}
+					<button className="mr-4">
+						<svg width="25" height="25" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M1 25.328V2.53125C1 1.76197 1.70383 1 2.75 1H19.25C20.2962 1 21 1.76197 21 2.53125V25.328L11.4731 20.2127L11 19.9587L10.5269 20.2127L1 25.328Z"
+								stroke="#272343"
+								strokeWidth="2"
+							/>
+						</svg>
+					</button>
 					<div className="flex mr-4">
 						<svg width="20" height="20" viewBox="0 0 25 17" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path
@@ -61,15 +114,6 @@ const SinglePost = ({ data }) => {
 						className="bg-[#EED132] flex justify-center items-center text-[#000] sxl:w-[150px] md:w-[200px] sxl:h-[28px] md:h-[45px] rounded-[40px] sxl:text-[13px] md:text-[18px] font-[700] hover:bg-[rgba(238,209,50,0.8)]"
 					>
 						SOLUTION
-					</button>
-					<button className="ml-[10px]">
-						<svg width="25" height="25" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M1 25.328V2.53125C1 1.76197 1.70383 1 2.75 1H19.25C20.2962 1 21 1.76197 21 2.53125V25.328L11.4731 20.2127L11 19.9587L10.5269 20.2127L1 25.328Z"
-								stroke="#272343"
-								strokeWidth="2"
-							/>
-						</svg>
 					</button>
 				</div>
 			</div>

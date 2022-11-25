@@ -18,7 +18,7 @@ const MyPosts = () => {
 		<Base>
 			<div className="w-[100vw] h-[100vh] overflow-hidden">
 				<Filter values={values} setValues={setValues} industryType={industryType} hazardType={hazardType} hazardLevel={hazardLevel} location={location} search={search} />
-				<Post hazards={allHazardsOfUser} />
+				<Post hazards={allHazardsOfUser} fromMyPosts={true} />
 			</div>
 		</Base>
 	);

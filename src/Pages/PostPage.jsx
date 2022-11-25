@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { BackArrow } from "../Assets/library";
 import image1 from "../Assets/image1.jpg";
 import image2 from "../Assets/image2.jpg";
@@ -7,15 +7,16 @@ import image4 from "../Assets/image4.jpg";
 import { useSelector } from "react-redux";
 
 const Post = () => {
+	const navigate = useNavigate();
 	const { hazardId } = useParams();
 	const hazard = useSelector((state) => state.allHazards.filter((data) => data.hazardId === hazardId)[0]);
 	return (
 		<div className="w-[100vw] h-[100vh] px-[15px] py-[15px] ">
 			<div className="w-[100%] h-[100%] bg-[#fff] rounded-[20px] px-[20px] py-[20px] overflow-y-hidden ">
 				<div className="w-[100%] h-[5%] flex justify-between items-center py-[10px]">
-					<Link to="/home">
+					<button onClick={() => navigate(-1)}>
 						<img src={BackArrow} alt="back" />
-					</Link>
+					</button>
 					<p className="font-[700] text-[#677094] sxl:text-[12px] md:text-[20px]">{hazard.companyName}</p>
 					<p className="font-[700] text-[#677094] sxl:text-[12px] md:text-[20px]">{hazard.dateOccurred.slice(0, 10)}</p>
 				</div>
