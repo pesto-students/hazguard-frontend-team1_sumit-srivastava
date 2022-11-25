@@ -2,7 +2,7 @@ import { useState } from "react";
 import Base from "./Base";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { addHazard } from "../Helpers/hazard";
+// import { EditPost } from "../Helpers/hazard";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	setNewPostDataIndustry,
@@ -12,10 +12,9 @@ import {
 	setNewPostDataProblem,
 	setNewPostDataSolution,
 	setNewPostDataDateOccurred,
-	setNewPostDataIsPublic,
 } from "../Store/storingData";
 
-const AddHazard = () => {
+const EditPost = () => {
 	const userData = useSelector((state) => state.userData);
 	const accessToken = useSelector((state) => state.accessToken);
 	const [values, setValues] = useState({
@@ -32,9 +31,34 @@ const AddHazard = () => {
 	const newPostDataProblem = useSelector((state) => state.newPostDataProblem);
 	const newPostDataSolution = useSelector((state) => state.newPostDataSolution);
 	const newPostDataDateOccurred = useSelector((state) => state.newPostDataDateOccurred);
-	const newPostDataIsPublic = useSelector((state) => state.newPostDataIsPublic);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const handleChange = (e, field) => {
+		e.preventDefault();
+		switch (field) {
+			case "industry":
+				dispatch(setNewPostDataIndustry(e.target.value));
+				break;
+			case "type":
+				dispatch(setNewPostDataType(e.target.value));
+				break;
+			case "hazardLevel":
+				dispatch(setNewPostDataHazardLevel(e.target.value));
+				break;
+			case "effectDuration":
+				dispatch(setNewPostDataEffectDuration(e.target.value));
+				break;
+			case "problem":
+				dispatch(setNewPostDataProblem(e.target.value));
+				break;
+			case "solution":
+				dispatch(setNewPostDataSolution(e.target.value));
+				break;
+			case "dateOccurred":
+				dispatch(setNewPostDataDateOccurred(e.target.value));
+				break;
+		}
+	};
 	const createHazard = (e) => {
 		e.preventDefault();
 		if (
@@ -46,7 +70,6 @@ const AddHazard = () => {
 			newPostDataProblem !== "" &&
 			newPostDataSolution !== "" &&
 			newPostDataDateOccurred !== "" &&
-			newPostDataIsPublic !== "" &&
 			companyName !== "" &&
 			state !== "" &&
 			country !== ""
@@ -61,7 +84,6 @@ const AddHazard = () => {
 					problem: newPostDataProblem,
 					solution: newPostDataSolution,
 					dateOccurred: newPostDataDateOccurred,
-					isPublic: newPostDataIsPublic,
 					companyName: companyName,
 					state: state,
 					country: country,
@@ -83,7 +105,6 @@ const AddHazard = () => {
 						dispatch(setNewPostDataProblem(""));
 						dispatch(setNewPostDataSolution(""));
 						dispatch(setNewPostDataDateOccurred(""));
-						dispatch(setNewPostDataIsPublic(""));
 						toast.success("Hazard added!");
 						navigate("/myposts");
 					} else if (response?.error) {
@@ -115,7 +136,7 @@ const AddHazard = () => {
 											id="type"
 											name="type"
 											value={newPostDataType}
-											onChange={(e) => dispatch(setNewPostDataType(e.target.value))}
+											onChange={(e) => handleChange(e, "type")}
 											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 										>
 											<option>Hazard Type</option>
@@ -133,7 +154,7 @@ const AddHazard = () => {
 											id="hazardLevel"
 											name="hazardLevel"
 											value={newPostDataHazardLevel}
-											onChange={(e) => dispatch(setNewPostDataHazardLevel(e.target.value))}
+											onChange={(e) => handleChange(e, "hazardLevel")}
 											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 										>
 											<option>Hazard Level</option>
@@ -150,7 +171,7 @@ const AddHazard = () => {
 											id="industry"
 											name="industry"
 											value={newPostDataIndustry}
-											onChange={(e) => dispatch(setNewPostDataIndustry(e.target.value))}
+											onChange={(e) => handleChange(e, "industry")}
 											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 										>
 											<option>Industry Type</option>
@@ -177,10 +198,10 @@ const AddHazard = () => {
 											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 											value={newPostDataEffectDuration}
 											placeholder="Enter Effect Duration"
-											onChange={(e) => dispatch(setNewPostDataEffectDuration(e.target.value))}
+											onChange={(e) => handleChange(e, "effectDuration")}
 										/>
 									</div>
-									<div className="flex flex-col justify-center items-start my-4">
+									<div className="flex flex-col justify-center items-start mt-2">
 										<label htmlFor="dateOccurred" className="text-[#272343] ml-1">
 											Date Of Occurrence<span className="text-red-600">*</span>
 										</label>
@@ -190,20 +211,7 @@ const AddHazard = () => {
 											type="date"
 											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 											value={newPostDataDateOccurred}
-											onChange={(e) => dispatch(setNewPostDataDateOccurred(e.target.value))}
-										/>
-									</div>
-									<div className="flex flex-col justify-center items-start mt-2">
-										<label htmlFor="isPublic" className="text-[#272343] ml-1">
-											Do you want to make it public now?<span className="text-red-600">*</span>
-										</label>
-										<input
-											id="isPublic"
-											name="isPublic"
-											type="checkbox"
-											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094] mt-2"
-											defaultChecked="true"
-											onChange={(e) => dispatch(setNewPostDataIsPublic(e.target.checked))}
+											onChange={(e) => handleChange(e, "dateOccurred")}
 										/>
 									</div>
 								</div>
@@ -222,7 +230,7 @@ const AddHazard = () => {
 										rows="4"
 										placeholder="State your hazardous problem you found in your organization/industry...."
 										value={newPostDataProblem}
-										onChange={(e) => dispatch(setNewPostDataProblem(e.target.value))}
+										onChange={(e) => handleChange(e, "problem")}
 									/>
 								</div>
 								<div className="flex flex-col justify-center items-start mt-4">
@@ -238,7 +246,7 @@ const AddHazard = () => {
 										rows="7"
 										placeholder="State your hazardous problem's solution you applied in your organization/industry to solve above stated problem..."
 										value={newPostDataSolution}
-										onChange={(e) => dispatch(setNewPostDataSolution(e.target.value))}
+										onChange={(e) => handleChange(e, "solution")}
 									/>
 								</div>
 							</div>
@@ -258,4 +266,4 @@ const AddHazard = () => {
 	);
 };
 
-export default AddHazard;
+export default EditPost;

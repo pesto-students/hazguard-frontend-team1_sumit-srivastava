@@ -11,6 +11,7 @@ const initial = {
 	newPostDataProblem: "",
 	newPostDataSolution: "",
 	newPostDataDateOccurred: "",
+	newPostDataIsPublic: true,
 	allHazards: "",
 	allHazardsOfUser: "",
 	allSavedHazardsOfUser: "",
@@ -51,6 +52,9 @@ const dataSlice = createSlice({
 		setNewPostDataDateOccurred(state, action) {
 			state["newPostDataDateOccurred"] = action.payload;
 		},
+		setNewPostDataIsPublic(state, action) {
+			state["newPostDataIsPublic"] = action.payload;
+		},
 		setInitialState(state, action) {
 			state = initial;
 		},
@@ -80,6 +84,7 @@ export const {
 	setNewPostDataProblem,
 	setNewPostDataSolution,
 	setNewPostDataDateOccurred,
+	setNewPostDataIsPublic,
 	setInitialState,
 	setAllHazards,
 	setAllHazardsOfUser,

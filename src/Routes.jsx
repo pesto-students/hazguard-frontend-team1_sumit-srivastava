@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes as RouterRoutes, Navigate } from "react-router-dom";
-import { Landing, Home, Saved, Register, Login, Account, Post, AddHazard, Verify, MyPosts, Leaderboard } from "./Pages/Library";
+import { Landing, Home, Saved, Register, Login, Account, Post, AddHazard, Verify, MyPosts, Leaderboard, EditPost } from "./Pages/Library";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { readAllHazards, readAllHazardsOfUser } from "./Helpers/hazard";
@@ -87,15 +87,6 @@ export default function Routes() {
 						</PrivateRoute>
 					}
 				/>
-				{/* <Route
-					exact
-					path="/pricing"
-					element={
-						<PrivateRoute>
-							<Pricing />
-						</PrivateRoute>
-					}
-				/> */}
 				<Route
 					exact
 					path="/myposts"
@@ -138,6 +129,15 @@ export default function Routes() {
 					element={
 						<PrivateRoute>
 							<Post />
+						</PrivateRoute>
+					}
+				/>
+				<Route
+					exact
+					path="/edithazard/:hazardId"
+					element={
+						<PrivateRoute>
+							<EditPost />
 						</PrivateRoute>
 					}
 				/>
