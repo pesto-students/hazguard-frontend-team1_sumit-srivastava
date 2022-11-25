@@ -13,6 +13,7 @@ import {
 	setNewPostDataSolution,
 	setNewPostDataDateOccurred,
 	setNewPostDataIsPublic,
+	setCheckChange,
 } from "../Store/storingData";
 
 const AddHazard = () => {
@@ -84,6 +85,7 @@ const AddHazard = () => {
 						dispatch(setNewPostDataSolution(""));
 						dispatch(setNewPostDataDateOccurred(""));
 						dispatch(setNewPostDataIsPublic(""));
+						dispatch(setCheckChange());
 						toast.success("Hazard added!");
 						navigate("/myposts");
 					} else if (response?.error) {

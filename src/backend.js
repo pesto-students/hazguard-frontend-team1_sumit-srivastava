@@ -15,6 +15,7 @@ export const AllSavedHazards_API = `${BACKEND}api/user/allsavedposts`;
 
 // Hazard APIs
 export const AddHazard_API = `${BACKEND}api/create/hazard`;
+export const EditHazard_API = `${BACKEND}api/update/hazard`;
 export const DeleteHazard_API = `${BACKEND}api/delete/hazard`;
 export const ReadAllHazards_API = `${BACKEND}api/read/allhazards`;
 export const ReadAllHazardsOfUser_API = `${BACKEND}api/read/allhazardsofuser`;

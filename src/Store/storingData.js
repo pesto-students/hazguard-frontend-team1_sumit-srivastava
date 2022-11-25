@@ -12,6 +12,14 @@ const initial = {
 	newPostDataSolution: "",
 	newPostDataDateOccurred: "",
 	newPostDataIsPublic: true,
+	editPostDataIndustry: "",
+	editPostDataType: "",
+	editPostDataHazardLevel: "",
+	editPostDataEffectDuration: "",
+	editPostDataProblem: "",
+	editPostDataSolution: "",
+	editPostDataDateOccurred: "",
+	editPostDataIsPublic: "",
 	allHazards: "",
 	allHazardsOfUser: "",
 	allSavedHazardsOfUser: "",
@@ -55,6 +63,30 @@ const dataSlice = createSlice({
 		setNewPostDataIsPublic(state, action) {
 			state["newPostDataIsPublic"] = action.payload;
 		},
+		setEditPostDataIndustry(state, action) {
+			state["editPostDataIndustry"] = action.payload;
+		},
+		setEditPostDataType(state, action) {
+			state["editPostDataType"] = action.payload;
+		},
+		setEditPostDataHazardLevel(state, action) {
+			state["editPostDataHazardLevel"] = action.payload;
+		},
+		setEditPostDataEffectDuration(state, action) {
+			state["editPostDataEffectDuration"] = action.payload;
+		},
+		setEditPostDataProblem(state, action) {
+			state["editPostDataProblem"] = action.payload;
+		},
+		setEditPostDataSolution(state, action) {
+			state["editPostDataSolution"] = action.payload;
+		},
+		setEditPostDataDateOccurred(state, action) {
+			state["editPostDataDateOccurred"] = action.payload;
+		},
+		setEditPostDataIsPublic(state, action) {
+			state["editPostDataIsPublic"] = action.payload;
+		},
 		setInitialState(state, action) {
 			state = initial;
 		},
@@ -85,6 +117,14 @@ export const {
 	setNewPostDataSolution,
 	setNewPostDataDateOccurred,
 	setNewPostDataIsPublic,
+	setEditPostDataIndustry,
+	setEditPostDataType,
+	setEditPostDataHazardLevel,
+	setEditPostDataEffectDuration,
+	setEditPostDataProblem,
+	setEditPostDataSolution,
+	setEditPostDataDateOccurred,
+	setEditPostDataIsPublic,
 	setInitialState,
 	setAllHazards,
 	setAllHazardsOfUser,

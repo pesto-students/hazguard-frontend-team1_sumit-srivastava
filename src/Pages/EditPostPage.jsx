@@ -1,118 +1,90 @@
-import { useState } from "react";
 import Base from "./Base";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-// import { EditPost } from "../Helpers/hazard";
+import { editHazard } from "../Helpers/hazard";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	setNewPostDataIndustry,
-	setNewPostDataType,
-	setNewPostDataHazardLevel,
-	setNewPostDataEffectDuration,
-	setNewPostDataProblem,
-	setNewPostDataSolution,
-	setNewPostDataDateOccurred,
+	setEditPostDataIndustry,
+	setEditPostDataType,
+	setEditPostDataHazardLevel,
+	setEditPostDataEffectDuration,
+	setEditPostDataProblem,
+	setEditPostDataSolution,
+	setEditPostDataDateOccurred,
+	setEditPostDataIsPublic,
+	setCheckChange,
 } from "../Store/storingData";
+import { useEffect } from "react";
 
 const EditPost = () => {
-	const userData = useSelector((state) => state.userData);
-	const accessToken = useSelector((state) => state.accessToken);
-	const [values, setValues] = useState({
-		department: userData.department,
-		companyName: userData.companyName,
-		state: userData.state,
-		country: userData.country,
-	});
-	const { department, companyName, state, country } = values;
-	const newPostDataIndustry = useSelector((state) => state.newPostDataIndustry);
-	const newPostDataType = useSelector((state) => state.newPostDataType);
-	const newPostDataHazardLevel = useSelector((state) => state.newPostDataHazardLevel);
-	const newPostDataEffectDuration = useSelector((state) => state.newPostDataEffectDuration);
-	const newPostDataProblem = useSelector((state) => state.newPostDataProblem);
-	const newPostDataSolution = useSelector((state) => state.newPostDataSolution);
-	const newPostDataDateOccurred = useSelector((state) => state.newPostDataDateOccurred);
+	const { hazardId } = useParams();
 	const dispatch = useDispatch();
+	const hazard = useSelector((state) => state.allHazardsOfUser.filter((data) => data.hazardId === hazardId)[0]);
+	const accessToken = useSelector((state) => state.accessToken);
+	useEffect(() => {
+		dispatch(setEditPostDataType(hazard.type));
+		dispatch(setEditPostDataIndustry(hazard.industry));
+		dispatch(setEditPostDataHazardLevel(hazard.hazardLevel));
+		dispatch(setEditPostDataEffectDuration(parseInt(hazard.effectDuration) * 24));
+		dispatch(setEditPostDataProblem(hazard.problem));
+		dispatch(setEditPostDataSolution(hazard.solution));
+		dispatch(setEditPostDataDateOccurred(hazard.dateOccurred.slice(0, 10)));
+		dispatch(setEditPostDataIsPublic(hazard.isPublic));
+	}, []);
+	const editPostDataType = useSelector((state) => state.editPostDataType);
+	const editPostDataIndustry = useSelector((state) => state.editPostDataIndustry);
+	const editPostDataHazardLevel = useSelector((state) => state.editPostDataHazardLevel);
+	const editPostDataEffectDuration = useSelector((state) => state.editPostDataEffectDuration);
+	const editPostDataProblem = useSelector((state) => state.editPostDataProblem);
+	const editPostDataSolution = useSelector((state) => state.editPostDataSolution);
+	const editPostDataDateOccurred = useSelector((state) => state.editPostDataDateOccurred);
+	const editPostDataIsPublic = useSelector((state) => state.editPostDataIsPublic);
 	const navigate = useNavigate();
-	const handleChange = (e, field) => {
-		e.preventDefault();
-		switch (field) {
-			case "industry":
-				dispatch(setNewPostDataIndustry(e.target.value));
-				break;
-			case "type":
-				dispatch(setNewPostDataType(e.target.value));
-				break;
-			case "hazardLevel":
-				dispatch(setNewPostDataHazardLevel(e.target.value));
-				break;
-			case "effectDuration":
-				dispatch(setNewPostDataEffectDuration(e.target.value));
-				break;
-			case "problem":
-				dispatch(setNewPostDataProblem(e.target.value));
-				break;
-			case "solution":
-				dispatch(setNewPostDataSolution(e.target.value));
-				break;
-			case "dateOccurred":
-				dispatch(setNewPostDataDateOccurred(e.target.value));
-				break;
-		}
-	};
-	const createHazard = (e) => {
+	const updateHazard = (e) => {
 		e.preventDefault();
 		if (
-			newPostDataIndustry !== "" &&
-			newPostDataType !== "" &&
-			department !== "" &&
-			newPostDataHazardLevel !== "" &&
-			newPostDataEffectDuration !== "" &&
-			newPostDataProblem !== "" &&
-			newPostDataSolution !== "" &&
-			newPostDataDateOccurred !== "" &&
-			companyName !== "" &&
-			state !== "" &&
-			country !== ""
+			editPostDataType !== "" &&
+			editPostDataIndustry !== "" &&
+			editPostDataHazardLevel !== "" &&
+			editPostDataEffectDuration !== "" &&
+			editPostDataProblem !== "" &&
+			editPostDataSolution !== "" &&
+			editPostDataDateOccurred !== "" &&
+			editPostDataIsPublic !== ""
 		) {
-			addHazard(
+			editHazard(
 				{
-					type: newPostDataType,
-					industry: newPostDataIndustry,
-					department: department,
-					hazardLevel: newPostDataHazardLevel,
-					effectDuration: newPostDataEffectDuration,
-					problem: newPostDataProblem,
-					solution: newPostDataSolution,
-					dateOccurred: newPostDataDateOccurred,
-					companyName: companyName,
-					state: state,
-					country: country,
+					hazardId: hazardId,
+					type: editPostDataType,
+					industry: editPostDataIndustry,
+					hazardLevel: editPostDataHazardLevel,
+					effectDuration: editPostDataEffectDuration,
+					problem: editPostDataProblem,
+					solution: editPostDataSolution,
+					dateOccurred: editPostDataDateOccurred,
+					isPublic: editPostDataIsPublic,
 				},
 				accessToken
 			)
 				.then((response) => {
 					if (!response?.error) {
-						setValues({
-							department: "",
-							companyName: "",
-							state: "",
-							country: "",
-						});
-						dispatch(setNewPostDataIndustry(""));
-						dispatch(setNewPostDataType(""));
-						dispatch(setNewPostDataHazardLevel(""));
-						dispatch(setNewPostDataEffectDuration(""));
-						dispatch(setNewPostDataProblem(""));
-						dispatch(setNewPostDataSolution(""));
-						dispatch(setNewPostDataDateOccurred(""));
-						toast.success("Hazard added!");
+						dispatch(setEditPostDataType(""));
+						dispatch(setEditPostDataIndustry(""));
+						dispatch(setEditPostDataHazardLevel(""));
+						dispatch(setEditPostDataEffectDuration(""));
+						dispatch(setEditPostDataProblem(""));
+						dispatch(setEditPostDataSolution(""));
+						dispatch(setEditPostDataDateOccurred(""));
+						dispatch(setEditPostDataIsPublic(""));
+						dispatch(setCheckChange());
+						toast.success("Hazard edited!");
 						navigate("/myposts");
 					} else if (response?.error) {
 						return toast.error(response?.message);
 					}
 				})
 				.catch((e) => {
-					toast.error("Not able to add! Please try again!");
+					toast.error("Not able to edit! Please try again!");
 					console.log(e);
 				});
 		} else {
@@ -135,8 +107,8 @@ const EditPost = () => {
 										<select
 											id="type"
 											name="type"
-											value={newPostDataType}
-											onChange={(e) => handleChange(e, "type")}
+											value={editPostDataType}
+											onChange={(e) => dispatch(setEditPostDataType(e.target.value))}
 											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 										>
 											<option>Hazard Type</option>
@@ -153,8 +125,8 @@ const EditPost = () => {
 										<select
 											id="hazardLevel"
 											name="hazardLevel"
-											value={newPostDataHazardLevel}
-											onChange={(e) => handleChange(e, "hazardLevel")}
+											value={editPostDataHazardLevel}
+											onChange={(e) => dispatch(setEditPostDataHazardLevel(e.target.value))}
 											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 										>
 											<option>Hazard Level</option>
@@ -170,8 +142,8 @@ const EditPost = () => {
 										<select
 											id="industry"
 											name="industry"
-											value={newPostDataIndustry}
-											onChange={(e) => handleChange(e, "industry")}
+											value={editPostDataIndustry}
+											onChange={(e) => dispatch(setEditPostDataIndustry(e.target.value))}
 											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 										>
 											<option>Industry Type</option>
@@ -196,12 +168,12 @@ const EditPost = () => {
 											name="effectDuration"
 											type="number"
 											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
-											value={newPostDataEffectDuration}
+											value={editPostDataEffectDuration}
 											placeholder="Enter Effect Duration"
-											onChange={(e) => handleChange(e, "effectDuration")}
+											onChange={(e) => dispatch(setEditPostDataEffectDuration(e.target.value))}
 										/>
 									</div>
-									<div className="flex flex-col justify-center items-start mt-2">
+									<div className="flex flex-col justify-center items-start my-4">
 										<label htmlFor="dateOccurred" className="text-[#272343] ml-1">
 											Date Of Occurrence<span className="text-red-600">*</span>
 										</label>
@@ -210,8 +182,21 @@ const EditPost = () => {
 											name="dateOccurred"
 											type="date"
 											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
-											value={newPostDataDateOccurred}
-											onChange={(e) => handleChange(e, "dateOccurred")}
+											value={editPostDataDateOccurred}
+											onChange={(e) => dispatch(setEditPostDataDateOccurred(e.target.value))}
+										/>
+									</div>
+									<div className="flex flex-col justify-center items-start mt-2">
+										<label htmlFor="isPublic" className="text-[#272343] ml-1">
+											Do you want to make it public?<span className="text-red-600">*</span>
+										</label>
+										<input
+											id="isPublic"
+											name="isPublic"
+											type="checkbox"
+											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094] mt-2"
+											checked={editPostDataIsPublic}
+											onChange={(e) => dispatch(setEditPostDataIsPublic(e.target.checked))}
 										/>
 									</div>
 								</div>
@@ -229,8 +214,8 @@ const EditPost = () => {
 										cols="30"
 										rows="4"
 										placeholder="State your hazardous problem you found in your organization/industry...."
-										value={newPostDataProblem}
-										onChange={(e) => handleChange(e, "problem")}
+										value={editPostDataProblem}
+										onChange={(e) => dispatch(setEditPostDataProblem(e.target.value))}
 									/>
 								</div>
 								<div className="flex flex-col justify-center items-start mt-4">
@@ -245,8 +230,8 @@ const EditPost = () => {
 										cols="30"
 										rows="7"
 										placeholder="State your hazardous problem's solution you applied in your organization/industry to solve above stated problem..."
-										value={newPostDataSolution}
-										onChange={(e) => handleChange(e, "solution")}
+										value={editPostDataSolution}
+										onChange={(e) => dispatch(setEditPostDataSolution(e.target.value))}
 									/>
 								</div>
 							</div>
@@ -254,7 +239,7 @@ const EditPost = () => {
 						<button
 							className="bg-[#EED132] w-[175px] h-[50px] mt-10 rounded-3xl font-semibold text-[#000] text-[20px] hover:bg-[rgba(238,209,50,0.8)]"
 							onClick={(e) => {
-								createHazard(e);
+								updateHazard(e);
 							}}
 						>
 							SUBMIT
