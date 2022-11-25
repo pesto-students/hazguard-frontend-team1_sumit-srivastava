@@ -1,4 +1,4 @@
-import { AddHazard_API, DeleteHazard_API, ReadAllHazards_API, ReadAllHazardsOfUser_API } from "../backend";
+import { AddHazard_API, DeleteHazard_API, ReadAllHazards_API, ReadAllHazardsOfUser_API, IncreaseView_API } from "../backend";
 import { toast } from "react-toastify";
 
 export async function addHazard(info, accessToken) {
@@ -49,7 +49,7 @@ export async function readAllHazards(accessToken) {
 		});
 		return await response.json();
 	} catch (err) {
-		toast.error("Not able to get profile! Please try again!");
+		toast.error("Not able to get hazards! Please try again!");
 		return console.log(err);
 	}
 }
@@ -66,7 +66,25 @@ export async function readAllHazardsOfUser(accessToken) {
 		});
 		return await response.json();
 	} catch (err) {
-		toast.error("Not able to get profile! Please try again!");
+		toast.error("Not able to get hazards! Please try again!");
+		return console.log(err);
+	}
+}
+
+export async function increaseViewCount(info, accessToken) {
+	try {
+		const response = await fetch(IncreaseView_API, {
+			method: "PATCH",
+			headers: {
+				Authorization: `Bearer ${accessToken}`,
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(info),
+		});
+		return await response.json();
+	} catch (err) {
+		toast.error("Not able to increase view count! Please try again!");
 		return console.log(err);
 	}
 }

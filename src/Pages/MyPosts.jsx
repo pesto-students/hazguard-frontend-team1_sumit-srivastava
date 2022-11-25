@@ -2,6 +2,7 @@ import Filter from "../Components/Filter";
 import Post from "../Components/Post";
 import Base from "./Base";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const MyPosts = () => {
 	const [values, setValues] = useState({
@@ -12,11 +13,12 @@ const MyPosts = () => {
 		search: "",
 	});
 	const { industryType, hazardType, hazardLevel, location, search } = values;
+	const allHazardsOfUser = useSelector((state) => state.allHazardsOfUser);
 	return (
 		<Base>
 			<div className="w-[100vw] h-[100vh] overflow-hidden">
 				<Filter values={values} setValues={setValues} industryType={industryType} hazardType={hazardType} hazardLevel={hazardLevel} location={location} search={search} />
-				<Post />
+				<Post hazards={allHazardsOfUser} />
 			</div>
 		</Base>
 	);

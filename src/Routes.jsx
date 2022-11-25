@@ -3,7 +3,8 @@ import { Landing, Home, Saved, Register, Login, Account, Post, AddHazard, Verify
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { readAllHazards, readAllHazardsOfUser } from "./Helpers/hazard";
-import { setAllHazards, setAllHazardsOfUser } from "./Store/storingData";
+import { setAllHazards, setAllHazardsOfUser, setAllSavedHazardsOfUser } from "./Store/storingData";
+import { readAllSavedHazards } from "./Helpers/user";
 
 export default function Routes() {
 	const dispatch = useDispatch();
@@ -19,38 +20,56 @@ export default function Routes() {
 		}
 	}
 	useEffect(() => {
-		const getAllHazards = async () => {
-			const allHazards = await readAllHazards(accessToken)
-				.then((response) => {
-					if (!response?.error) {
-						return response;
-					} else if (response?.error) {
-						return toast.error(response?.message);
-					}
-				})
-				.catch((e) => {
-					toast.error("Not able to verify! Please try again!");
-					console.log(e);
-				});
-			dispatch(setAllHazards(allHazards.data));
-		};
-		getAllHazards();
-		const getAllHazardsOfUser = async () => {
-			const allHazardsOfUser = await readAllHazardsOfUser(accessToken)
-				.then((response) => {
-					if (!response?.error) {
-						return response;
-					} else if (response?.error) {
-						return toast.error(response?.message);
-					}
-				})
-				.catch((e) => {
-					toast.error("Not able to verify! Please try again!");
-					console.log(e);
-				});
-			dispatch(setAllHazardsOfUser(allHazardsOfUser.data));
-		};
-		getAllHazardsOfUser();
+		if (userData && refreshToken && accessToken) {
+			const getAllHazards = async () => {
+				const allHazards = await readAllHazards(accessToken)
+					.then((response) => {
+						if (!response?.error) {
+							return response;
+						} else if (response?.error) {
+							return toast.error(response?.message);
+						}
+					})
+					.catch((e) => {
+						toast.error("Not able to get hazards! Please try again!");
+						console.log(e);
+					});
+				dispatch(setAllHazards(allHazards.data));
+			};
+			getAllHazards();
+			const getAllHazardsOfUser = async () => {
+				const allHazardsOfUser = await readAllHazardsOfUser(accessToken)
+					.then((response) => {
+						if (!response?.error) {
+							return response;
+						} else if (response?.error) {
+							return toast.error(response?.message);
+						}
+					})
+					.catch((e) => {
+						toast.error("Not able to get hazards! Please try again!");
+						console.log(e);
+					});
+				dispatch(setAllHazardsOfUser(allHazardsOfUser.data));
+			};
+			getAllHazardsOfUser();
+			const getAllSavedHazardsOfUser = async () => {
+				const allSavedHazardsOfUser = await readAllSavedHazards(accessToken)
+					.then((response) => {
+						if (!response?.error) {
+							return response;
+						} else if (response?.error) {
+							return toast.error(response?.message);
+						}
+					})
+					.catch((e) => {
+						toast.error("Not able to get hazards! Please try again!");
+						console.log(e);
+					});
+				dispatch(setAllSavedHazardsOfUser(allSavedHazardsOfUser.data));
+			};
+			getAllSavedHazardsOfUser();
+		}
 	}, [checkChange]);
 	return (
 		<BrowserRouter>
@@ -115,7 +134,7 @@ export default function Routes() {
 				/>
 				<Route
 					exact
-					path="/post/:id"
+					path="/post/:hazardId"
 					element={
 						<PrivateRoute>
 							<Post />

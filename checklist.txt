@@ -14,4 +14,3 @@ Work for Friday
 2. ReadMe
 3. Delete, Save/Unsave, Edit, Public/Hidden Hazard API
 4. Edit Profile, After Take All Details
-5. Effect Duration

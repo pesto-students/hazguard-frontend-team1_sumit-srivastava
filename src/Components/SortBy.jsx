@@ -1,11 +1,8 @@
 const SortBy = () => {
 	return (
-		<div className="sxl:hidden md:flex w-[20%] h-[100%] bg-[#fff] ml-[30px] rounded-[20px] flex-col justify-start items-center">
-			<div className="w-[100%] h-[15%] flex justify-center items-center">
-				<button className="w-[70%] h-[40px] bg-[#EED132] rounded-[30px] font-[700] text-[#000] sxl:text-[15px] lg:text-[18px] hover:bg-[rgba(238,209,50,0.8)]">Upgrade Account</button>
-			</div>
+		<div className="sxl:hidden self-start md:flex w-[20%] h-[90%] bg-[#fff] ml-[30px] rounded-[20px] flex-col justify-start items-center">
 			<div className="w-[80%] h-[85%] flex flex-col justify-start items-start">
-				<div className="text-[20px] font-[700] text-[#272343]">Sort By</div>
+				<div className="text-2xl self-center mt-8 font-[600] text-[#272343]">Sort By</div>
 				<div className="flex mt-[10px] flex-col">
 					<div className="font-[700] text-[17px] text-[#677094]">Date</div>
 					<div className="ml-3 font-[500] text-[17px] text-[#677094]">

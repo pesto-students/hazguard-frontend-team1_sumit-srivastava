@@ -13,6 +13,7 @@ const initial = {
 	newPostDataDateOccurred: "",
 	allHazards: "",
 	allHazardsOfUser: "",
+	allSavedHazardsOfUser: "",
 	checkChange: false,
 };
 
@@ -59,8 +60,11 @@ const dataSlice = createSlice({
 		setAllHazardsOfUser(state, action) {
 			state["allHazardsOfUser"] = action.payload;
 		},
+		setAllSavedHazardsOfUser(state, action) {
+			state["allSavedHazardsOfUser"] = action.payload;
+		},
 		setCheckChange(state, action) {
-			state["checkChange"] = action.payload;
+			state["checkChange"] = !state["checkChange"];
 		},
 	},
 });
@@ -79,6 +83,7 @@ export const {
 	setInitialState,
 	setAllHazards,
 	setAllHazardsOfUser,
+	setAllSavedHazardsOfUser,
 	setCheckChange,
 } = dataSlice.actions;
 

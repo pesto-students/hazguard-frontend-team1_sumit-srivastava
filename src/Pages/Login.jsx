@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, profile } from "../Helpers/auth";
 import { useDispatch } from "react-redux";
-import { setAccessToken, setRefreshToken, setUserData } from "../Store/storingData";
+import { setAccessToken, setRefreshToken, setUserData, setCheckChange } from "../Store/storingData";
 
 const Login = () => {
 	const dispatch = useDispatch();
@@ -45,6 +45,7 @@ const Login = () => {
 						);
 						dispatch(setAccessToken(response?.accessToken));
 						dispatch(setRefreshToken(response?.refreshToken));
+						dispatch(setCheckChange());
 						navigate("/home");
 					} else if (response?.error) {
 						return toast.error(response?.message);
