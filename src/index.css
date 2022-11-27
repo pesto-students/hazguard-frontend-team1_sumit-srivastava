@@ -51,6 +51,7 @@ select {
 	width: 5px;
 	background-color: white;
 }
+
 .addScrollBar::-webkit-scrollbar-thumb {
 	display: inline-block;
 	background-color: #eed132;

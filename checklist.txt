@@ -5,13 +5,24 @@ lightFont: "#677094"
 lightGrey: "#B7B6B6"
 primaryYellow: "#EED132"
 
-Payment Integration
-Add Images In Hazard
-View Count
-
-Work for Friday
+Misc Work -
 1. Landing Page
-2. ReadMe
-3. Save/Unsave
-4. Edit Profile, After Registering Take All Details
-5. View Result Count
+2. ReadMe With All Artefacts
+
+Frontend -
+1. Save/Unsave
+2. Edit Profile
+3. After Registering Take All Details
+4. View Result Count
+5. Improve CSS
+
+Frontend & Backend -
+1. Images Upload With Amazon S3
+2. Demo User
+3. Paid Demo User
+4. Manage Subscription
+5. Leaderboard
+
+Frontend & Backend (Less Priority) -
+1. Google Login
+2. Comments on Hazards
