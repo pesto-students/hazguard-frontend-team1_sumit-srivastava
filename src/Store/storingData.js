@@ -88,7 +88,7 @@ const dataSlice = createSlice({
 			state["editPostDataIsPublic"] = action.payload;
 		},
 		setInitialState(state, action) {
-			state = initial;
+			return initial;
 		},
 		setAllHazards(state, action) {
 			state["allHazards"] = action.payload;

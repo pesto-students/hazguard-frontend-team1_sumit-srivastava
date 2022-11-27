@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, location, search }) => {
+const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, location, locationOptions }) => {
 	const handleChange = (name) => (event) => {
 		setValues({ ...values, [name]: event.target.value });
 	};
@@ -18,7 +16,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						onChange={handleChange("industryType")}
 						className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm text-red-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 					>
-						<option>Industry Type</option>
+						<option value="">Industry Type</option>
 						<option value="Agriculture">Agriculture</option>
 						<option value="Apparel">Apparel</option>
 						<option value="Oil & Gas Production">Oil & Gas Production</option>
@@ -42,7 +40,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						onChange={handleChange("hazardType")}
 						className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm text-yellow-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 					>
-						<option>Hazard Type</option>
+						<option value="">Hazard Type</option>
 						<option value="Safety">Safety</option>
 						<option value="Biological">Biological</option>
 						<option value="Physical">Physical</option>
@@ -60,7 +58,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						onChange={handleChange("hazardLevel")}
 						className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm text-blue-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 					>
-						<option>Hazard Level</option>
+						<option value="">Hazard Level</option>
 						<option value="Low">Low</option>
 						<option value="Moderate">Moderate</option>
 						<option value="High">High</option>
@@ -77,10 +75,14 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						onChange={handleChange("location")}
 						className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm text-[#677094] font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 					>
-						<option>Location</option>
-						<option value="Delhi, India">Delhi, India</option>
-						<option value="Gujarat, India">Gujarat, India</option>
-						<option value="Maharashtra, India">Maharashtra, India</option>
+						<option value="">Location</option>
+						{locationOptions.map((data) => {
+							return (
+								<option key={data[1]} value={data[0]}>
+									{data[0]}
+								</option>
+							);
+						})}
 					</select>
 				</div>
 			</div>
@@ -94,8 +96,8 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 					type="text"
 					className="w-[75%] py-2.5 px-0 text-sm text-gray-500 bg-transparent border-0 border-b-2"
 					placeholder="Type here to search"
-					value={search}
-					onChange={handleChange("search")}
+					// value={search}
+					// onChange={handleChange("search")}
 				/>
 			</div>
 		</div>

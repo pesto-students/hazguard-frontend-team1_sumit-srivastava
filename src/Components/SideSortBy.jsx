@@ -9,7 +9,7 @@ const SideSortBy = () => {
 				</div>
 				<div className="flex">
 					<input type="checkbox" name="Date" id="date" className="w-[20px] accent-[#677094] my-0.5" />
-					<div className="ml-[10px] font-[700] text-[15px] text-[#677094]">Hazard-Level</div>
+					<div className="ml-[10px] font-[700] text-[15px] text-[#677094]">Hazard Level</div>
 				</div>
 				<div className="flex">
 					<input type="checkbox" name="Date" id="date" className="w-[20px] accent-[#677094] mt-1" />

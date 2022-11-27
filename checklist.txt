@@ -14,3 +14,4 @@ Work for Friday
 2. ReadMe
 3. Save/Unsave
 4. Edit Profile, After Registering Take All Details
+5. View Result Count
