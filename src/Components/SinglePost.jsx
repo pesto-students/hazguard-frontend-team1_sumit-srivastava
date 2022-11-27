@@ -4,9 +4,11 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { setCheckChange } from "../Store/storingData";
 import { Link, useNavigate } from "react-router-dom";
+import { addToSavedPosts, removeFromSavedPosts } from "../Helpers/user";
 
 const SinglePost = ({ data, fromMyPosts }) => {
 	const dispatch = useDispatch();
+	const userData = useSelector((state) => state.userData);
 	const accessToken = useSelector((state) => state.accessToken);
 	const navigate = useNavigate();
 	const increaseView = (e, hazardId) => {
@@ -48,6 +50,46 @@ const SinglePost = ({ data, fromMyPosts }) => {
 			return toast.warning("Did not get Hazard Id!");
 		}
 	};
+	const addToSaved = (e, _id) => {
+		e.preventDefault();
+		if (_id) {
+			addToSavedPosts({ _id: _id }, accessToken)
+				.then((response) => {
+					if (!response?.error) {
+						toast.success("Added!");
+						dispatch(setCheckChange());
+					} else if (response?.error) {
+						return toast.error(response?.message);
+					}
+				})
+				.catch((e) => {
+					toast.error("Not able to add to saved hazards! Please try again!");
+					console.log(e);
+				});
+		} else {
+			return toast.warning("Did not get Hazard Id!");
+		}
+	};
+	const removeFromSaved = (e, _id) => {
+		e.preventDefault();
+		if (_id) {
+			removeFromSavedPosts({ _id: _id }, accessToken)
+				.then((response) => {
+					if (!response?.error) {
+						toast.success("Removed!");
+						dispatch(setCheckChange());
+					} else if (response?.error) {
+						return toast.error(response?.message);
+					}
+				})
+				.catch((e) => {
+					toast.error("Not able to remove from saved hazards! Please try again!");
+					console.log(e);
+				});
+		} else {
+			return toast.warning("Did not get Hazard Id!");
+		}
+	};
 	return (
 		<div className="w-[100%] p-3 sxl:h-[180px] md:h-[170px] min-h-[230px] max-h-[200px] first:mt-[0px] mt-[10px] bg-[#fff] rounded-[20px] flex flex-col items-center justify-center">
 			<div className="flex mb-5 w-[100%] h-[10%] justify-between px-3 pt-1 text-[#677094] sxl:text-[12px] md:text-[22px] font-[700]">
@@ -63,11 +105,11 @@ const SinglePost = ({ data, fromMyPosts }) => {
 					<p className=" text-white w-fit bg-yellow-400  md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-2 md:text-[15px] px-2 py-1 font-normal rounded-sm">{data.type}</p>
 					<p className=" text-white w-fit bg-blue-400  md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-2 md:text-[15px] px-2 py-1 font-normal rounded-sm">{data.hazardLevel}</p>
 					<p className=" text-white w-fit bg-green-400  md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-2 md:text-[15px] px-2 py-1 font-normal rounded-sm">
-						{data.effectDuration.toFixed(3)} days
+						{parseInt(data.effectDuration) > 1 ? parseInt(data.effectDuration) : data.effectDuration.toFixed(1)} days
 					</p>
 				</div>
 				<div className="sxl:w-full md:w-2/5 h-[60%] flex sxl:justify-end md:justify-end items-center">
-					{fromMyPosts && (
+					{data.userId === userData.userId && (
 						<>
 							<Link to={`/edithazard/${data.hazardId}`} className="flex mr-4">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24}>
@@ -91,16 +133,26 @@ const SinglePost = ({ data, fromMyPosts }) => {
 							</button>
 						</>
 					)}
-					{!fromMyPosts && (
-						<button className="mr-4">
-							<svg width="25" height="25" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M1 25.328V2.53125C1 1.76197 1.70383 1 2.75 1H19.25C20.2962 1 21 1.76197 21 2.53125V25.328L11.4731 20.2127L11 19.9587L10.5269 20.2127L1 25.328Z"
-									stroke="#272343"
-									strokeWidth="2"
-								/>
-							</svg>
-						</button>
+					{!(data.userId === userData.userId) && (
+						<>
+							{data?.isSaved ? (
+								<button className="mr-4" onClick={(e) => removeFromSaved(e, data._id)}>
+									<svg width="25" height="25" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 27V2.53125C0 1.13326 1.2312 0 2.75 0H19.25C20.7688 0 22 1.13326 22 2.53125V27L11 21.0938L0 27Z" fill="#677094" />
+									</svg>
+								</button>
+							) : (
+								<button className="mr-4" onClick={(e) => addToSaved(e, data._id)}>
+									<svg width="25" height="25" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M1 25.328V2.53125C1 1.76197 1.70383 1 2.75 1H19.25C20.2962 1 21 1.76197 21 2.53125V25.328L11.4731 20.2127L11 19.9587L10.5269 20.2127L1 25.328Z"
+											stroke="#272343"
+											strokeWidth="2"
+										/>
+									</svg>
+								</button>
+							)}
+						</>
 					)}
 					<div className="flex mr-4">
 						<svg width="20" height="20" viewBox="0 0 25 17" fill="none" xmlns="http://www.w3.org/2000/svg">

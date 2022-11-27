@@ -38,22 +38,6 @@ export default function Routes() {
 		};
 		getAllHazards();
 		if (userData && refreshToken && accessToken) {
-			const getAllHazardsOfUser = async () => {
-				const allHazardsOfUser = await readAllHazardsOfUser(accessToken)
-					.then((response) => {
-						if (!response?.error) {
-							return response;
-						} else if (response?.error) {
-							return toast.error(response?.message);
-						}
-					})
-					.catch((e) => {
-						toast.error("Not able to get hazards! Please try again!");
-						console.log(e);
-					});
-				dispatch(setAllHazardsOfUser(allHazardsOfUser.data));
-			};
-			getAllHazardsOfUser();
 			const getAllSavedHazardsOfUser = async () => {
 				const allSavedHazardsOfUser = await readAllSavedHazards(accessToken)
 					.then((response) => {
@@ -70,6 +54,22 @@ export default function Routes() {
 				dispatch(setAllSavedHazardsOfUser(allSavedHazardsOfUser.data));
 			};
 			getAllSavedHazardsOfUser();
+			const getAllHazardsOfUser = async () => {
+				const allHazardsOfUser = await readAllHazardsOfUser(accessToken)
+					.then((response) => {
+						if (!response?.error) {
+							return response;
+						} else if (response?.error) {
+							return toast.error(response?.message);
+						}
+					})
+					.catch((e) => {
+						toast.error("Not able to get hazards! Please try again!");
+						console.log(e);
+					});
+				dispatch(setAllHazardsOfUser(allHazardsOfUser.data));
+			};
+			getAllHazardsOfUser();
 		}
 	}, [checkChange]);
 	return (

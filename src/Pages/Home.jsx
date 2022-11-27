@@ -3,10 +3,16 @@ import Post from "../Components/Post";
 import Base from "./Base";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { filterAll, sortAll } from "../Utility/sortAndFilters";
+import { filterAll, sortAll } from "../Utilities/sortAndFilters";
 
 const Home = () => {
-	const [allHazards, setAllHazards] = useState(useSelector((state) => state.allHazards));
+	const allHazards = useSelector((state) => state.allHazards).map((a) => {
+		if (useSelector((state) => state.allSavedHazardsOfUser).some((b) => a._id === b._id)) {
+			return { ...a, isSaved: true };
+		} else {
+			return a;
+		}
+	});
 	const [filterHazards, setFilterHazards] = useState(allHazards);
 	const locationData = new Map();
 	const locationOptions = [];
