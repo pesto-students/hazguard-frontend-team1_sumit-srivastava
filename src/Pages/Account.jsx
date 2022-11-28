@@ -46,7 +46,7 @@ const Account = () => {
 									<input
 										type="text"
 										name="companyName"
-										className="border-[1px] border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
+										className="border-[1px] rounded-xl border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
 										placeholder="Godrej Industries"
 									/>
 								</div>
@@ -57,7 +57,7 @@ const Account = () => {
 									<input
 										type="text"
 										name="email"
-										className="border-[1px] border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
+										className="border-[1px] rounded-xl border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
 										placeholder="safety@godrej.com"
 									/>
 								</div>
@@ -67,7 +67,10 @@ const Account = () => {
 									<label htmlFor="companyType" className="text-[#272343]  text-[15px] font-[700]">
 										Company Type
 									</label>
-									<select name="companyType" className="border-[1px] border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px] outline-none">
+									<select
+										name="companyType"
+										className="border-[1px] rounded-xl border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px] outline-none"
+									>
 										<option value="">Default</option>
 										<option value="Manufacturing">Manufacturing</option>
 										<option value="Chemical">Chemical</option>
@@ -82,7 +85,7 @@ const Account = () => {
 									<input
 										type="text"
 										name="Number"
-										className="border-[1px] border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
+										className="border-[1px] rounded-xl border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
 										placeholder="+91 1234567890"
 									/>
 								</div>
@@ -95,7 +98,7 @@ const Account = () => {
 									<input
 										type="text"
 										name="companyLocation"
-										className="border-[1px] border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
+										className="border-[1px] rounded-xl border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
 										placeholder="Dahej, Gujarat"
 									/>
 								</div>
@@ -106,7 +109,7 @@ const Account = () => {
 									<input
 										type="text"
 										name="Department"
-										className="border-[1px] border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
+										className="border-[1px] rounded-xl border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
 										placeholder="Safety Department"
 									/>
 								</div>
@@ -120,7 +123,7 @@ const Account = () => {
 									<input
 										type="text"
 										name="currentPassword"
-										className="border-[1px] border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
+										className="border-[1px] rounded-xl border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
 										placeholder="Dahej, Gujarat"
 									/>
 								</div>
@@ -131,7 +134,7 @@ const Account = () => {
 									<input
 										type="text"
 										name="newPassword"
-										className="border-[1px] border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
+										className="border-[1px] rounded-xl border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
 										placeholder="Safety Department"
 									/>
 								</div>
@@ -144,7 +147,7 @@ const Account = () => {
 									<input
 										type="text"
 										name="confirmPassword"
-										className="border-[1px] border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
+										className="border-[1px] rounded-xl border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
 										placeholder="Dahej, Gujarat"
 									/>
 								</div>
@@ -155,7 +158,7 @@ const Account = () => {
 									<input
 										type="text"
 										name="OneTimePassword"
-										className="border-[1px] border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
+										className="border-[1px] rounded-xl border-solid border-[#000]  w-[100%] font-[700] text-[#677094] text-[17px] pl-[5px] h-[40px]"
 										placeholder="Safety Department"
 									/>
 								</div>

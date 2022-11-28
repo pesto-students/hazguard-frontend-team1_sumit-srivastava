@@ -108,7 +108,7 @@ export default function Navbar() {
 						</div>
 					)}
 					{isFilterOpen && (
-						<div className="absolute top-0 right-0 w-[50vw] h-[100%] bg-[#fff] shadow-[-4px_0px_4px_rgba(0,0,0,0.25)] px-[20px] py-[20px]">
+						<div className="absolute top-0 right-0 w-[60vw] h-[100%] bg-[#fff] shadow-[-4px_0px_4px_rgba(0,0,0,0.25)] px-[20px] py-[20px]">
 							<Link to="/home">
 								<img
 									src={BackArrow}

@@ -1,20 +1,24 @@
 const SideSortBy = () => {
 	return (
-		<div className="w-[100%] h-[80%]">
-			<div className="w-[80%] h-[30%] flex flex-col justify-center items-start">
-				<div className="text-[20px] font-[700] text-[#272343]">Sort By</div>
-				<div className="flex mt-[10px]">
-					<input type="checkbox" name="Date" id="date" className="w-[20px] accent-[#677094] mb-1" />
-					<div className="ml-[10px] font-[700] text-[15px] text-[#677094]">Date</div>
-				</div>
-				<div className="flex">
-					<input type="checkbox" name="Date" id="date" className="w-[20px] accent-[#677094] my-0.5" />
-					<div className="ml-[10px] font-[700] text-[15px] text-[#677094]">Hazard Level</div>
-				</div>
-				<div className="flex">
-					<input type="checkbox" name="Date" id="date" className="w-[20px] accent-[#677094] mt-1" />
-					<div className="ml-[10px] font-[700] text-[15px] text-[#677094]">Views</div>
-				</div>
+		<div className="w-[100%] h-[80%] flex justify-center items-center">
+			<div className="w-[80%] h-[85%] flex flex-col justify-start items-center">
+				<label htmlFor="sort" className="text-[#272343] sxl:text-[15px] sm:text-[20px] font-semibold">
+					Sort By
+				</label>
+				<select
+					id="sort"
+					name="sort"
+					// value={sort}
+					// onChange={handleChange("sort")}
+					className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm text-blue-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]"
+				>
+					<option value="latest">Date Occurred: Latest</option>
+					<option value="oldest">Date Occurred: Oldest</option>
+					<option value="hightolow">Hazard Level: High to Low</option>
+					<option value="lowtohigh">Hazard Level: Low to High</option>
+					<option value="mostviews">Views: Most Views</option>
+					<option value="leastviews">Views: Least Views</option>
+				</select>
 			</div>
 		</div>
 	);

@@ -3,9 +3,9 @@ const SortBy = ({ values, setValues, sort }) => {
 		setValues({ ...values, [name]: event.target.value });
 	};
 	return (
-		<div className="sxl:hidden self-start md:flex w-[20%] h-[20%] bg-[#fff] ml-[30px] rounded-[20px] flex-col justify-center items-center">
+		<div className="sxl:hidden self-start md:flex w-[100%] h-[20%] bg-[#fff] rounded-[20px] flex-col justify-center items-center">
 			<div className="w-[80%] h-[85%] flex flex-col justify-center items-center">
-				<label htmlFor="sort" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
+				<label htmlFor="sort" className="text-[#272343] sxl:text-[15px] sm:text-[20px] font-semibold">
 					Sort By
 				</label>
 				<select

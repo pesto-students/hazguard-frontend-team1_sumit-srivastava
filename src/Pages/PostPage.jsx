@@ -20,6 +20,14 @@ const Post = () => {
 					<p className="font-[700] text-[#677094] sxl:text-[12px] md:text-[20px]">{hazard.companyName}</p>
 					<p className="font-[700] text-[#677094] sxl:text-[12px] md:text-[20px]">{hazard.dateOccurred.slice(0, 10)}</p>
 				</div>
+				<div className="w-full h-[2%] flex justify-end items-start">
+					<p className=" text-white w-fit bg-red-400  md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-2 md:text-[15px] px-2 py-1 font-normal rounded-sm">Chemical</p>
+					<p className=" text-white w-fit bg-yellow-400  md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-2 md:text-[15px] px-2 py-1 font-normal rounded-sm">Safety</p>
+					<p className=" text-white w-fit bg-blue-400  md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-2 md:text-[15px] px-2 py-1 font-normal rounded-sm">Low</p>
+					<p className=" text-white w-fit bg-green-400  md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-2 md:text-[15px] px-2 py-1 font-normal rounded-sm">
+						{/* {parseInt(data.effectDuration) > 1 ? parseInt(data.effectDuration) : data.effectDuration.toFixed(1)} days */}295days
+					</p>
+				</div>
 				<div className="w-[100%] h-[30%] flex flex-col justify-center items-start py-[20px] sxl:leading-[18px] md:leading-[25px]">
 					<div className="font-[700] text-[#677094] sxl:text-[15px] md:text-[24px]">Problem Statement</div>
 					<div className="font-[700] text-[#272343] sxl:text-[15px] md:text-[20px] sxl:leadin4rempx] md:leading-[21px] sxl:overflow-y-scroll md:overflow-auto">{hazard.problem}</div>
