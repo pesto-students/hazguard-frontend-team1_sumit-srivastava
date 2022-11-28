@@ -11,7 +11,6 @@ export const Profile_API = `${BACKEND}api/user/profile`;
 export const UpdateProfile_API = `${BACKEND}api/user/updateprofile`;
 export const AddToSavedPosts_API = `${BACKEND}api/user/addtosavedposts`;
 export const DeleteFromSavedPosts_API = `${BACKEND}api/user/deletefromsavedposts`;
-export const AllSavedHazards_API = `${BACKEND}api/user/allsavedposts`;
 
 // Hazard APIs
 export const AddHazard_API = `${BACKEND}api/create/hazard`;

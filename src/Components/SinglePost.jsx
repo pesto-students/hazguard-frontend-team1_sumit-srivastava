@@ -2,7 +2,7 @@ import { deleteHazard, increaseViewCount } from "../Helpers/hazard";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { setCheckChange } from "../Store/storingData";
+import { setCheckChange, addToSavedPost, removeFromSavedPost } from "../Store/storingData";
 import { Link, useNavigate } from "react-router-dom";
 import { addToSavedPosts, removeFromSavedPosts } from "../Helpers/user";
 
@@ -57,7 +57,7 @@ const SinglePost = ({ data, fromMyPosts }) => {
 				.then((response) => {
 					if (!response?.error) {
 						toast.success("Added!");
-						dispatch(setCheckChange());
+						dispatch(addToSavedPost(_id));
 					} else if (response?.error) {
 						return toast.error(response?.message);
 					}
@@ -77,7 +77,7 @@ const SinglePost = ({ data, fromMyPosts }) => {
 				.then((response) => {
 					if (!response?.error) {
 						toast.success("Removed!");
-						dispatch(setCheckChange());
+						dispatch(removeFromSavedPost(_id));
 					} else if (response?.error) {
 						return toast.error(response?.message);
 					}
@@ -135,7 +135,7 @@ const SinglePost = ({ data, fromMyPosts }) => {
 					)}
 					{!(data.userId === userData.userId) && (
 						<>
-							{data?.isSaved ? (
+							{userData.saved.includes(data._id) ? (
 								<button className="mr-4" onClick={(e) => removeFromSaved(e, data._id)}>
 									<svg width="25" height="25" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M0 27V2.53125C0 1.13326 1.2312 0 2.75 0H19.25C20.7688 0 22 1.13326 22 2.53125V27L11 21.0938L0 27Z" fill="#677094" />

@@ -22,7 +22,6 @@ const initial = {
 	editPostDataIsPublic: "",
 	allHazards: "",
 	allHazardsOfUser: "",
-	allSavedHazardsOfUser: "",
 	checkChange: false,
 };
 
@@ -96,11 +95,14 @@ const dataSlice = createSlice({
 		setAllHazardsOfUser(state, action) {
 			state["allHazardsOfUser"] = action.payload;
 		},
-		setAllSavedHazardsOfUser(state, action) {
-			state["allSavedHazardsOfUser"] = action.payload;
-		},
 		setCheckChange(state, action) {
 			state["checkChange"] = !state["checkChange"];
+		},
+		addToSavedPost(state, action) {
+			state["userData"]["saved"].push(action.payload);
+		},
+		removeFromSavedPost(state, action) {
+			state["userData"]["saved"].splice(state["userData"]["saved"].indexOf(action.payload), 1);
 		},
 	},
 });
@@ -128,8 +130,9 @@ export const {
 	setInitialState,
 	setAllHazards,
 	setAllHazardsOfUser,
-	setAllSavedHazardsOfUser,
 	setCheckChange,
+	addToSavedPost,
+	removeFromSavedPost,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;
