@@ -30,7 +30,7 @@ export default function Navbar() {
 		logout(refreshToken)
 			.then(async (response) => {
 				if (!response?.error) {
-					dispatch(setInitialState(""));
+					dispatch(setInitialState());
 					navigate("/login");
 					toast.success("You are logged out!");
 				} else if (response?.error) {
@@ -147,7 +147,7 @@ export default function Navbar() {
 				</div>
 				<div className="sxl:hidden lg:flex flex-col justify-center items-start ml-[10px] w-[80%]">
 					<p className="text-[1.4em] text-[#677094]">Hello,</p>
-					<p className="text-[1.4em] font-[700] text-[#272343]">{userData?.firstName}</p>
+					<p className="text-[1.4em] font-[700] text-[#272343]">{userData.firstName}</p>
 				</div>
 			</div>
 		</div>

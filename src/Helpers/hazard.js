@@ -37,12 +37,11 @@ export async function deleteHazard(info, accessToken) {
 	}
 }
 
-export async function readAllHazards(accessToken) {
+export async function readAllHazards() {
 	try {
 		const response = await fetch(ReadAllHazards_API, {
 			method: "GET",
 			headers: {
-				Authorization: `Bearer ${accessToken}`,
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},

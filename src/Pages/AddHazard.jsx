@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Base from "./Base";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -19,13 +18,6 @@ import {
 const AddHazard = () => {
 	const userData = useSelector((state) => state.userData);
 	const accessToken = useSelector((state) => state.accessToken);
-	const [values, setValues] = useState({
-		department: userData.department,
-		companyName: userData.companyName,
-		state: userData.state,
-		country: userData.country,
-	});
-	const { department, companyName, state, country } = values;
 	const newPostDataIndustry = useSelector((state) => state.newPostDataIndustry);
 	const newPostDataType = useSelector((state) => state.newPostDataType);
 	const newPostDataHazardLevel = useSelector((state) => state.newPostDataHazardLevel);
@@ -41,42 +33,36 @@ const AddHazard = () => {
 		if (
 			newPostDataIndustry !== "" &&
 			newPostDataType !== "" &&
-			department !== "" &&
+			userData.department !== "" &&
 			newPostDataHazardLevel !== "" &&
 			newPostDataEffectDuration !== "" &&
 			newPostDataProblem !== "" &&
 			newPostDataSolution !== "" &&
 			newPostDataDateOccurred !== "" &&
 			newPostDataIsPublic !== "" &&
-			companyName !== "" &&
-			state !== "" &&
-			country !== ""
+			userData.companyName !== "" &&
+			userData.state !== "" &&
+			userData.country !== ""
 		) {
 			addHazard(
 				{
 					type: newPostDataType,
 					industry: newPostDataIndustry,
-					department: department,
+					department: userData.department,
 					hazardLevel: newPostDataHazardLevel,
 					effectDuration: newPostDataEffectDuration,
 					problem: newPostDataProblem,
 					solution: newPostDataSolution,
 					dateOccurred: newPostDataDateOccurred,
 					isPublic: newPostDataIsPublic,
-					companyName: companyName,
-					state: state,
-					country: country,
+					companyName: userData.companyName,
+					state: userData.state,
+					country: userData.country,
 				},
 				accessToken
 			)
 				.then((response) => {
 					if (!response?.error) {
-						setValues({
-							department: "",
-							companyName: "",
-							state: "",
-							country: "",
-						});
 						dispatch(setNewPostDataIndustry(""));
 						dispatch(setNewPostDataType(""));
 						dispatch(setNewPostDataHazardLevel(""));

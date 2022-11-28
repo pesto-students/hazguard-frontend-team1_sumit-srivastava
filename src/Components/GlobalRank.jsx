@@ -1,5 +1,3 @@
-import React from "react";
-
 const GlobalRank = () => {
 	return (
 		<div className="sxl:w-[100%] sxl:mt-[30px] md:w-[48%] md:mt-0 sxl:h-[50%] md:h-[100%] bg-gradient-to-tl from-[#180F55,60%] to-[#6A718F] rounded-[20px] flex flex-col justify-between items-center">
