@@ -42,6 +42,7 @@ const Home = () => {
 					locationOptions={locationOptions}
 					sort={sort}
 				/>
+				{filterHazards.length > 0 && <div className="ml-9 text-xl font-semibold mt-6">{filterHazards.length} results</div>}
 				<Post hazards={filterHazards} />
 			</div>
 		</Base>

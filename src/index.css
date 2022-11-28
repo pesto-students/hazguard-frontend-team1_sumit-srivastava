@@ -57,3 +57,12 @@ select {
 	background-color: #eed132;
 	border-radius: 2.5px;
 }
+
+.image-gallery-image {
+	height: 350px !important;
+}
+
+.image-gallery-svg {
+	height: 60px !important;
+	width: 30px !important;
+}

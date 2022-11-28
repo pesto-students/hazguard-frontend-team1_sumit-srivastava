@@ -109,7 +109,7 @@ const EditPost = () => {
 											name="type"
 											value={editPostDataType}
 											onChange={(e) => dispatch(setEditPostDataType(e.target.value))}
-											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
+											className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 										>
 											<option>Hazard Type</option>
 											<option value="Biological">Biological</option>
@@ -127,7 +127,7 @@ const EditPost = () => {
 											name="hazardLevel"
 											value={editPostDataHazardLevel}
 											onChange={(e) => dispatch(setEditPostDataHazardLevel(e.target.value))}
-											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
+											className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 										>
 											<option>Hazard Level</option>
 											<option value="Low">Low</option>
@@ -144,7 +144,7 @@ const EditPost = () => {
 											name="industry"
 											value={editPostDataIndustry}
 											onChange={(e) => dispatch(setEditPostDataIndustry(e.target.value))}
-											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
+											className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 										>
 											<option>Industry Type</option>
 											<option value="Agriculture">Agriculture</option>
@@ -167,7 +167,7 @@ const EditPost = () => {
 											id="effectDuration"
 											name="effectDuration"
 											type="number"
-											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
+											className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 											value={editPostDataEffectDuration}
 											placeholder="Enter Effect Duration"
 											onChange={(e) => dispatch(setEditPostDataEffectDuration(e.target.value))}
@@ -181,23 +181,39 @@ const EditPost = () => {
 											id="dateOccurred"
 											name="dateOccurred"
 											type="date"
-											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094]"
+											className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 											value={editPostDataDateOccurred}
 											onChange={(e) => dispatch(setEditPostDataDateOccurred(e.target.value))}
 										/>
 									</div>
 									<div className="flex flex-col justify-center items-start mt-2">
-										<label htmlFor="isPublic" className="text-[#272343] ml-1">
+										<div className="text-[#272343] ml-1">
 											Do you want to make it public?<span className="text-red-600">*</span>
-										</label>
-										<input
-											id="isPublic"
-											name="isPublic"
-											type="checkbox"
-											className="sxl:py-1 sm:py-2 px-0 w-auto text-md  font-medium bg-transparent border-0 border-b-2 border-[#677094] mt-2"
-											checked={editPostDataIsPublic}
-											onChange={(e) => dispatch(setEditPostDataIsPublic(e.target.checked))}
-										/>
+										</div>
+										<div onClick={(e) => dispatch(setEditPostDataIsPublic(e.target.value === "true" ? true : false))}>
+											<input
+												id="yes"
+												name="isPublic"
+												type="radio"
+												value="true"
+												defaultChecked={!editPostDataIsPublic && true}
+												className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094] mt-2"
+											/>
+											<label htmlFor="yes" className="text-[#272343] ml-1">
+												Yes
+											</label>
+											<input
+												id="no"
+												name="isPublic"
+												type="radio"
+												value="false"
+												defaultChecked={editPostDataIsPublic && true}
+												className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094] mt-2 ml-5"
+											/>
+											<label htmlFor="no" className="text-[#272343] ml-1">
+												No
+											</label>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -237,7 +253,7 @@ const EditPost = () => {
 							</div>
 						</form>
 						<button
-							className="bg-[#EED132] w-[175px] h-[50px] mt-10 rounded-3xl font-semibold text-[#000] text-[20px] hover:bg-[rgba(238,209,50,0.8)]"
+							className="bg-[#EED132] w-[175px] h-[50px] mt-4 rounded-3xl font-semibold text-[#000] text-[20px] hover:bg-[rgba(238,209,50,0.8)]"
 							onClick={(e) => {
 								updateHazard(e);
 							}}

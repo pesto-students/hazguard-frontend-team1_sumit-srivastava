@@ -1,20 +1,16 @@
-lightBlue: "#5775E8"
-darkBlue: "#272343"
-pageBackground: "#E8E8E8"
-lightFont: "#677094"
-lightGrey: "#B7B6B6"
-primaryYellow: "#EED132"
-
 Misc Work -
 1. Landing Page
 2. ReadMe With All Artefacts
 
 Frontend -
-1. Save/Unsave
-2. Edit Profile
+1. Edit Profile
+2. Change Password
 3. After Registering Take All Details
-4. View Result Count
-5. Improve CSS
+4. Fix APIs & Add/Edit Hazards
+5. Show Password
+6. Lock Post Page
+7. Improve CSS
+8. Check Location Filter
 
 Frontend & Backend -
 1. Images Upload With Amazon S3

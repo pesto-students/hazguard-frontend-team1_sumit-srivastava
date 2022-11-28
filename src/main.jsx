@@ -6,6 +6,7 @@ import "./index.css";
 import { Provider } from "react-redux";
 import { persistor, store } from "./Store/Store";
 import { PersistGate } from "redux-persist/integration/react";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
