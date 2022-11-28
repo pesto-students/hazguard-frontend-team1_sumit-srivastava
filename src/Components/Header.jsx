@@ -1,4 +1,4 @@
-import FullLogo from "../Assets/FullLogo.svg";
+import { FullLogo } from "../Assets/library";
 import { Link } from "react-router-dom";
 
 const Header = () => {

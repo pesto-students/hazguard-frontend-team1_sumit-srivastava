@@ -1,7 +1,10 @@
 import Account from "./Account.svg";
-import Hamburger from "./Hamburger.svg";
-import Logout from "./Logout.svg";
-import Filter from "./Filter.svg";
 import BackArrow from "./BackArrow.svg";
+import Filter from "./Filter.svg";
+import FullLogo from "./FullLogo.svg";
+import Hamburger from "./Hamburger.svg";
+import Logo from "./Logo.svg";
+import Logout from "./Logout.svg";
+import NoResult from "./NoResult.svg";
 
-export { Account, Hamburger, Logout, Filter, BackArrow };
+export { Account, BackArrow, Filter, FullLogo, Hamburger, Logo, Logout, NoResult };

@@ -32,8 +32,17 @@ const Home = () => {
 	return (
 		<Base>
 			<div className="w-[100vw] overflow-hidden">
-				<Filter values={values} setValues={setValues} industryType={industryType} hazardType={hazardType} hazardLevel={hazardLevel} location={location} locationOptions={locationOptions} />
-				<Post values={values} setValues={setValues} sort={sort} hazards={filterHazards} />
+				<Filter
+					values={values}
+					setValues={setValues}
+					industryType={industryType}
+					hazardType={hazardType}
+					hazardLevel={hazardLevel}
+					location={location}
+					locationOptions={locationOptions}
+					sort={sort}
+				/>
+				<Post hazards={filterHazards} />
 			</div>
 		</Base>
 	);

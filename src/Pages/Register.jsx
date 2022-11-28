@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Logo from "../Assets/Logo.svg";
+import { Logo } from "../Assets/library";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { signup } from "../Helpers/auth";

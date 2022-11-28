@@ -1,12 +1,11 @@
-import SortBy from "./SortBy";
-const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, location, locationOptions }) => {
+const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, location, locationOptions, sort }) => {
 	const handleChange = (name) => (event) => {
 		setValues({ ...values, [name]: event.target.value });
 	};
 	return (
 		<div className="w-[100vw] mt-[30px] h-[120px] flex sxl:px-[15px] md:px-[30px]">
 			<div className="flex w-[100%] h-[130px] rounded-[20px] overflow-hidden sxl:flex-wrap md:flex-nowrap sxl:justify-between md:justify-center items-center sxl:bg-[#ffffff] md:bg-transparent sxl:px-5 md:px-0 sxl:py-1">
-				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full  mr-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full mr-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
 					<label htmlFor="industryType" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Industry Type
 					</label>
@@ -30,7 +29,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						<option value="Utilities">Utilities</option>
 					</select>
 				</div>
-				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full  mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
 					<label htmlFor="hazardType" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Hazard Type
 					</label>
@@ -48,7 +47,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						<option value="Chemical">Chemical</option>
 					</select>
 				</div>
-				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full  mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
 					<label htmlFor="hazardLevel" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Hazard Level
 					</label>
@@ -65,7 +64,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						<option value="High">High</option>
 					</select>
 				</div>
-				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full  mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
 					<label htmlFor="location" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Location
 					</label>
@@ -87,10 +86,25 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 					</select>
 				</div>
 				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full ml-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
-					<SortBy />
+					<label htmlFor="sort" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
+						Sort By
+					</label>
+					<select
+						id="sort"
+						name="sort"
+						value={sort}
+						onChange={handleChange("sort")}
+						className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm text-blue-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]"
+					>
+						<option value="latest">Date Occurred: Latest</option>
+						<option value="oldest">Date Occurred: Oldest</option>
+						<option value="hightolow">Hazard Level: High to Low</option>
+						<option value="lowtohigh">Hazard Level: Low to High</option>
+						<option value="mostviews">Views: Most Views</option>
+						<option value="leastviews">Views: Least Views</option>
+					</select>
 				</div>
 			</div>
-			{/* <div className="sxl:hidden w-[20%] mx-[15px] sxl:first:mx-[15px] md:first:mx-[0px] sxl:last:mx-[15px] md:last:mx-[0px] sxl:min-w-fit bg-[#ffffff] md:rounded-[20px] md:flex flex-col justify-center items-center"></div> */}
 		</div>
 	);
 };
