@@ -49,12 +49,12 @@ const SinglePost = ({ data, fromMyPosts }) => {
 		}
 	};
 	return (
-		<div className="w-[100%] p-3 sxl:h-[180px] md:h-[170px] min-h-[230px] max-h-[200px] first:mt-[0px] mt-[10px] bg-[#fff] rounded-[20px] flex flex-col items-center justify-center">
+		<div className="w-[100%] p-3 sxl:h-[180px] md:h-[170px] min-h-[230px] max-h-[200px] first:mt-[0px] mt-[10px] bg-[#fff] rounded-[20px] flex flex-col items-center justify-center text-ellipsis ">
 			<div className="flex mb-5 w-[100%] h-[10%] justify-between px-3 pt-1 text-[#677094] sxl:text-[12px] md:text-[22px] font-[700]">
 				<p>{data.companyName}</p>
 				<p className="text-base">{data.dateOccurred.slice(0, 10)}</p>
 			</div>
-			<div className="w-[100%] mb-4 max-h-[100px] my-[5px] h-[45%] px-3 flex justify-center items-center text-[#272343] font-[500] sxl:text-[12px] sm:text-[16px] md:text-[17px] break-words text-ellipsis sxl:leading-[12px] sm:leading-[20px]">
+			<div className="w-[100%] mb-4 max-h-[100px] my-[5px] h-[250px] px-3 flex justify-center items-start text-[#272343] font-[500] sxl:text-[12px] sm:text-[16px] md:text-[17px] break-words text-ellipsis sxl:leading-[12px] sm:leading-[20px] overflow-scroll">
 				{data.problem}
 			</div>
 			<div className="w-[100%] h-[45%] max-h-[50px] px-3 flex sxl:flex-col md:flex-row justify-between sxl:items-between md:items-center">
@@ -111,12 +111,14 @@ const SinglePost = ({ data, fromMyPosts }) => {
 						</svg>
 						<p className=" text-[#677094] sxl:text-[12px] md:text-[15px] font-[700] ml-1">{data.views}</p>
 					</div>
-					{!fromMyPosts && <button
-						onClick={(e) => increaseView(e, data.hazardId)}
-						className="bg-[#EED132] flex justify-center items-center text-[#000] sxl:w-[150px] md:w-[200px] sxl:h-[28px] md:h-[45px] rounded-[40px] sxl:text-[13px] md:text-[18px] font-[700] hover:bg-[rgba(238,209,50,0.8)]"
-					>
-						SOLUTION
-					</button>}
+					{!fromMyPosts && (
+						<button
+							onClick={(e) => increaseView(e, data.hazardId)}
+							className="bg-[#EED132] flex justify-center items-center text-[#000] sxl:w-[150px] md:w-[200px] sxl:h-[28px] md:h-[45px] rounded-[40px] sxl:text-[13px] md:text-[18px] font-[700] hover:bg-[rgba(238,209,50,0.8)]"
+						>
+							SOLUTION
+						</button>
+					)}
 				</div>
 			</div>
 		</div>

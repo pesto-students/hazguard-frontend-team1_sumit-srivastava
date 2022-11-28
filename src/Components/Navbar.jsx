@@ -56,8 +56,8 @@ export default function Navbar() {
 							}}
 						/>
 					</div>
-					<ul className="w-[50%] sxl:hidden md:flex flex-row justify-between items-center text-[#FFFFFF] text-xl font-semibold">
-						<li className={`px-3 py-1 ${location === "/home" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
+					<ul data-testid="navbarList" className="w-[50%] sxl:hidden md:flex flex-row justify-between items-center text-[#FFFFFF] text-xl font-semibold">
+						<li data-testid="navbarHome" className={`px-3 py-1 ${location === "/home" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
 							<Link to="/home">Home</Link>
 						</li>
 						<li className={`px-3 py-1 ${location === "/addhazard" ? "rounded-2xl text-[#272343] bg-[#FFFFFF]" : ""}`}>
