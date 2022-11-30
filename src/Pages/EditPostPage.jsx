@@ -19,13 +19,13 @@ import { useEffect } from "react";
 const EditPost = () => {
 	const { hazardId } = useParams();
 	const dispatch = useDispatch();
-	const hazard = useSelector((state) => state.allHazardsOfUser.filter((data) => data.hazardId === hazardId)[0]);
+	const hazard = useSelector((state) => state.allHazards.filter((data) => data.hazardId === hazardId)[0]);
 	const accessToken = useSelector((state) => state.accessToken);
 	useEffect(() => {
 		dispatch(setEditPostDataType(hazard.type));
 		dispatch(setEditPostDataIndustry(hazard.industry));
 		dispatch(setEditPostDataHazardLevel(hazard.hazardLevel));
-		dispatch(setEditPostDataEffectDuration(parseInt(hazard.effectDuration) * 24));
+		dispatch(setEditPostDataEffectDuration(parseInt(data.effectDuration) >= 1 ? parseInt(data.effectDuration) * 24 : data.effectDuration.toFixed(1) * 24));
 		dispatch(setEditPostDataProblem(hazard.problem));
 		dispatch(setEditPostDataSolution(hazard.solution));
 		dispatch(setEditPostDataDateOccurred(hazard.dateOccurred.slice(0, 10)));

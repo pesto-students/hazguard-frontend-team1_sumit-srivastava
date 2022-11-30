@@ -1,4 +1,4 @@
-import { AddHazard_API, DeleteHazard_API, ReadAllHazards_API, ReadAllHazardsOfUser_API, IncreaseView_API, EditHazard_API } from "../backend";
+import { AddHazard_API, DeleteHazard_API, ReadAllHazards_API, IncreaseView_API, EditHazard_API } from "../backend";
 import { toast } from "react-toastify";
 
 export async function addHazard(info, accessToken) {
@@ -42,23 +42,6 @@ export async function readAllHazards() {
 		const response = await fetch(ReadAllHazards_API, {
 			method: "GET",
 			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json",
-			},
-		});
-		return await response.json();
-	} catch (err) {
-		toast.error("Not able to get hazards! Please try again!");
-		return console.log(err);
-	}
-}
-
-export async function readAllHazardsOfUser(accessToken) {
-	try {
-		const response = await fetch(ReadAllHazardsOfUser_API, {
-			method: "GET",
-			headers: {
-				Authorization: `Bearer ${accessToken}`,
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},

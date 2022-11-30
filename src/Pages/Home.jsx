@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { filterAll, sortAll } from "../Utilities/sortAndFilters";
 
 const Home = () => {
-	const allHazards = useSelector((state) => state.allHazards);
+	const allHazards = useSelector((state) => state.allHazards).filter((data) => data.isPublic === true);
 	const [filterHazards, setFilterHazards] = useState(allHazards);
 	const locationData = new Map();
 	const locationOptions = [];

@@ -2,7 +2,7 @@ import { deleteHazard, increaseViewCount } from "../Helpers/hazard";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { setCheckChange, addToSavedPost, removeFromSavedPost } from "../Store/storingData";
+import { increaseViews, removeFromPosts, addToSavedPost, removeFromSavedPost } from "../Store/storingData";
 import { Link, useNavigate } from "react-router-dom";
 import { addToSavedPosts, removeFromSavedPosts } from "../Helpers/user";
 
@@ -17,7 +17,7 @@ const SinglePost = ({ data, fromMyPosts }) => {
 			increaseViewCount({ hazardId: hazardId }, accessToken)
 				.then((response) => {
 					navigate(`/post/${hazardId}`);
-					dispatch(setCheckChange());
+					dispatch(increaseViews(hazardId));
 					if (response?.error) {
 						return toast.error(response?.message);
 					}
@@ -37,7 +37,7 @@ const SinglePost = ({ data, fromMyPosts }) => {
 				.then((response) => {
 					if (!response?.error) {
 						toast.success("Deleted!");
-						dispatch(setCheckChange());
+						dispatch(removeFromPosts(hazardId));
 					} else if (response?.error) {
 						return toast.error(response?.message);
 					}
