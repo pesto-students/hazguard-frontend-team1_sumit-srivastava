@@ -5,8 +5,9 @@ import { useEffect } from "react";
 import { readAllHazards } from "./Helpers/hazard";
 import { setAllHazards } from "./Store/storingData";
 import { toast } from "react-toastify";
+import * as Sentry from "@sentry/react";
 
-export default function Routes() {
+const Routes = () => {
 	const dispatch = useDispatch();
 	const checkChange = useSelector((state) => state.checkChange);
 	const userData = useSelector((state) => state.userData);
@@ -119,4 +120,6 @@ export default function Routes() {
 			</RouterRoutes>
 		</BrowserRouter>
 	);
-}
+};
+
+export default Sentry.withProfiler(Routes);
