@@ -1,9 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { BackArrow } from "../Assets/library";
-import image1 from "../Assets/image1.jpg";
-import image2 from "../Assets/image2.jpg";
-import image3 from "../Assets/image3.jpg";
-import image4 from "../Assets/image4.jpg";
 import { useSelector } from "react-redux";
 import ImageGallery from "react-image-gallery";
 import { Link } from "react-router-dom";
@@ -14,7 +10,7 @@ const Post = () => {
 	const userData = useSelector((state) => state.userData);
 	const hazard = useSelector((state) => state.allHazards.filter((data) => data.hazardId === hazardId)[0]);
 	return (
-		<div className="w-[100vw] h-[100vh] px-[35px] py-[35px]">
+		<div className="w-[100vw] px-[35px] py-[35px]">
 			<div className="w-[100%] h-[100%] bg-[#fff] rounded-[20px] px-[30px] py-[30px] overflow-y-hidden">
 				<div className="w-[100%] h-[5%] flex justify-between items-center py-[10px]">
 					<button onClick={() => navigate(-1)}>
@@ -99,41 +95,102 @@ const Post = () => {
 					<div className="font-[500] text-[#272343] sxl:text-[15px] md:text-[20px] md:leading-[21px] sxl:overflow-y-scroll md:overflow-auto">{hazard.problem}</div>
 				</div>
 				<div className="w-[100%] h-[65%] flex justify-between items-start flex-wrap">
-					<div className="sxl:w-[100%] md:w-[50%] sxl:h-[70%] md:h-[95%] overflow-y-scroll addScrollBar">
+					<div className="sxl:w-[100%] md:w-[50%] sxl:h-[70%] md:h-[100%]">
 						<div className="font-[700] text-[#677094] sxl:text-[15px] md:text-[24px] sxl:leading-[19px] md:leading-[25px] mb-3">Solution</div>
 						<div className="font-[500] text-[#677094] sxl:text-[15px] md:text-[18px] sxl:leading-[17px] md:leading-[20px]">{hazard.solution}</div>
 					</div>
-					<div className="sxl:w-[100%] md:w-[49%] sxl:h-[30%] md:h-[90%] flex flex-wrap justify-center items-start">
-						<ImageGallery
-							items={[
-								{
-									original: image1,
-									thumbnail: image1,
-									loading: "lazy",
-									thumbnailLoading: "lazy",
-								},
-								{
-									original: image2,
-									thumbnail: image2,
-									loading: "lazy",
-									thumbnailLoading: "lazy",
-								},
-								{
-									original: image3,
-									thumbnail: image3,
-									loading: "lazy",
-									thumbnailLoading: "lazy",
-								},
-								{
-									original: image4,
-									thumbnail: image4,
-									loading: "lazy",
-									thumbnailLoading: "lazy",
-								},
-							]}
-							showPlayButton={false}
-							lazyLoad={true}
-						/>
+					<div className="sxl:w-[100%] md:w-[49%] sxl:h-[30%] md:h-[90%] flex flex-wrap justify-center items-start self-center">
+						{hazard.images.length === 0 ? (
+							"No images available"
+						) : hazard.images.length === 1 ? (
+							<ImageGallery
+								items={[
+									{
+										original: hazard.images[0],
+										thumbnail: hazard.images[0],
+										loading: "lazy",
+										thumbnailLoading: "lazy",
+									},
+								]}
+								showPlayButton={false}
+								lazyLoad={true}
+							/>
+						) : hazard.images.length === 2 ? (
+							<ImageGallery
+								items={[
+									{
+										original: hazard.images[0],
+										thumbnail: hazard.images[0],
+										loading: "lazy",
+										thumbnailLoading: "lazy",
+									},
+									{
+										original: hazard.images[1],
+										thumbnail: hazard.images[1],
+										loading: "lazy",
+										thumbnailLoading: "lazy",
+									},
+								]}
+								showPlayButton={false}
+								lazyLoad={true}
+							/>
+						) : hazard.images.length === 3 ? (
+							<ImageGallery
+								items={[
+									{
+										original: hazard.images[0],
+										thumbnail: hazard.images[0],
+										loading: "lazy",
+										thumbnailLoading: "lazy",
+									},
+									{
+										original: hazard.images[1],
+										thumbnail: hazard.images[1],
+										loading: "lazy",
+										thumbnailLoading: "lazy",
+									},
+									{
+										original: hazard.images[2],
+										thumbnail: hazard.images[2],
+										loading: "lazy",
+										thumbnailLoading: "lazy",
+									},
+								]}
+								showPlayButton={false}
+								lazyLoad={true}
+							/>
+						) : (
+							<ImageGallery
+								items={[
+									{
+										original: hazard.images[0],
+										thumbnail: hazard.images[0],
+										loading: "lazy",
+										thumbnailLoading: "lazy",
+									},
+									{
+										original: hazard.images[1],
+										thumbnail: hazard.images[1],
+										loading: "lazy",
+										thumbnailLoading: "lazy",
+									},
+									{
+										original: hazard.images[2],
+										thumbnail: hazard.images[2],
+										loading: "lazy",
+										thumbnailLoading: "lazy",
+									},
+									{
+										original: hazard.images[3],
+										thumbnail: hazard.images[3],
+										loading: "lazy",
+										thumbnailLoading: "lazy",
+									},
+								]}
+								showPlayButton={false}
+								lazyLoad={true}
+							/>
+						)}
 					</div>
 				</div>
 			</div>
