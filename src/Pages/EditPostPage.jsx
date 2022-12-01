@@ -13,6 +13,7 @@ import {
 	setEditPostDataDateOccurred,
 	setEditPostDataIsPublic,
 	setCheckChange,
+	setLoading,
 } from "../Store/storingData";
 import { useEffect } from "react";
 
@@ -25,7 +26,7 @@ const EditPost = () => {
 		dispatch(setEditPostDataType(hazard.type));
 		dispatch(setEditPostDataIndustry(hazard.industry));
 		dispatch(setEditPostDataHazardLevel(hazard.hazardLevel));
-		dispatch(setEditPostDataEffectDuration(parseInt(data.effectDuration) >= 1 ? parseInt(data.effectDuration) * 24 : data.effectDuration.toFixed(1) * 24));
+		dispatch(setEditPostDataEffectDuration(parseInt(hazard.effectDuration) >= 1 ? parseInt(hazard.effectDuration) * 24 : hazard.effectDuration.toFixed(1) * 24));
 		dispatch(setEditPostDataProblem(hazard.problem));
 		dispatch(setEditPostDataSolution(hazard.solution));
 		dispatch(setEditPostDataDateOccurred(hazard.dateOccurred.slice(0, 10)));
@@ -76,6 +77,7 @@ const EditPost = () => {
 						dispatch(setEditPostDataSolution(""));
 						dispatch(setEditPostDataDateOccurred(""));
 						dispatch(setEditPostDataIsPublic(""));
+						dispatch(setLoading(true));
 						dispatch(setCheckChange());
 						toast.success("Hazard edited!");
 						navigate("/myposts");
@@ -196,7 +198,7 @@ const EditPost = () => {
 												name="isPublic"
 												type="radio"
 												value="true"
-												defaultChecked={!editPostDataIsPublic && true}
+												defaultChecked={editPostDataIsPublic}
 												className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094] mt-2"
 											/>
 											<label htmlFor="yes" className="text-[#272343] ml-1">
@@ -207,7 +209,7 @@ const EditPost = () => {
 												name="isPublic"
 												type="radio"
 												value="false"
-												defaultChecked={editPostDataIsPublic && true}
+												defaultChecked={!editPostDataIsPublic}
 												className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094] mt-2 ml-5"
 											/>
 											<label htmlFor="no" className="text-[#272343] ml-1">

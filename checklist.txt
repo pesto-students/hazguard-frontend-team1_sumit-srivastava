@@ -1,16 +1,14 @@
 Misc Work -
 1. Landing Page
-2. ReadMe With All Artefacts
 
 Frontend -
 1. Edit Profile
 2. Change Password
 3. After Registering Take All Details
-4. Fix APIs & Add/Edit Hazards
-5. Show Password
-6. Lock Post Page
-7. Improve CSS
-8. Check Location Filter
+4. Show Password
+5. Lock Post Page
+6. Improve CSS
+7. Check Location Filter
 
 Frontend & Backend -
 1. Images Upload With Amazon S3
@@ -18,7 +16,3 @@ Frontend & Backend -
 3. Paid Demo User
 4. Manage Subscription
 5. Leaderboard
-
-Frontend & Backend (Less Priority) -
-1. Google Login
-2. Comments on Hazards

@@ -22,6 +22,7 @@ const initial = {
 	editPostDataIsPublic: "",
 	allHazards: "",
 	checkChange: false,
+	loading: false,
 };
 
 const dataSlice = createSlice({
@@ -94,14 +95,8 @@ const dataSlice = createSlice({
 		setCheckChange(state, action) {
 			state["checkChange"] = !state["checkChange"];
 		},
-		addToSavedPost(state, action) {
-			state["userData"]["saved"].push(action.payload);
-		},
-		removeFromSavedPost(state, action) {
-			state["userData"]["saved"].splice(state["userData"]["saved"].indexOf(action.payload), 1);
-		},
-		removeFromPosts(state, action) {
-			state["allHazards"] = state["allHazards"].filter((data) => data.hazardId !== action.payload);
+		setLoading(state, action) {
+			state["loading"] = action.payload;
 		},
 		increaseViews(state, action) {
 			state["allHazards"] = state["allHazards"].map((data) => {
@@ -111,6 +106,12 @@ const dataSlice = createSlice({
 					return data;
 				}
 			});
+		},
+		addToSavedPost(state, action) {
+			state["userData"]["saved"].push(action.payload);
+		},
+		removeFromSavedPost(state, action) {
+			state["userData"]["saved"].splice(state["userData"]["saved"].indexOf(action.payload), 1);
 		},
 	},
 });
@@ -138,10 +139,10 @@ export const {
 	setInitialState,
 	setAllHazards,
 	setCheckChange,
+	setLoading,
+	increaseViews,
 	addToSavedPost,
 	removeFromSavedPost,
-	removeFromPosts,
-	increaseViews,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;

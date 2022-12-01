@@ -3,7 +3,7 @@ import { Landing, Home, Saved, Register, Login, Account, Post, AddHazard, Verify
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { readAllHazards } from "./Helpers/hazard";
-import { setAllHazards } from "./Store/storingData";
+import { setAllHazards, setLoading } from "./Store/storingData";
 import { toast } from "react-toastify";
 import * as Sentry from "@sentry/react";
 
@@ -21,11 +21,12 @@ const Routes = () => {
 		}
 	}
 	useEffect(() => {
-		const getAllHazards = async () => {
-			const allHazards = await readAllHazards()
+		const getAllHazards = () => {
+			readAllHazards()
 				.then((response) => {
 					if (!response?.error) {
-						return response;
+						dispatch(setAllHazards(response.data));
+						dispatch(setLoading(false));
 					} else if (response?.error) {
 						console.log(response?.message);
 					}
@@ -34,7 +35,6 @@ const Routes = () => {
 					toast.error("Not able to get hazards! Please try again!");
 					console.log(e);
 				});
-			dispatch(setAllHazards(allHazards.data));
 		};
 		getAllHazards();
 	}, [checkChange]);

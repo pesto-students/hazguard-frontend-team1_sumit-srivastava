@@ -2,7 +2,7 @@ import { deleteHazard, increaseViewCount } from "../Helpers/hazard";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { increaseViews, removeFromPosts, addToSavedPost, removeFromSavedPost } from "../Store/storingData";
+import { increaseViews, setCheckChange, setLoading, addToSavedPost, removeFromSavedPost } from "../Store/storingData";
 import { Link, useNavigate } from "react-router-dom";
 import { addToSavedPosts, removeFromSavedPosts } from "../Helpers/user";
 
@@ -13,21 +13,25 @@ const SinglePost = ({ data, fromMyPosts }) => {
 	const navigate = useNavigate();
 	const increaseView = (e, hazardId) => {
 		e.preventDefault();
-		if (hazardId) {
-			increaseViewCount({ hazardId: hazardId }, accessToken)
-				.then((response) => {
-					navigate(`/post/${hazardId}`);
-					dispatch(increaseViews(hazardId));
-					if (response?.error) {
-						return toast.error(response?.message);
-					}
-				})
-				.catch((e) => {
-					toast.error("Not able to increase view count! Please try again!");
-					console.log(e);
-				});
+		if (data.userId !== userData.userId) {
+			if (hazardId) {
+				increaseViewCount({ hazardId: hazardId }, accessToken)
+					.then((response) => {
+						navigate(`/post/${hazardId}`);
+						dispatch(increaseViews(hazardId));
+						if (response?.error) {
+							return toast.error(response?.message);
+						}
+					})
+					.catch((e) => {
+						toast.error("Not able to increase view count! Please try again!");
+						console.log(e);
+					});
+			} else {
+				return toast.warning("Did not get Hazard Id!");
+			}
 		} else {
-			return toast.warning("Did not get Hazard Id!");
+			navigate(`/post/${hazardId}`);
 		}
 	};
 	const removeHazard = (e, hazardId) => {
@@ -37,13 +41,14 @@ const SinglePost = ({ data, fromMyPosts }) => {
 				.then((response) => {
 					if (!response?.error) {
 						toast.success("Deleted!");
-						dispatch(removeFromPosts(hazardId));
+						dispatch(setLoading(true));
+						dispatch(setCheckChange());
 					} else if (response?.error) {
 						return toast.error(response?.message);
 					}
 				})
 				.catch((e) => {
-					toast.error("Not able to increase view count! Please try again!");
+					toast.error("Not able to delete hazard! Please try again!");
 					console.log(e);
 				});
 		} else {
