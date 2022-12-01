@@ -128,11 +128,11 @@ export default function Navbar() {
 								<img src={Logout} alt="Logout" className="sxl:w-[3em] sxl:h-[3em] md:w-[2.5em]" />
 							</button>
 						</li>
-						<li className="mr-[34px] cursor-pointer sxl:inline md:hidden">
+						{/* <li className="mr-[34px] cursor-pointer sxl:inline md:hidden">
 							<button type="button" onClick={(e) => setFilterOpen(!isFilterOpen)} className="flex justify-center items-center">
 								<img src={Filter} alt="Logout" className="sxl:w-[3em] sxl:h-[3em] md:w-[2.5em]" />
 							</button>
-						</li>
+						</li> */}
 						<li className="mr-[34px] cursor-pointer">
 							<Link to="/account">
 								<img src={Account} alt="Account" className="sxl:w-[3em] sxl:h-[3em] md:w-[2.5em]" />

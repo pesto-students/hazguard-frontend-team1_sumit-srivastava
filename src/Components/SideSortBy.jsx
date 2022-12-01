@@ -2,7 +2,7 @@ const SideSortBy = () => {
 	return (
 		<div className="w-[100%] h-[80%] flex justify-center items-center">
 			<div className="w-[80%] h-[85%] flex flex-col justify-start items-center">
-				<label htmlFor="sort" className="text-[#272343] sxl:text-[15px] sm:text-[20px] font-semibold">
+				{/* <label htmlFor="sort" className="text-[#272343] sxl:text-[15px] sm:text-[20px] font-semibold">
 					Sort By
 				</label>
 				<select
@@ -18,7 +18,8 @@ const SideSortBy = () => {
 					<option value="lowtohigh">Hazard Level: Low to High</option>
 					<option value="mostviews">Views: Most Views</option>
 					<option value="leastviews">Views: Least Views</option>
-				</select>
+				</select> */}
+				{/* <SideSortBy/> */}
 			</div>
 		</div>
 	);
