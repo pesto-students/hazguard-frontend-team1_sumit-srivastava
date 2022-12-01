@@ -7,7 +7,7 @@ const GlobalRank = ({ leaderboardList }) => {
 			{leaderboardList.length > 0 ? (
 				<div className="sxl:w-[100%] sxl:mt-[30px] md:w-[48%] md:mt-0 sxl:h-[50%] md:h-[100%] bg-gradient-to-tl from-[#180F55,60%] to-[#6A718F] rounded-[20px] flex flex-col justify-between items-center">
 					<div className="w-[100%] h-[60px] bg-[#272343] rounded-t-[20px] flex justify-center items-center font-[700] text-[#fff] sxl:text-[18px] md:text-[20px]">Global Ranks</div>
-					<div className="w-[100%] h-[calc(100%-60px)] flex flex-col justify-center items-center">
+					<div className="w-[100%] h-[calc(100%-60px)] flex flex-col justify-start pt-5 items-center">
 						<div className="flex font-[700] lg:text-[16px] md:text-[13px] text-[#EED132] justify-between w-[80%]">
 							<div>Rank</div>
 							<div>Industry Name</div>

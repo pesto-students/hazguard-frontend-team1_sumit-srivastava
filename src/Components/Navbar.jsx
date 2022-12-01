@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Account, Hamburger, Logout, Filter, BackArrow } from "../Assets/library";
 import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import SideSortBy from "./SideSortBy";
 import { logout } from "../Helpers/auth";
 import { setInitialState } from "../Store/storingData";
 import { toast } from "react-toastify";
@@ -119,7 +118,6 @@ export default function Navbar() {
 									}}
 								/>
 							</Link>
-							<SideSortBy />
 						</div>
 					)}
 					<ul className="flex flex-row justify-between items-center">
