@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Logo } from "../Assets/library";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { login, profile } from "../Helpers/auth";
+import { login } from "../Helpers/auth";
+import { profile } from "../Helpers/user";
 import { useDispatch } from "react-redux";
 import { setAccessToken, setRefreshToken, setUserData, setCheckChange } from "../Store/storingData";
 

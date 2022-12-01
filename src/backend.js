@@ -18,3 +18,6 @@ export const EditHazard_API = `${BACKEND}api/update/hazard`;
 export const DeleteHazard_API = `${BACKEND}api/delete/hazard`;
 export const ReadAllHazards_API = `${BACKEND}api/read/allhazards`;
 export const IncreaseView_API = `${BACKEND}api/update/increaseviewcount`;
+
+// Misc APIs
+export const Leaderboard_API = `${BACKEND}api/read/leaderboard`;
