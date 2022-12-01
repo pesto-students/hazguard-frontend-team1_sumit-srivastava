@@ -4,7 +4,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 	};
 	return (
 		<div className="w-[100vw] mt-[30px] h-[120px] flex sxl:px-[15px] md:px-[30px]">
-			<div className="flex w-[100%] h-[130px] rounded-[20px] overflow-hidden sxl:flex-wrap md:flex-nowrap sxl:justify-between md:justify-center items-center sxl:bg-[#ffffff] md:bg-transparent sxl:px-5 md:px-0 sxl:py-1">
+			<div className="flex w-[100%] sxl:h-[180px] md:h-[120px] rounded-[20px] overflow-hidden sxl:flex-wrap md:flex-nowrap sxl:justify-between md:justify-center items-center sxl:bg-[#ffffff] md:bg-transparent sxl:px-5 md:px-0 sxl:py-1">
 				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full mr-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
 					<label htmlFor="industryType" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Industry Type
@@ -85,8 +85,8 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						})}
 					</select>
 				</div>
-				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full ml-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
-					<label htmlFor="sort" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
+				<div className="sxl:w-full xs:w-fit sm:w-[20%] sxl:h-fit md:h-full sxl:mt-1 md:mt-0 bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center sxl:items-start xs:items-center">
+					<label htmlFor="sort" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold sxl:ml-5 xs:ml-0">
 						Sort By
 					</label>
 					<select

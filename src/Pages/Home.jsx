@@ -48,7 +48,7 @@ const Home = () => {
 				/>
 				{!loading ? (
 					<>
-						{filterHazards.length > 0 && <div className="ml-9 text-xl font-semibold mt-6">{filterHazards.length} results</div>}
+						{filterHazards.length > 0 && <div className="ml-9 text-xl font-semibold sxl:mt-16 md:mt-0">{filterHazards.length} results</div>}
 						<Post hazards={filterHazards} />
 					</>
 				) : (
