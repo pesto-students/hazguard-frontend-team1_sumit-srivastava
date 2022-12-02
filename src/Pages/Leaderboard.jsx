@@ -35,7 +35,7 @@ const Leaderboard = () => {
 							<GlobalRank leaderboardList={leaderboardList} />
 						</>
 					) : (
-						<div className="h-[60vh] flex justify-center items-center">
+						<div className="w-[100%] h-[60vh] flex justify-center items-center border">
 							<svg
 								height="200px"
 								width="200px"

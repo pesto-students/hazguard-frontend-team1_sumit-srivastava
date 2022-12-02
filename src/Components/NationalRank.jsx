@@ -21,7 +21,7 @@ const NationalRank = ({ leaderboardList }) => {
 									<div
 										key={data._id}
 										className={`flex font-[700] lg:text-[16px] md:text-[13px] text-[#fff] border-b-[1px] border-b-solid justify-between w-[80%] bg-transparent mt-[5px] px-[5px] py-[5px] ${
-											data.userId === userData.userId && "bg-[#EED132]"
+											data.userId === userData.userId && "bg-[#EED132] text-black"
 										}`}
 									>
 										<div>{index + 1}</div>

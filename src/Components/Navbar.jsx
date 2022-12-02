@@ -101,6 +101,9 @@ export default function Navbar() {
 									<Link to="/account">Account</Link>
 								</li>
 								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
+									<Link to="/leaderboard">Leaderboard</Link>
+								</li>
+								<li className="mb-[20px] font-[700] text-[#677094] text-[20px]">
 									<Link to="/login">Logout</Link>
 								</li>
 							</ul>
