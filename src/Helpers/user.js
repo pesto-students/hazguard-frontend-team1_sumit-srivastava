@@ -21,7 +21,7 @@ export async function profile(accessToken) {
 export async function updateProfile(user, accessToken) {
 	try {
 		const response = await fetch(UpdateProfile_API, {
-			method: "POST",
+			method: "PATCH",
 			headers: {
 				Authorization: `Bearer ${accessToken}`,
 				Accept: "application/json",
@@ -31,7 +31,7 @@ export async function updateProfile(user, accessToken) {
 		});
 		return await response.json();
 	} catch (err) {
-		toast.error("Not able to logout! Please try again!");
+		toast.error("Not able to update! Please try again!");
 		return console.log(err);
 	}
 }

@@ -38,13 +38,14 @@ const Routes = () => {
 		};
 		getAllHazards();
 	}, [checkChange]);
+	console.log(import.meta.env.MODE);
 	return (
 		<BrowserRouter>
 			<RouterRoutes>
-				<Route exact path="/" element={<Landing />} />
-				<Route exact path="/register" element={!userData ? <Register /> : <Navigate to="/home" replace={true} />} />
-				<Route exact path="/verify/:token" element={!userData ? <Verify /> : <Navigate to="/home" replace={true} />} />
-				<Route exact path="/login" element={!userData ? <Login /> : <Navigate to="/home" replace={true} />} />
+				<Route exact path="/" element={userData ? <Home /> : <Landing />} />
+				<Route exact path="/register" element={<Register />} />
+				<Route exact path="/verify/:token" element={userData ? <Navigate to="/home" replace={true} /> : <Verify />} />
+				<Route exact path="/login" element={<Login />} />
 				<Route
 					exact
 					path="/home"

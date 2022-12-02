@@ -65,7 +65,6 @@ const Register = () => {
 							id="firstName"
 							name="firstName"
 							type="text"
-							autoComplete="firstName"
 							required
 							className="my-1 w-full placeholder:text-[15px]"
 							placeholder="Enter Your Firstname"
@@ -96,8 +95,7 @@ const Register = () => {
 						<input
 							id="companyName"
 							name="companyName"
-							type="companyName"
-							autoComplete="companyName"
+							type="text"
 							required
 							className="my-1 w-full placeholder:text-[15px]"
 							placeholder="Enter Your Company Name"
@@ -114,7 +112,6 @@ const Register = () => {
 							name="password1"
 							type="password"
 							pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
-							autoComplete="current-password1"
 							required
 							placeholder="Enter Your Password"
 							className="my-1 w-full placeholder:text-[15px]"
@@ -131,7 +128,6 @@ const Register = () => {
 							name="password2"
 							type="password"
 							pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
-							autoComplete="current-password2"
 							required
 							placeholder="Enter Your Password Again"
 							className="my-1 w-full placeholder:text-[15px]"
