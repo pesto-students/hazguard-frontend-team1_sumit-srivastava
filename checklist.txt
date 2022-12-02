@@ -4,15 +4,13 @@ Misc Work -
 Frontend -
 1. Edit Profile
 2. Change Password
-3. After Registering Take All Details
-4. Show Password
-5. Lock Post Page
-6. Improve CSS
-7. Check Location Filter
+3. Show Password
+4. Lock Post Page
+5. Improve CSS
+6. Check Location Filter
 
 Frontend & Backend -
 1. Images Upload With Amazon S3
 2. Demo User
 3. Paid Demo User
 4. Manage Subscription
-5. Leaderboard

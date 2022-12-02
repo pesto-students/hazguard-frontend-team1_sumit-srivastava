@@ -1,7 +1,17 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const NationalRank = ({ leaderboardList }) => {
 	const userData = useSelector((state) => state.userData);
+	const [userRank, setUserRank] = useState(
+		leaderboardList
+			.filter((data) => data.country === userData.country)
+			.sort((a, b) => b.postCount - a.postCount)
+			.map((data, index) => {
+				return { ...data, rank: index + 1 };
+			})
+			.filter((data) => data.userId === userData.userId)[0]
+	);
 	return (
 		<>
 			{leaderboardList.length > 0 ? (
@@ -12,6 +22,14 @@ const NationalRank = ({ leaderboardList }) => {
 							<div>Rank</div>
 							<div>Industry Name</div>
 							<div>Posts</div>
+						</div>
+						<div
+							key={userRank._id}
+							className="flex font-[700] lg:text-[16px] md:text-[13px] text-[#fff] border-b-[1px] border-b-solid justify-between w-[80%] bg-transparent mt-[5px] px-[5px] py-[5px] bg-[#EED132]"
+						>
+							<div>{userRank.rank}</div>
+							<div>{userRank.companyName}</div>
+							<div>{userRank.postCount}</div>
 						</div>
 						{leaderboardList
 							.filter((data) => data.country === userData.country)
