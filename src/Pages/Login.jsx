@@ -195,14 +195,14 @@ const Login = () => {
 					</div>
 				</div>
 			) : (
-				<div className="flex justify-center items-center m-8">
-					<div className="w-[100%] h-[100%] bg-[#fff] p-10 rounded-[20px] text-center">
+				<div className="flex justify-center items-center p-8">
+					<div className="sxl:w-full md:w-2/5  h-[100%] bg-[#fff] p-10 rounded-[20px] text-center">
 						<h1 className="text-[#677094] text-[25px] mb-5 font-[700]">My Profile</h1>
 						<div className="w-[100%] h-[90%] sxl:border-none md:border-solid md:border-[#677094] flex flex-col justify-center items-center sxl:py-[20px] md:py-[0px]">
 							<img src={userData.profilePicture} height={"150px"} width={"150px"} alt="" />
 							<input type="file" name="profile" id="profile" className="hidden" />
 							<form className="mt-5 w-3/5 h-[75%] flex flex-col justify-center items-center">
-								<div className="border-b-4 border-solid border-b-[#EED132] my-3">
+								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
 									<label htmlFor="lastName" className="font-semibold text-[#272343]">
 										Last Name
 									</label>
@@ -217,7 +217,7 @@ const Login = () => {
 										onChange={handleChange("lastName")}
 									/>
 								</div>
-								<div className="border-b-4 border-solid border-b-[#EED132] my-3">
+								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
 									<label htmlFor="mobileNumber" className="font-semibold text-[#272343]">
 										Mobile Number
 									</label>
@@ -233,7 +233,7 @@ const Login = () => {
 										onChange={handleChange("mobileNumber")}
 									/>
 								</div>
-								<div className="border-b-4 border-solid border-b-[#EED132] my-3">
+								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
 									<label htmlFor="state" className="font-semibold text-[#272343]">
 										State
 									</label>
@@ -248,7 +248,7 @@ const Login = () => {
 										onChange={handleChange("state")}
 									/>
 								</div>
-								<div className="border-b-4 border-solid border-b-[#EED132] my-3">
+								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
 									<label htmlFor="country" className="font-semibold text-[#272343]">
 										Country
 									</label>
@@ -263,31 +263,8 @@ const Login = () => {
 										onChange={handleChange("country")}
 									/>
 								</div>
-								<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
-									<label htmlFor="industry" className="font-semibold text-[#272343]">
-										Industry
-									</label>
-									<select
-										id="industry"
-										name="industry"
-										value={industry}
-										onChange={handleChange("industry")}
-										className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm font-medium bg-transparent border-0 border-b-2 border-[#EED132] mb-2"
-									>
-										<option value="">Industry Type</option>
-										<option value="Agriculture">Agriculture</option>
-										<option value="Apparel">Apparel</option>
-										<option value="Oil & Gas Production">Oil & Gas Production</option>
-										<option value="Construction">Construction</option>
-										<option value="Manufacturing">Manufacturing</option>
-										<option value="Mining">Mining</option>
-										<option value="Forestry">Forestry</option>
-										<option value="Shipping">Shipping</option>
-										<option value="Transport">Transport</option>
-										<option value="Utilities">Utilities</option>
-									</select>
-								</div>
-								<div className="border-b-4 border-solid border-b-[#EED132] my-3">
+
+								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
 									<label htmlFor="department" className="font-semibold text-[#272343]">
 										Department
 									</label>
@@ -301,6 +278,30 @@ const Login = () => {
 										value={department}
 										onChange={handleChange("department")}
 									/>
+								</div>
+								<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+									<label htmlFor="industry" className="font-semibold text-[#272343]">
+										Industry
+									</label>
+									<select
+										id="industry"
+										name="industry"
+										value={industry}
+										onChange={handleChange("industry")}
+										className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm font-medium bg-transparent border-0 border-b-4 border-[#EED132] mb-2 text-[15px]"
+									>
+										<option value="">Industry Type</option>
+										<option value="Agriculture">Agriculture</option>
+										<option value="Apparel">Apparel</option>
+										<option value="Oil & Gas Production">Oil & Gas Production</option>
+										<option value="Construction">Construction</option>
+										<option value="Manufacturing">Manufacturing</option>
+										<option value="Mining">Mining</option>
+										<option value="Forestry">Forestry</option>
+										<option value="Shipping">Shipping</option>
+										<option value="Transport">Transport</option>
+										<option value="Utilities">Utilities</option>
+									</select>
 								</div>
 								<button
 									onClick={(e) => {
