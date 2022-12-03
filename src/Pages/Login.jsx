@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Logo } from "../Assets/library";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -6,8 +6,10 @@ import { login } from "../Helpers/auth";
 import { profile, updateProfile } from "../Helpers/user";
 import { useDispatch, useSelector } from "react-redux";
 import { setAccessToken, setRefreshToken, setUserData, setCheckChange } from "../Store/storingData";
+import { uploadToS3 } from "../Utilities/uploadToS3";
 
 const Login = () => {
+	const [file, setFile] = useState();
 	const [getMoreDetails, setGetMoreDetails] = useState(false);
 	const userData = useSelector((state) => state.userData);
 	const accessToken = useSelector((state) => state.accessToken);
@@ -16,6 +18,7 @@ const Login = () => {
 		email: "",
 		password: "",
 		lastName: "",
+		profilePicture: "",
 		mobileNumber: "",
 		state: "",
 		country: "",
@@ -23,7 +26,7 @@ const Login = () => {
 		department: "",
 	});
 	const navigate = useNavigate();
-	const { email, password, lastName, mobileNumber, state, country, industry, department } = values;
+	const { email, password, lastName, profilePicture, mobileNumber, state, country, industry, department } = values;
 	const handleChange = (name) => (event) => {
 		setValues({ ...values, [name]: event.target.value });
 	};
@@ -33,10 +36,6 @@ const Login = () => {
 			login(values)
 				.then(async (response) => {
 					if (!response?.error) {
-						setValues({
-							email: "",
-							password: "",
-						});
 						let data;
 						dispatch(
 							setUserData(
@@ -55,6 +54,17 @@ const Login = () => {
 									})
 							)
 						);
+						setValues({
+							email: "",
+							password: "",
+							lastName: data.lastName,
+							profilePicture: data.profilePicture,
+							mobileNumber: data.mobileNumber || "",
+							state: data.state,
+							country: data.country,
+							industry: data.industry,
+							department: data.department,
+						});
 						dispatch(setAccessToken(response?.accessToken));
 						dispatch(setRefreshToken(response?.refreshToken));
 						dispatch(setCheckChange());
@@ -75,14 +85,23 @@ const Login = () => {
 			return toast.warning("Please enter all the fields!");
 		}
 	};
-	const updateDetails = (e) => {
+	const updateDetails = async (e) => {
 		e.preventDefault();
+		let imageLink = profilePicture;
+		if (file) {
+			if (!(await uploadToS3("profilePictures", file, userData.userId)).error) {
+				imageLink = `https://hazguard-files.s3.ap-south-1.amazonaws.com/profilePictures/${userData.userId}/${file.name}`;
+			} else {
+				return toast.error("Not able to update! Please try again!");
+			}
+		}
 		if (lastName !== "" && mobileNumber !== "" && state !== "" && country !== "" && industry !== "" && department !== "") {
 			updateProfile(
 				{
 					companyName: userData.companyName,
 					firstName: userData.firstName,
 					lastName: lastName,
+					profilePicture: imageLink,
 					mobileNumber: mobileNumber,
 					state: state,
 					country: country,
@@ -94,7 +113,10 @@ const Login = () => {
 				.then(async (response) => {
 					if (!response?.error) {
 						setValues({
+							email: "",
+							password: "",
 							lastName: "",
+							profilePicture: "",
 							mobileNumber: "",
 							state: "",
 							country: "",
@@ -103,7 +125,7 @@ const Login = () => {
 						});
 						dispatch(
 							setUserData(
-								await profile(response?.accessToken)
+								await profile(accessToken)
 									.then((response) => {
 										if (!response?.error) {
 											return response;
@@ -131,6 +153,11 @@ const Login = () => {
 			return toast.warning("Please enter all the fields!");
 		}
 	};
+	useEffect(() => {
+		if (file) {
+			setValues({ ...values, profilePicture: URL.createObjectURL(file) });
+		}
+	}, [file]);
 	return (
 		<>
 			{!getMoreDetails ? (
@@ -199,8 +226,14 @@ const Login = () => {
 					<div className="sxl:w-full md:w-2/5  h-[100%] bg-[#fff] p-10 rounded-[20px] text-center">
 						<h1 className="text-[#677094] text-[25px] mb-5 font-[700]">My Profile</h1>
 						<div className="w-[100%] h-[90%] sxl:border-none md:border-solid md:border-[#677094] flex flex-col justify-center items-center sxl:py-[20px] md:py-[0px]">
-							<img src={userData.profilePicture} height={"150px"} width={"150px"} alt="" />
-							<input type="file" name="profile" id="profile" className="hidden" />
+							<div className="flex justify-center">
+								<label htmlFor="photo-upload" className="custom-file-upload">
+									<div className="img-wrap img-upload">
+										<img htmlFor="photo-upload" src={profilePicture} alt="Profile_Pic" />
+									</div>
+									<input className="hidden" id="photo-upload" type="file" accept="image/*" onChange={(e) => setFile(e.target.files[0])} />
+								</label>
+							</div>
 							<form className="mt-5 w-3/5 h-[75%] flex flex-col justify-center items-center">
 								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
 									<label htmlFor="lastName" className="font-semibold text-[#272343]">

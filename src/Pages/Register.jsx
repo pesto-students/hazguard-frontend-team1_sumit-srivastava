@@ -3,6 +3,7 @@ import { Logo } from "../Assets/library";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { signup } from "../Helpers/auth";
+import createImageFromInitials from "../Utilities/imageGenerator";
 
 const Register = () => {
 	const [values, setValues] = useState({
@@ -21,7 +22,13 @@ const Register = () => {
 		e.preventDefault();
 		if (firstName !== "" && email !== "" && companyName !== "" && password1 !== "" && password2 !== "") {
 			if (password1 === password2) {
-				signup({ firstName: firstName, email: email, companyName: companyName, password: password1 })
+				signup({
+					firstName: firstName,
+					email: email,
+					companyName: companyName,
+					password: password1,
+					profilePicture: createImageFromInitials(150, firstName.charAt(0) + companyName.charAt(0), "#272343", "#FFFFFF"),
+				})
 					.then((response) => {
 						if (!response?.error) {
 							setValues({

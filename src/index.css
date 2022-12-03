@@ -66,3 +66,43 @@ select {
 	height: 60px !important;
 	width: 30px !important;
 }
+
+.custom-file-upload {
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.img-wrap {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.img-upload:before {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M4 19h16v-7h2v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-8h2v7zM14 9v6h-4V9H5l7-7 7 7h-5z' fill='rgb(238, 209, 50)'/%3E%3C/svg%3E");
+	font-size: 40px;
+	position: absolute;
+	padding-top: 45px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: #eed132;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	opacity: 0;
+	transition: 0.25s all ease;
+	background-color: #272343 !important;
+}
+
+.img-upload:hover:before {
+	opacity: 1;
+}
+
+.img-wrap img {
+	width: auto;
+	height: 100%;
+}
