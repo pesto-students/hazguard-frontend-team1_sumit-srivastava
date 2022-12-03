@@ -95,7 +95,7 @@ const Routes = () => {
 					path="/post/:hazardId"
 					element={
 						<PrivateRoute>
-							<Post />
+							<PostPage />
 						</PrivateRoute>
 					}
 				/>
@@ -104,7 +104,7 @@ const Routes = () => {
 					path="/edithazard/:hazardId"
 					element={
 						<PrivateRoute>
-							<EditPost />
+							<EditPostPage />
 						</PrivateRoute>
 					}
 				/>
