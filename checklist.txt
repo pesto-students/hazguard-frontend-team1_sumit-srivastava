@@ -10,7 +10,7 @@ Frontend -
 6. Check Location Filter
 
 Frontend & Backend -
-1. Images Upload With Amazon S3
-2. Demo User
-3. Paid Demo User
-4. Manage Subscription
+1. Hazard Images
+2. Manage Subscription
+3. Demo User
+4. Paid Demo User
