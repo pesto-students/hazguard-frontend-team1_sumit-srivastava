@@ -1,4 +1,5 @@
 import Base from "./Base";
+import { useState, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { addHazard } from "../Helpers/hazard";
@@ -15,8 +16,67 @@ import {
 	setCheckChange,
 	setLoading,
 } from "../Store/storingData";
+import { uploadToS3 } from "../Utilities/uploadToS3";
+import { useDropzone } from "react-dropzone";
+import { v4 } from "uuid";
+
+const baseStyle = {
+	padding: "20px",
+	borderWidth: 2,
+	borderRadius: 16,
+	borderColor: "transparent",
+	borderStyle: "dashed",
+	backgroundColor: "#ffffff",
+	outline: "none",
+	transition: "all .24s ease-in-out",
+};
+const activeStyle = {
+	borderColor: "#2196f3",
+};
+const acceptStyle = {
+	borderColor: "#00e676",
+	backgroundColor: "rgba(0, 230, 118, 0.4)",
+};
+const rejectStyle = {
+	borderColor: "#ff1744",
+	backgroundColor: "rgba(255, 23, 68, 0.4)",
+};
 
 const AddHazard = () => {
+	const [files, setFiles] = useState([]);
+	const onDrop = useCallback((acceptedFiles) => {
+		setFiles(
+			acceptedFiles.map((file) =>
+				Object.assign(file, {
+					preview: URL.createObjectURL(file),
+				})
+			)
+		);
+	}, []);
+	const { getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject } = useDropzone({
+		maxFiles: 4,
+		accept: {
+			"image/png": [".png"],
+			"image/jpeg": [".jpg", ".jpeg"],
+		},
+		onDrop,
+	});
+	const thumbs = files.map((file) => (
+		<div className="inline-flex mb-2 mr-2 w-24 h-24 p-1 box-border" key={file.name}>
+			<div className="flex min-w-0 overflow-hidden rounded-md">
+				<img className="block w-auto h-full" src={file.preview} />
+			</div>
+		</div>
+	));
+	const style = useMemo(
+		() => ({
+			...baseStyle,
+			...(isDragActive ? activeStyle : {}),
+			...(isDragAccept ? acceptStyle : {}),
+			...(isDragReject ? rejectStyle : {}),
+		}),
+		[isDragActive, isDragReject, isDragAccept]
+	);
 	const userData = useSelector((state) => state.userData);
 	const accessToken = useSelector((state) => state.accessToken);
 	const newPostDataIndustry = useSelector((state) => state.newPostDataIndustry);
@@ -29,8 +89,17 @@ const AddHazard = () => {
 	const newPostDataIsPublic = useSelector((state) => state.newPostDataIsPublic);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const createHazard = (e) => {
+	const createHazard = async (e) => {
 		e.preventDefault();
+		let hazardId = v4();
+		let imageLinks = [];
+		if (files.length > 0) {
+			if (!(await uploadToS3("hazardImages", files, hazardId)).error) {
+				files.forEach((data) => imageLinks.push(`https://hazguard-files.s3.ap-south-1.amazonaws.com/hazardImages/${hazardId}/${data.name}`));
+			} else {
+				return toast.error("Not able to update! Please try again!");
+			}
+		}
 		if (
 			newPostDataIndustry !== "" &&
 			newPostDataType !== "" &&
@@ -47,6 +116,7 @@ const AddHazard = () => {
 		) {
 			addHazard(
 				{
+					hazardId: hazardId,
 					type: newPostDataType,
 					industry: newPostDataIndustry,
 					department: userData.department,
@@ -59,6 +129,7 @@ const AddHazard = () => {
 					companyName: userData.companyName,
 					state: userData.state,
 					country: userData.country,
+					images: imageLinks,
 				},
 				accessToken
 			)
@@ -74,6 +145,7 @@ const AddHazard = () => {
 						dispatch(setNewPostDataIsPublic(newPostDataIsPublic));
 						dispatch(setLoading(true));
 						dispatch(setCheckChange());
+						setFiles([]);
 						toast.success("Hazard added!");
 						navigate("/myposts");
 					} else if (response?.error) {
@@ -91,7 +163,7 @@ const AddHazard = () => {
 	return (
 		<>
 			<Base>
-				<div className="w-full sxl:h-full sm:h-[800px] sxl:p-[15px] sm:p-[30px]">
+				<div className="w-full sxl:h-full sm:h-[1000px] sxl:p-[15px] sm:p-[30px]">
 					<div className="w-full h-full bg-white rounded-2xl p-[30px] md:pr-12 flex flex-col justify-center items-center">
 						<h1 className="text-center font-semibold text-[28px] text-[#272343] mb-10">Hazard Information</h1>
 						<form className="w-full flex justify-center items-center sxl:flex-wrap sm:flex-nowrap">
@@ -230,7 +302,7 @@ const AddHazard = () => {
 										onChange={(e) => dispatch(setNewPostDataProblem(e.target.value))}
 									/>
 								</div>
-								<div className="flex flex-col justify-center items-start mt-4">
+								<div className="flex flex-col justify-center items-start mb-4">
 									<label htmlFor="solution" className="mb-2 text-lg">
 										Solution of Hazard<span className="text-red-600">*</span>
 									</label>
@@ -246,10 +318,40 @@ const AddHazard = () => {
 										onChange={(e) => dispatch(setNewPostDataSolution(e.target.value))}
 									/>
 								</div>
+								<div className="flex flex-col justify-center items-start mt-4">
+									<label htmlFor="solution" className="mb-2 text-lg">
+										Images<span className="text-red-600">*</span>
+									</label>
+									<div className="inputShadow flex flex-col justify-center items-center" {...getRootProps({ style })}>
+										<input {...getInputProps()} />
+										<p className="m-0 p-2 text-black">
+											{isDragAccept ? (
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={25} height={25}>
+													<path fill="none" d="M0 0h24v24H0z" />
+													<path d="M21 15v3h3v2h-3v3h-2v-3h-3v-2h3v-3h2zm.008-12c.548 0 .992.445.992.993v9.349A5.99 5.99 0 0 0 20 13V5H4l.001 14 9.292-9.293a.999.999 0 0 1 1.32-.084l.093.085 3.546 3.55a6.003 6.003 0 0 0-3.91 7.743L2.992 21A.993.993 0 0 1 2 20.007V3.993A1 1 0 0 1 2.992 3h18.016zM8 7a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" />
+												</svg>
+											) : isDragReject ? (
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={25} height={25}>
+													<path fill="none" d="M0 0h24v24H0z" />
+													<path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-11.414L9.172 7.757 7.757 9.172 10.586 12l-2.829 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415L12 10.586z" />
+												</svg>
+											) : (
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={25} height={25}>
+													<path fill="none" d="M0 0h24v24H0z" />
+													<path d="M21 15v3h3v2h-3v3h-2v-3h-3v-2h3v-3h2zm.008-12c.548 0 .992.445.992.993v9.349A5.99 5.99 0 0 0 20 13V5H4l.001 14 9.292-9.293a.999.999 0 0 1 1.32-.084l.093.085 3.546 3.55a6.003 6.003 0 0 0-3.91 7.743L2.992 21A.993.993 0 0 1 2 20.007V3.993A1 1 0 0 1 2.992 3h18.016zM8 7a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" />
+												</svg>
+											)}
+										</p>
+										<p className="m-0 p-2 text-center text-black">
+											Drop your image or video here, or <span className="text-[#272343]">browse!</span> Please add only 4 items.
+										</p>
+										<aside className="flex flex-row flex-wrap mt-4">{thumbs}</aside>
+									</div>
+								</div>
 							</div>
 						</form>
 						<button
-							className="bg-[#EED132] w-[175px] h-[50px] mt-4 rounded-3xl font-semibold text-[#000] text-[20px] hover:bg-[rgba(238,209,50,0.8)]"
+							className="bg-[#EED132] w-[175px] h-[50px] mt-6 rounded-3xl font-semibold text-[#000] text-[20px] hover:bg-[rgba(238,209,50,0.8)]"
 							onClick={(e) => {
 								createHazard(e);
 							}}

@@ -177,12 +177,19 @@ const SinglePost = ({ data, fromMyPosts }) => {
 						</svg>
 						<p className="text-[#677094] sxl:text-[12px] md:text-[15px] font-[700] ml-1">{data.views}</p>
 					</div>
-					{!fromMyPosts && (
+					{!fromMyPosts ? (
 						<button
 							onClick={(e) => increaseView(e, data.hazardId)}
 							className="bg-[#EED132] flex justify-center items-center text-[#000] sxl:w-[150px] md:w-[200px] sxl:h-[28px] md:h-[45px] rounded-[40px] sxl:text-[13px] md:text-[18px] font-[700] hover:bg-[rgba(238,209,50,0.8)]"
 						>
 							SOLUTION
+						</button>
+					) : (
+						<button
+							onClick={() => navigate(`/post/${data.hazardId}`)}
+							className="bg-[#EED132] ml-2 flex justify-center items-center text-[#000] sxl:w-[150px] md:w-[200px] sxl:h-[28px] md:h-[45px] rounded-[40px] sxl:text-[13px] md:text-[18px] font-[700] hover:bg-[rgba(238,209,50,0.8)]"
+						>
+							VIEW MORE
 						</button>
 					)}
 				</div>

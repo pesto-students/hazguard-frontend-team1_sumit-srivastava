@@ -1,9 +1,5 @@
 import "slick-carousel/slick/slick.css";
 import Slider from "react-slick";
-import image1 from "../Assets/image1.jpg";
-import image2 from "../Assets/image2.jpg";
-import image3 from "../Assets/image3.jpg";
-import image4 from "../Assets/image4.jpg";
 
 const Product = () => {
 	const NextArrow = ({ className, onClick }) => {
@@ -41,18 +37,10 @@ const Product = () => {
 	return (
 		<section className="heroslider relative bg-white">
 			<Slider {...settings}>
-				<div className="h-[700px]">
-					<img src={image1} alt="" />
-				</div>
-				<div className="h-[700px]">
-					<img src={image2} alt="" />
-				</div>
-				<div className="h-[700px]">
-					<img src={image3} alt="" />
-				</div>
-				<div className="h-[700px]">
-					<img src={image4} alt="" />
-				</div>
+				<div className="h-[700px]">{/* <img alt="" /> */}</div>
+				<div className="h-[700px]">{/* <img alt="" /> */}</div>
+				<div className="h-[700px]">{/* <img alt="" /> */}</div>
+				<div className="h-[700px]">{/* <img alt="" /> */}</div>
 			</Slider>
 		</section>
 	);

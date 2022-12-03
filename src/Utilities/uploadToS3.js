@@ -34,6 +34,6 @@ export const uploadToS3 = async (type, file, info) => {
 		case "profilePictures":
 			return await uploadFile(`profilePictures/${info}/${file.name}`, file);
 		case "hazardImages":
-			return uploadFile(`hazardImages/${info}/${file.name}`, file);
+			return await Promise.all(file.map(async (data) => await uploadFile(`hazardImages/${info}/${data.name}`, data)));
 	}
 };
