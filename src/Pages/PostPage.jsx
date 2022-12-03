@@ -108,12 +108,9 @@ const Post = () => {
 									{
 										original: hazard.images[0],
 										thumbnail: hazard.images[0],
-										loading: "lazy",
-										thumbnailLoading: "lazy",
 									},
 								]}
 								showPlayButton={false}
-								lazyLoad={true}
 							/>
 						) : hazard.images.length === 2 ? (
 							<ImageGallery
@@ -121,18 +118,13 @@ const Post = () => {
 									{
 										original: hazard.images[0],
 										thumbnail: hazard.images[0],
-										loading: "lazy",
-										thumbnailLoading: "lazy",
 									},
 									{
 										original: hazard.images[1],
 										thumbnail: hazard.images[1],
-										loading: "lazy",
-										thumbnailLoading: "lazy",
 									},
 								]}
 								showPlayButton={false}
-								lazyLoad={true}
 							/>
 						) : hazard.images.length === 3 ? (
 							<ImageGallery
@@ -140,24 +132,17 @@ const Post = () => {
 									{
 										original: hazard.images[0],
 										thumbnail: hazard.images[0],
-										loading: "lazy",
-										thumbnailLoading: "lazy",
 									},
 									{
 										original: hazard.images[1],
 										thumbnail: hazard.images[1],
-										loading: "lazy",
-										thumbnailLoading: "lazy",
 									},
 									{
 										original: hazard.images[2],
 										thumbnail: hazard.images[2],
-										loading: "lazy",
-										thumbnailLoading: "lazy",
 									},
 								]}
 								showPlayButton={false}
-								lazyLoad={true}
 							/>
 						) : (
 							<ImageGallery
@@ -165,30 +150,21 @@ const Post = () => {
 									{
 										original: hazard.images[0],
 										thumbnail: hazard.images[0],
-										loading: "lazy",
-										thumbnailLoading: "lazy",
 									},
 									{
 										original: hazard.images[1],
 										thumbnail: hazard.images[1],
-										loading: "lazy",
-										thumbnailLoading: "lazy",
 									},
 									{
 										original: hazard.images[2],
 										thumbnail: hazard.images[2],
-										loading: "lazy",
-										thumbnailLoading: "lazy",
 									},
 									{
 										original: hazard.images[3],
 										thumbnail: hazard.images[3],
-										loading: "lazy",
-										thumbnailLoading: "lazy",
 									},
 								]}
 								showPlayButton={false}
-								lazyLoad={true}
 							/>
 						)}
 					</div>
