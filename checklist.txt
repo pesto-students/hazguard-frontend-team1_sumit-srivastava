@@ -1,15 +1,14 @@
-Misc Work -
+Work Left -
 1. Landing Page
+2. Manage Subscription
+3. Lock Post Page
+4. Check Location Filter
+5. Improve CSS
+6. Demo Users
+7. Paid Demo Users
+8. Optimizations
 
-Frontend -
+Not Important
 1. Edit Profile
 2. Change Password
-3. Show Password
-4. Lock Post Page
-5. Improve CSS
-6. Check Location Filter
-
-Frontend & Backend -
-1. Manage Subscription
-2. Demo User
-3. Paid Demo User
+3. Hide/Show Password

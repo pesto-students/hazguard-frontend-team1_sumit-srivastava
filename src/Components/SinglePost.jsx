@@ -101,7 +101,7 @@ const SinglePost = ({ data, fromMyPosts }) => {
 				<p>{data.companyName}</p>
 				<p className="text-base">{data.dateOccurred.slice(0, 10)}</p>
 			</div>
-			<div className="w-[100%] mb-4 max-h-[95px] my-[5px] h-[250px] px-3 flex justify-start items-start text-[#272343] font-[500] sxl:text-[12px] sm:text-[16px] md:text-[17px] break-words text-ellipsis sxl:leading-[12px] sm:leading-[20px] overflow-hidden">
+			<div className="w-[100%] mb-4 max-h-[100px] my-[5px] h-[250px] px-3 flex justify-start items-start text-[#272343] font-[500] sxl:text-[12px] sm:text-[16px] md:text-[17px] break-words text-ellipsis sxl:leading-[12px] sm:leading-[20px] overflow-hidden">
 				{data.problem}
 			</div>
 			<div className="w-[100%] h-[45%] max-h-[50px] px-3 flex sxl:flex-col md:flex-row justify-between sxl:items-between md:items-center">

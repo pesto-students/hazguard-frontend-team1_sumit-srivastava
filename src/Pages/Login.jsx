@@ -296,7 +296,6 @@ const Login = () => {
 										onChange={handleChange("country")}
 									/>
 								</div>
-
 								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
 									<label htmlFor="department" className="font-semibold text-[#272343]">
 										Department
