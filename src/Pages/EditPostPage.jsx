@@ -17,7 +17,7 @@ import {
 } from "../Store/storingData";
 import { useEffect } from "react";
 
-const EditPost = () => {
+const EditPostPage = () => {
 	const { hazardId } = useParams();
 	const dispatch = useDispatch();
 	const hazard = useSelector((state) => state.allHazards.filter((data) => data.hazardId === hazardId)[0]);
@@ -269,4 +269,4 @@ const EditPost = () => {
 	);
 };
 
-export default EditPost;
+export default EditPostPage;

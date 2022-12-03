@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes as RouterRoutes, Navigate } from "react-router-dom";
-import { Landing, Home, Saved, Register, Login, Account, Post, AddHazard, Verify, MyPosts, Leaderboard, EditPost } from "./Pages/Library";
+import { Account, AddHazard, EditPostPage, Home, Landing, Leaderboard, Login, MyPosts, PostPage, Register, Saved, Verify } from "./Pages/Library";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { readAllHazards } from "./Helpers/hazard";
@@ -38,7 +38,6 @@ const Routes = () => {
 		};
 		getAllHazards();
 	}, [checkChange]);
-	console.log(import.meta.env.MODE);
 	return (
 		<BrowserRouter>
 			<RouterRoutes>

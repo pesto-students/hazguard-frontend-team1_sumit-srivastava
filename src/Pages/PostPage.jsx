@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import ImageGallery from "react-image-gallery";
 import { Link } from "react-router-dom";
 
-const Post = () => {
+const PostPage = () => {
 	const navigate = useNavigate();
 	const { hazardId } = useParams();
 	const userData = useSelector((state) => state.userData);
@@ -174,4 +174,4 @@ const Post = () => {
 	);
 };
 
-export default Post;
+export default PostPage;

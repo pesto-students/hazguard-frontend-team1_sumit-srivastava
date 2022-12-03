@@ -1,15 +1,14 @@
-import Landing from "./Landing";
-import Home from "./Home";
-import Pricing from "./Pricing";
-import Saved from "./Saved";
-import Register from "./Register";
-import Login from "./Login";
 import Account from "./Account";
-import Post from "./PostPage";
-import EditPost from "./EditPostPage";
 import AddHazard from "./AddHazard";
-import Verify from "./Verify";
-import MyPosts from "./MyPosts";
+import EditPostPage from "./EditPostPage";
+import Home from "./Home";
+import Landing from "./Landing";
 import Leaderboard from "./Leaderboard";
+import Login from "./Login";
+import MyPosts from "./MyPosts";
+import PostPage from "./PostPage";
+import Register from "./Register";
+import Saved from "./Saved";
+import Verify from "./Verify";
 
-export { Landing, Home, Pricing, Saved, Register, Login, Account, Post, AddHazard, Verify, MyPosts, Leaderboard, EditPost };
+export { Account, AddHazard, EditPostPage, Home, Landing, Leaderboard, Login, MyPosts, PostPage, Register, Saved, Verify };
