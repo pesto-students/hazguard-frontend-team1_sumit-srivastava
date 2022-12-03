@@ -1,5 +1,3 @@
-import AWS from "aws-sdk";
-
 AWS.config.update({
 	accessKeyId: import.meta.env.VITE_S3_ACCESS_KEY_ID,
 	secretAccessKey: import.meta.env.VITE_S3_SECRET_ACCESS_KEY,
