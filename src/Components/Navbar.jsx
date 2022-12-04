@@ -137,8 +137,18 @@ export default function Navbar() {
 					</ul>
 				</nav>
 			</div>
-			<div className="sxl:hidden md:w-[20%] h-[100%] bg-[#FFFFFF] rounded-[20px] md:flex overflow-hidden justify-center items-center px-[20px]">
-				<img src={userData.profilePicture} alt="display picture" height="70px" width="70px" className="min-w-[70px] min-h-[70px] rounded-[50%] bg-[#272343] flex justify-center items-center" />
+			<div className="sxl:hidden md:w-[20%] h-[100%] bg-[#FFFFFF] rounded-[20px] md:flex overflow-hidden justify-center items-center px-[20px] ">
+				{userData.profilePicture ? (
+					<img
+						src={userData.profilePicture}
+						alt="display picture"
+						height="70px"
+						width="70px"
+						className="min-w-[70px] min-h-[70px] rounded-[50%] bg-[#272343] flex justify-center items-center"
+					/>
+				) : (
+					<span className="font-[700] text-[#272343] sxl:text-[30px] md:text-[50px]">{userData.companyName[0]}</span>
+				)}
 				<div className="sxl:hidden lg:flex flex-col justify-center items-start ml-[10px] w-[80%]">
 					<p className="text-[1.4em] text-[#677094]">Hello,</p>
 					<p className="text-[1.4em] font-[700] text-[#272343]">{userData.firstName}</p>
