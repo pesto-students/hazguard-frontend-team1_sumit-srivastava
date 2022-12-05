@@ -19,7 +19,7 @@ const Account = () => {
 					<div className="sxl:w-[100%] md:w-[50%] h-[100%] flex flex-col justify-center items-center">
 						<div className="w-[100%] h-[90%] sxl:border-none md:border-r-2 md:border-solid md:border-[#677094] flex flex-col justify-center items-center sxl:py-[20px] md:py-[0px]">
 							<div className="sxl:w-[100px] sxl:min-h-[100px] md:min-h-[200px] md:mt-[0px] sxl:h-[100px] md:w-[200px] md:h-[200px] rounded-[50%] bg-[#5775E8] flex justify-center items-center font-[700] text-[#fff] sxl:text-[40px] md:text-[70px]">
-								{userData?.profilePicture ? <img className="rounded-full" src={userData?.profilePicture} alt="profile-pic" /> : userData?.companyName[0]}
+								<img className="rounded-full" src={userData?.profilePicture} alt="profile-pic" />
 							</div>
 							<div className="sxl:w-[90%] md:w-[80%] h-[80%] flex justify-between items-center mt-[50px] sxl:flex-wrap md:flex-nowrap">
 								<div className="mr-10">

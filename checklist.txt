@@ -1,14 +1,18 @@
 Work Left -
 1. Landing Page
 2. Manage Subscription
-3. Lock Post Page
-4. Check Location Filter
-5. Improve CSS
-6. Demo Users
-7. Paid Demo Users
-8. Optimizations
+3. Handle 0 Hazards In Data
+4. Lock Post Page
+5. Check Location Filter
+6. Improve CSS
+7. Demo Users
+8. Paid Demo Users
+9. Make auth better
+10. Optimizations
 
 Not Important
 1. Edit Profile
 2. Change Password
 3. Hide/Show Password
+
+How will we handle server crash?
