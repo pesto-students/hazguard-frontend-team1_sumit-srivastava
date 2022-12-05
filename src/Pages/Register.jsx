@@ -74,7 +74,7 @@ const Register = () => {
 							type="text"
 							required
 							className="my-1 w-full placeholder:text-[15px]"
-							placeholder="Enter Your Firstname"
+							placeholder="Enter Your First Name"
 							value={firstName}
 							onChange={handleChange("firstName")}
 						/>
