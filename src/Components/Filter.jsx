@@ -5,8 +5,8 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 	return (
 		<div className="w-[100vw] mt-[30px] h-[120px] flex sxl:px-[15px] md:px-[30px]">
 			<div className="flex w-[100%] sxl:h-[180px] md:h-[120px] rounded-[20px] overflow-hidden sxl:flex-wrap md:flex-nowrap sxl:justify-between md:justify-center items-center sxl:bg-[#ffffff] md:bg-transparent sxl:px-5 md:px-0 sxl:py-1">
-				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full mr-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
-					<label htmlFor="industryType" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
+				<div className="sxl:w-2/5 md:w-[20%] sxl:h-fit md:h-full mr-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+					<label htmlFor="industryType" className="text-[#272343] sxl:text-[13px] sm:text-[22px] font-semibold">
 						Industry Type
 					</label>
 					<select
@@ -29,7 +29,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						<option value="Utilities">Utilities</option>
 					</select>
 				</div>
-				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full sm:mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
 					<label htmlFor="hazardType" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Hazard Type
 					</label>
@@ -47,7 +47,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						<option value="Chemical">Chemical</option>
 					</select>
 				</div>
-				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full sm:mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
 					<label htmlFor="hazardLevel" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Hazard Level
 					</label>
@@ -64,7 +64,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						<option value="High">High</option>
 					</select>
 				</div>
-				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full sm:mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
 					<label htmlFor="location" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Location
 					</label>
