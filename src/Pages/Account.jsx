@@ -9,13 +9,13 @@ const Account = () => {
 	const navigate = useNavigate();
 	const userData = useSelector((state) => state.userData);
 	return (
-		<div className="sxl:h-[100%] md:h-[850px] w-[100vw] px-[30px] py-[30px]">
-			<div className="w-[100%] h-[100%] bg-[#fff] rounded-[20px] px-[30px] py-[20px] flex flex-col">
-				<button className="relative" onClick={() => navigate(-1)}>
+		<div className="sxl:h-[100%] md:h-[1080px] w-[100vw] px-[30px] py-[30px]">
+			<div className="w-[100%] h-[100%] bg-[#fff] rounded-[20px] px-[30px] py-[20px] flex flex-col justify-center">
+				<button className="absolute top-12 left-12 " onClick={() => navigate(-1)}>
 					<img src={BackArrow} alt="back" />
 				</button>
 				<h1 className="text-[#677094] text-[35px] text-center font-[800] mb-10">My Profile</h1>
-				<div className="flex">
+				<div className="flex sxl:flex-wrap md:flex-nowrap">
 					<div className="sxl:w-[100%] md:w-[50%] h-[100%] flex flex-col justify-center items-center">
 						<div className="w-[100%] h-[90%] sxl:border-none md:border-r-2 md:border-solid md:border-[#677094] flex flex-col justify-center items-center sxl:py-[20px] md:py-[0px]">
 							<div className="sxl:w-[100px] sxl:min-h-[100px] md:min-h-[200px] md:mt-[0px] sxl:h-[100px] md:w-[200px] md:h-[200px] rounded-[50%] bg-[#5775E8] flex justify-center items-center font-[700] text-[#fff] sxl:text-[40px] md:text-[70px]">
@@ -77,7 +77,7 @@ const Account = () => {
 							</div>
 						</div>
 					</div>
-					<div className="w-[50%] h-[100%] sxl:hidden md:flex px-[10px] py-[10px] flex flex-col justify-center items-center overflow-y-scroll">
+					<div className="md:w-[50%] h-[100%] sxl:w-full md:flex px-[10px] py-[10px] flex flex-col justify-center items-center overflow-y-scroll">
 						<div className="text-[#677094] text-[25px] font-[700] mb-[10px]">Subsciption Details</div>
 						{userData?.subscriptionType === "Free" ? <FreeUser /> : userData?.subscriptionType === "National" ? <NationalCard /> : <InternationalCard />}
 					</div>
