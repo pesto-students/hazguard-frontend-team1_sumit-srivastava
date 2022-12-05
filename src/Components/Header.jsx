@@ -41,7 +41,7 @@ const Header = () => {
 			</div>
 			<main>
 				<div className="relative px-6 lg:px-8">
-					<div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-28 sm:pb-40">
+					<div className="mx-auto max-w-3xl sm:pt-48 sm:pb-48">
 						<h1 className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Together we can make our workplaces safer!</h1>
 						<p className="mt-10 text-lg leading-8 text-gray-600 sm:text-center">
 							We at HazGuard aim to bring together companies across various industries on one page to help them share hazards and solutions that happen in their workplaces.

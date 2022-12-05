@@ -21,8 +21,13 @@ body {
 
 input,
 textarea,
-select {
+select,
+img {
 	outline: none;
+}
+
+.justify-center.items-center.outline-none {
+	display: flex !important;
 }
 
 .heroslider .slick-next {

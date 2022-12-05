@@ -1,5 +1,6 @@
 import "slick-carousel/slick/slick.css";
 import Slider from "react-slick";
+import { homeScreen, loginScreen, myPostsScreen, newHazardScreen, profileScreen, registerScreen, savedPostsScreen } from "../Assets/Landing_Page/library";
 
 const Product = () => {
 	const NextArrow = ({ className, onClick }) => {
@@ -22,25 +23,41 @@ const Product = () => {
 			</button>
 		);
 	};
-	const settings = {
-		arrows: true,
-		infinite: true,
-		speed: 500,
-		autoplay: true,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		nextArrow: <NextArrow className={"slick-arrow slick-next"} />,
-		prevArrow: <PrevArrow className={"slick-arrow slick-prev"} />,
-		pauseOnHover: true,
-		pauseOnDotsHover: true,
-	};
 	return (
-		<section className="heroslider relative bg-white">
-			<Slider {...settings}>
-				<div className="h-[700px]">{/* <img alt="" /> */}</div>
-				<div className="h-[700px]">{/* <img alt="" /> */}</div>
-				<div className="h-[700px]">{/* <img alt="" /> */}</div>
-				<div className="h-[700px]">{/* <img alt="" /> */}</div>
+		<section className="heroslider bg-white pb-16">
+			<h1 className="text-5xl text-center my-16 font-bold">Product</h1>
+			<Slider
+				arrows={true}
+				infinite={true}
+				speed={500}
+				autoplay={true}
+				slidesToShow={1}
+				slidesToScroll={1}
+				nextArrow={<NextArrow className={"slick-arrow slick-next"} />}
+				prevArrow={<PrevArrow className={"slick-arrow slick-prev"} />}
+				pauseOnHover={true}
+			>
+				<div className="justify-center items-center outline-none">
+					<img className="w-10/12" src={homeScreen} alt="" />
+				</div>
+				<div className="justify-center items-center outline-none">
+					<img className="w-10/12" src={registerScreen} alt="" />
+				</div>
+				<div className="justify-center items-center outline-none">
+					<img className="w-10/12" src={loginScreen} alt="" />
+				</div>
+				<div className="justify-center items-center outline-none">
+					<img className="w-10/12" src={newHazardScreen} alt="" />
+				</div>
+				<div className="justify-center items-center outline-none">
+					<img className="w-10/12" src={myPostsScreen} alt="" />
+				</div>
+				<div className="justify-center items-center outline-none">
+					<img className="w-10/12" src={savedPostsScreen} alt="" />
+				</div>
+				<div className="justify-center items-center outline-none">
+					<img className="w-10/12" src={profileScreen} alt="" />
+				</div>
 			</Slider>
 		</section>
 	);
