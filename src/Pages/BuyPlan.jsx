@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { SquareLogo } from "../Assets/library";
 import { useNavigate } from "react-router-dom";
 import { changeSubscriptionType } from "../Store/storingData";
+import { BackArrow } from "../Assets/library";
 import { loadRazorpay } from "../Utilities/scriptLoader";
 
 const BuyPlan = () => {
@@ -133,6 +134,9 @@ const BuyPlan = () => {
 			{loaded ? (
 				<div className="w-[100vw] sxl:h-fit md:h-[1080px] p-10 flex justify-center items-center">
 					<section className="w-full h-full rounded-2xl bg-white text-center sxl:p-5 md:p-20 pt-9">
+						<button className="absolute top-14 left-14 " onClick={() => navigate(-1)}>
+							<img src={BackArrow} alt="back" />
+						</button>
 						<h1 className="text-5xl text-center mb-10 font-bold">Plans</h1>
 						<div className="h-4/5 flex justify-between items-center mb-14 sxl:flex-wrap md:flex-nowrap">
 							<NationalCard fromBuyPlan={true} userData={userData} plan={plan} setPlan={setPlan} />
