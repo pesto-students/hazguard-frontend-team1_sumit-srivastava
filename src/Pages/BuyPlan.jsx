@@ -131,17 +131,21 @@ const BuyPlan = () => {
 	return (
 		<>
 			{loaded ? (
-				<section className="bg-white text-center p-20 pt-9">
-					<h1 className="text-5xl text-center mb-10 font-bold">Plans</h1>
-					<div className="flex justify-between items-center mb-14">
-						<NationalCard fromBuyPlan={true} userData={userData} plan={plan} setPlan={setPlan} />
-						<div className="w-28"></div>
-						<InternationalCard fromBuyPlan={true} userData={userData} plan={plan} setPlan={setPlan} />
-					</div>
-					<button onClick={(e) => purchasePlan(e)} className="sxl:w-[70%] md:w-[10%] h-[40px] bg-[#EED132] rounded-[30px] font-[700] text-[#08] sxl:text-[15px] lg:text-[18px]">
-						PAY
-					</button>
-				</section>
+				<div className="w-[100vw] sxl:h-fit md:h-[1080px] p-10 flex justify-center items-center">
+					<section className="w-full h-full rounded-2xl bg-white text-center sxl:p-5 md:p-20 pt-9">
+						<h1 className="text-5xl text-center mb-10 font-bold">Plans</h1>
+						<div className="h-4/5 flex justify-between items-center mb-14 sxl:flex-wrap md:flex-nowrap">
+							<NationalCard fromBuyPlan={true} userData={userData} plan={plan} setPlan={setPlan} />
+							<InternationalCard fromBuyPlan={true} userData={userData} plan={plan} setPlan={setPlan} />
+						</div>
+						<button
+							onClick={(e) => purchasePlan(e)}
+							className="sxl:w-[100px] md:w-[10%] h-[40px] bg-[#EED132] rounded-[30px] font-[700] text-[#08] sxl:text-[15px] lg:text-[18px] hover:bg-[rgba(238,209,50,0.8)]"
+						>
+							PAY
+						</button>
+					</section>
+				</div>
 			) : (
 				<div className="h-[60vh] flex justify-center items-center">
 					<svg

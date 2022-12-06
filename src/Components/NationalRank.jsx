@@ -52,7 +52,7 @@ const NationalRank = ({ leaderboardList }) => {
 					</div>
 				</div>
 			) : (
-				<div className="ml-28 flex flex-col justify-center items-center">
+				<div className="w-full flex flex-col justify-center items-center">
 					<img src={NoResult} alt="no results" className="mt-14 h-80" />
 					<h1 className="mt-10 font-bold text-5xl">Not enough data!</h1>
 				</div>

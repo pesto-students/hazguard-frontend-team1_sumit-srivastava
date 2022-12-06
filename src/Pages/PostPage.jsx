@@ -10,7 +10,7 @@ const PostPage = () => {
 	const userData = useSelector((state) => state.userData);
 	const hazard = useSelector((state) => state.allHazards.filter((data) => data.hazardId === hazardId)[0]);
 	return (
-		<div className="w-[100vw] sxl:px-[15px] md:px-[35px] py-[35px]">
+		<div className="w-[100vw] sxl:h-fit md:h-[1080px] sxl:px-[15px] md:px-[35px] py-[35px]">
 			<div className="w-[100%] h-[100%] bg-[#fff] rounded-[20px] sxl:px-[15px] md:px-[30px] py-[30px] overflow-y-hidden">
 				<div className="w-[100%] h-[5%] flex justify-between items-center py-[10px]">
 					<button onClick={() => navigate(-1)}>
@@ -83,7 +83,7 @@ const PostPage = () => {
 						</svg>
 						<p className="text-[#677094] sxl:text-[12px] md:text-[15px] font-[700] ml-1">{hazard.views}</p>
 					</div>
-					<div className="w-[100%] flex justify-center items-center sxl:mt-3 md:mt-0">
+					<div className="w-[100%] flex sxl:justify-center md:justify-end items-center sxl:mt-3 md:mt-0">
 						<p className="text-white w-fit bg-red-400 md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-2 md:text-[15px] px-2 py-1 font-normal rounded-sm">{hazard.industry}</p>
 						<p className="text-white w-fit bg-yellow-400 md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-2 md:text-[15px] px-2 py-1 font-normal rounded-sm">{hazard.type}</p>
 						<p className="text-white w-fit bg-blue-400 md:inline-block sxl:text-[12px] sm:text-[14px] sxl:mr-1 md:mr-2 md:text-[15px] px-2 py-1 font-normal rounded-sm">
@@ -110,7 +110,7 @@ const PostPage = () => {
 						<div className="font-[700] text-[#677094] sxl:text-[15px] md:text-[24px] sxl:leading-[19px] md:leading-[25px] mb-3">Solution</div>
 						<div className="font-[500] text-[#677094] sxl:text-[15px] md:text-[18px] sxl:leading-[17px] md:leading-[20px]">{hazard.solution}</div>
 					</div>
-					<div className="sxl:w-[100%] md:w-[49%] sxl:h-[30%] md:h-[90%] flex flex-wrap justify-center items-start self-center ">
+					<div className="sxl:w-[100%] md:w-[49%] sxl:h-[30%] md:h-[90%] flex flex-wrap justify-center items-start self-center sxl:mt-10 md:mt-0">
 						{hazard.images.length === 0 ? (
 							"No images available"
 						) : hazard.images.length === 1 ? (

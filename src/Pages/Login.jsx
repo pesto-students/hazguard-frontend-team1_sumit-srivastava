@@ -243,7 +243,7 @@ const Login = () => {
 								</label>
 							</div>
 							<form className="mt-5 w-3/5 h-[75%] flex flex-col justify-center items-center">
-								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
+								<div className="border-b-4 md:w-[57%]  border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
 									<label htmlFor="lastName" className="font-semibold text-[#272343]">
 										Last Name
 									</label>
@@ -257,7 +257,7 @@ const Login = () => {
 										onChange={handleChange("lastName")}
 									/>
 								</div>
-								<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+								<div className="sxl:w-fit md:w-[57%] sxl:h-fit md:h-full bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-start">
 									<label htmlFor="country" className="font-semibold text-[#272343]">
 										Country
 									</label>
@@ -266,7 +266,7 @@ const Login = () => {
 										name="country"
 										value={countryCode}
 										onChange={handleChange("countryCode")}
-										className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm font-medium bg-transparent border-0 border-b-4 border-[#EED132] mb-2 text-[15px]"
+										className="sxl:py-1 md:py-2 px-0 w-full text-sm font-medium bg-transparent border-0 border-b-4 border-[#EED132] mb-2 text-[15px]"
 									>
 										<option value="">Choose a country</option>
 										{Country.getAllCountries().map((data, index) => {
@@ -278,7 +278,7 @@ const Login = () => {
 										})}
 									</select>
 								</div>
-								<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+								<div className="sxl:w-fit md:w-[57%] sxl:h-fit md:h-full bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-start">
 									<label htmlFor="state" className="font-semibold text-[#272343]">
 										State
 									</label>
@@ -287,7 +287,7 @@ const Login = () => {
 										name="state"
 										value={state}
 										onChange={handleChange("state")}
-										className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm font-medium bg-transparent border-0 border-b-4 border-[#EED132] mb-2 text-[15px]"
+										className="sxl:py-1 md:py-2 px-0 w-full text-sm font-medium bg-transparent border-0 border-b-4 border-[#EED132] mb-2 text-[15px]"
 									>
 										<option value="">Choose a state</option>
 										{State.getStatesOfCountry(countryCode).map((data, index) => {
@@ -299,7 +299,7 @@ const Login = () => {
 										})}
 									</select>
 								</div>
-								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
+								<div className="border-b-4 md:w-[57%]  border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
 									<label htmlFor="mobileNumber" className="font-semibold text-[#272343]">
 										Mobile Number
 									</label>
@@ -315,7 +315,7 @@ const Login = () => {
 										onChange={handleChange("mobileNumber")}
 									/>
 								</div>
-								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
+								<div className="border-b-4 md:w-[57%]  border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
 									<label htmlFor="department" className="font-semibold text-[#272343]">
 										Department
 									</label>
@@ -329,7 +329,7 @@ const Login = () => {
 										onChange={handleChange("department")}
 									/>
 								</div>
-								<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+								<div className="sxl:w-fit md:w-[57%] sxl:h-fit md:h-full bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-start">
 									<label htmlFor="industry" className="font-semibold text-[#272343]">
 										Industry
 									</label>
@@ -338,7 +338,7 @@ const Login = () => {
 										name="industry"
 										value={industry}
 										onChange={handleChange("industry")}
-										className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm font-medium bg-transparent border-0 border-b-4 border-[#EED132] mb-2 text-[15px]"
+										className="sxl:py-1 md:py-2 px-0 w-full text-sm font-medium bg-transparent border-0 border-b-4 border-[#EED132] mb-2 text-[15px]"
 									>
 										<option value="">Industry Type</option>
 										<option value="Agriculture">Agriculture</option>
