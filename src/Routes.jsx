@@ -28,6 +28,8 @@ const Routes = () => {
 						dispatch(setAllHazards(response.data));
 						dispatch(setLoading(false));
 					} else if (response?.error) {
+						dispatch(setAllHazards([]));
+						dispatch(setLoading(false));
 						console.log(response?.message);
 					}
 				})
@@ -43,7 +45,7 @@ const Routes = () => {
 			<RouterRoutes>
 				<Route exact path="/" element={userData ? <Home /> : <Landing />} />
 				<Route exact path="/register" element={<Register />} />
-				<Route exact path="/verify/:token" element={userData ? <Navigate to="/home" replace={true} /> : <Verify />} />
+				<Route exact path="/verify/:token" element={<Verify />} />
 				<Route exact path="/login" element={<Login />} />
 				<Route
 					exact

@@ -7,14 +7,17 @@ import { filterAll, sortAll } from "../Utilities/sortAndFilters";
 
 const Home = () => {
 	const loading = useSelector((state) => state.loading);
-	const allHazards = useSelector((state) => state.allHazards).filter((data) => data.isPublic === true);
+	const allHazards = useSelector((state) => state.allHazards);
 	const [filterHazards, setFilterHazards] = useState(allHazards);
 	const locationData = new Map();
 	const locationOptions = [];
-	allHazards.forEach((data) => {
-		locationData.set(`${data.state},${data.country}`, data._id);
-	});
-	locationData.forEach((value, key) => locationOptions.push([key, value]));
+	if (allHazards.length > 0) {
+		allHazards.filter((data) => data.isPublic === true);
+		allHazards.forEach((data) => {
+			locationData.set(`${data.state},${data.country}`, data._id);
+		});
+		locationData.forEach((value, key) => locationOptions.push([key, value]));
+	}
 	const [values, setValues] = useState({
 		industryType: "",
 		hazardType: "",

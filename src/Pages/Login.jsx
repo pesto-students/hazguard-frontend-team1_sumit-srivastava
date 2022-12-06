@@ -111,7 +111,7 @@ const Login = () => {
 					firstName: userData.firstName,
 					lastName: lastName,
 					profilePicture: imageLink,
-					mobileNumber: `${phoneCode}${mobileNumber}`,
+					mobileNumber: `+${phoneCode} ${mobileNumber}`,
 					state: state,
 					country: country,
 					industry: industry,

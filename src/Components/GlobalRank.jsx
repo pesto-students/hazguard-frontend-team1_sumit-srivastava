@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { NoResult } from "../Assets/library";
 
 const GlobalRank = ({ leaderboardList }) => {
 	const userData = useSelector((state) => state.userData);
@@ -13,7 +14,7 @@ const GlobalRank = ({ leaderboardList }) => {
 	);
 	return (
 		<>
-			{leaderboardList.length > 0 ? (
+			{leaderboardList.length > 3 ? (
 				<div className="sxl:w-[100%] sxl:mt-[30px] md:w-[48%] md:mt-0 sxl:h-[50%] md:h-[100%] bg-gradient-to-tl from-[#180F55,60%] to-[#6A718F] rounded-[20px] flex flex-col justify-between items-center">
 					<div className="w-[100%] h-[60px] bg-[#272343] rounded-t-[20px] flex justify-center items-center font-[700] text-[#fff] sxl:text-[18px] md:text-[20px]">Global Ranks</div>
 					<div className="w-[100%] h-[calc(100%-60px)] flex flex-col justify-start pt-5 items-center">
@@ -49,7 +50,10 @@ const GlobalRank = ({ leaderboardList }) => {
 					</div>
 				</div>
 			) : (
-				<h1>Not enough data!</h1>
+				<div className="mr-28 flex flex-col justify-center items-center">
+					<img src={NoResult} alt="no results" className="mt-14 h-80" />
+					<h1 className="mt-10 font-bold text-5xl">Not enough data!</h1>
+				</div>
 			)}
 		</>
 	);
