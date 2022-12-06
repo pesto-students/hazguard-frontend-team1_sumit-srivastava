@@ -9,6 +9,14 @@ Work Left -
 8. Paid Demo Users
 9. Make auth better
 10. Optimizations
+11. Location Display
+12. Edit Hazard Images
+13. Dropzone Correct
+
+LazyLoad
+Error Components
+404 Page
+Standardize Locations
 
 Not Important
 1. Edit Profile

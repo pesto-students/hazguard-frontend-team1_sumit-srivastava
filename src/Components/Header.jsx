@@ -1,7 +1,7 @@
 import { FullLogo } from "../Assets/library";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ productRef, featureRef, pricingRef, aboutUsRef }) => {
 	return (
 		<section className="bg-white">
 			<div className="px-16 mt-6">
@@ -10,21 +10,19 @@ const Header = () => {
 						<img src={FullLogo} className="h-20" alt="app logo" />
 					</div>
 					<div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-10">
-						<a href="#" className="font-semibold text-gray-900 hover:text-gray-900">
-							Home
-						</a>
-						<a href="#" className="font-semibold text-gray-900 hover:text-gray-900">
+						<div className="font-semibold text-gray-900 hover:text-gray-900">Home</div>
+						<div onClick={() => productRef.current.scrollIntoView()} className="cursor-pointer font-semibold text-gray-900 hover:text-gray-900">
 							Product
-						</a>
-						<a href="#" className="font-semibold text-gray-900 hover:text-gray-900">
+						</div>
+						<div onClick={() => featureRef.current.scrollIntoView()} className="cursor-pointer font-semibold text-gray-900 hover:text-gray-900">
 							Features
-						</a>
-						<a href="#" className="font-semibold text-gray-900 hover:text-gray-900">
+						</div>
+						<div onClick={() => pricingRef.current.scrollIntoView()} className="cursor-pointer font-semibold text-gray-900 hover:text-gray-900">
 							Pricing
-						</a>
-						<a href="#" className="font-semibold text-gray-900 hover:text-gray-900">
+						</div>
+						<div onClick={() => aboutUsRef.current.scrollIntoView()} className="cursor-pointer font-semibold text-gray-900 hover:text-gray-900">
 							About Us
-						</a>
+						</div>
 					</div>
 					<div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
 						<Link to="/login" className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">
@@ -49,9 +47,6 @@ const Header = () => {
 						<div className="mt-12 flex gap-x-4 sm:justify-center">
 							<Link to="/register" className="inline-block rounded-lg bg-[#EED132] px-4 py-1.5 text-base font-semibold leading-7 text-black">
 								Get Started
-							</Link>
-							<Link to="/demo" className="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-								Live Demo
 							</Link>
 						</div>
 					</div>

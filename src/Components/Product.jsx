@@ -2,7 +2,7 @@ import "slick-carousel/slick/slick.css";
 import Slider from "react-slick";
 import { homeScreen, loginScreen, myPostsScreen, newHazardScreen, profileScreen, registerScreen, savedPostsScreen } from "../Assets/Landing_Page/library";
 
-const Product = () => {
+const Product = ({ productRef }) => {
 	const NextArrow = ({ className, onClick }) => {
 		return (
 			<button className={className} onClick={onClick}>
@@ -24,7 +24,7 @@ const Product = () => {
 		);
 	};
 	return (
-		<section className="heroslider bg-white pb-16">
+		<section ref={productRef} className="heroslider bg-white pb-16">
 			<h1 className="text-5xl text-center my-16 font-bold">Product</h1>
 			<Slider
 				arrows={true}

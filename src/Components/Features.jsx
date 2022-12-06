@@ -1,6 +1,6 @@
-const Features = () => {
+const Features = ({featureRef}) => {
 	return (
-		<section className="max-w-8xl px-16 bg-white pb-16">
+		<section ref={featureRef} className="max-w-8xl px-16 bg-white pb-16">
 			<h1 className="text-5xl text-center my-16 font-bold">Features</h1>
 			<div className="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
 				<div className="relative flex flex-col items-center p-6 bg-white rounded shadow-md">
