@@ -1,0 +1,21 @@
+Work Left -
+1. Manage Subscription
+2. Lock Post Page
+3. Check Location Filter
+4. Improve CSS
+5. Demo Users
+6. Paid Demo Users
+7. Make auth better
+8. Optimizations
+9. Edit Hazard Images
+
+LazyLoad
+Error Components
+Standardize Locations
+
+Not Important
+1. Edit Profile
+2. Change Password
+3. Hide/Show Password
+
+How will we handle server crash?
