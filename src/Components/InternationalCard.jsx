@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const InternationalCard = ({ fromLanding, fromAccountPage, fromBuyPlan, userData, plan, setPlan }) => {
 	return (
-		<div className="sxl:w-[100%] sxl:mt-[30px] md:w-[70%] md:mt-0 sxl:h-[500px] md:h-[90%] bg-gradient-to-tl from-[#180F55,60%] to-[#6A718F] rounded-[20px] flex flex-col justify-between items-center pb-[50px]">
+		<div className="sxl:w-[100%] sxl:ml-o md:ml-14 sxl:mt-[30px] md:w-[70%] md:mt-0 sxl:h-[500px] md:h-[100%] bg-gradient-to-tl from-[#180F55,60%] to-[#6A718F] rounded-[20px] flex flex-col justify-between items-center pb-[50px]">
 			<div className="w-[100%] py-5 h-[60px] bg-[#272343] rounded-t-[20px] flex justify-center items-center font-[700] text-[#fff] sxl:text-[18px] md:text-[20px]">
 				International Subscription
 			</div>
@@ -32,7 +32,7 @@ const InternationalCard = ({ fromLanding, fromAccountPage, fromBuyPlan, userData
 				{fromBuyPlan && (
 					<button
 						onClick={() => setPlan("internationalplan")}
-						className="sxl:w-[70%] md:w-[30%] h-[40px] flex justify-center items-center bg-[#EED132] rounded-[30px] font-[700] text-[#08] sxl:text-[15px] lg:text-[18px]"
+						className="sxl:w-[70%] md:w-[30%] h-[40px] flex justify-center items-center bg-[#EED132] rounded-[30px] font-[700] text-[#08] sxl:text-[15px] lg:text-[18px] hover:bg-[rgba(238,209,50,0.8)]"
 					>
 						{plan === "internationalplan" ? "SELECTED" : "SELECT"}
 					</button>
