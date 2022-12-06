@@ -113,6 +113,9 @@ const dataSlice = createSlice({
 		removeFromSavedPost(state, action) {
 			state["userData"]["saved"].splice(state["userData"]["saved"].indexOf(action.payload), 1);
 		},
+		changeSubscriptionType(state, action) {
+			state["userData"]["subscriptionType"] = action.payload;
+		},
 	},
 });
 
@@ -143,6 +146,7 @@ export const {
 	increaseViews,
 	addToSavedPost,
 	removeFromSavedPost,
+	changeSubscriptionType,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;

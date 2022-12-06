@@ -7,5 +7,6 @@ import Hamburger from "./Hamburger.svg";
 import Logo from "./Logo.svg";
 import Logout from "./Logout.svg";
 import NoResult from "./NoResult.svg";
+import SquareLogo from "./SquareLogo.png";
 
-export { ErrorSVG, Account, BackArrow, Filter, FullLogo, Hamburger, Logo, Logout, NoResult };
+export { ErrorSVG, Account, BackArrow, Filter, FullLogo, Hamburger, Logo, Logout, NoResult, SquareLogo };

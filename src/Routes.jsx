@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes as RouterRoutes, Navigate } from "react-router-dom";
-import { Account, AddHazard, EditPostPage, Home, Landing, Leaderboard, Login, MyPosts, PageNotFound, PostPage, Register, Saved, Verify } from "./Pages/Library";
+import { Account, AddHazard, BuyPlan, EditPostPage, Home, Landing, Leaderboard, Login, MyPosts, PageNotFound, PostPage, Register, Saved, Verify } from "./Pages/Library";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { readAllHazards } from "./Helpers/hazard";
@@ -116,6 +116,15 @@ const Routes = () => {
 					element={
 						<PrivateRoute>
 							<AddHazard />
+						</PrivateRoute>
+					}
+				/>
+				<Route
+					exact
+					path="/buyplan"
+					element={
+						<PrivateRoute>
+							<BuyPlan />
 						</PrivateRoute>
 					}
 				/>

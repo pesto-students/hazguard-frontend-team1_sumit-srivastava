@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const FreeUser = () => {
 	return (
 		<div className="sxl:w-[100%] sxl:mt-[30px] md:w-[70%] md:mt-0 sxl:h-[500px] md:h-[90%] bg-gradient-to-tl from-[#180F55,60%] to-[#6A718F] rounded-[20px] flex flex-col justify-between items-center pb-[50px]">
@@ -19,9 +21,13 @@ const FreeUser = () => {
 				<span className="text-red-600 font-semibold mr-2">&#10005;</span>Sort by Hazard level
 			</div>
 			<div className="w-[100%] mt-10 flex justify-center items-center">
-				<button className="sxl:w-[70%] md:w-[30%] h-[40px] bg-[#EED132] rounded-[30px] font-[700] text-[#08] sxl:text-[15px] lg:text-[18px]" disabled>
-					Activated
-				</button>
+				<Link
+					to="/buyplan"
+					className="sxl:w-[70%] md:w-[50%] flex justify-center items-center h-[40px] bg-[#EED132] rounded-[30px] font-[700] text-[#08] sxl:text-[15px] lg:text-[18px]"
+					disabled
+				>
+					BUY PREMIUM PLAN
+				</Link>
 			</div>
 		</div>
 	);

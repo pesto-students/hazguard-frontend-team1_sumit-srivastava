@@ -21,3 +21,5 @@ export const IncreaseView_API = `${BACKEND}api/update/increaseviewcount`;
 
 // Misc APIs
 export const Leaderboard_API = `${BACKEND}api/read/leaderboard`;
+export const CreateSubscription_API = `${BACKEND}api/payment/createsubscription`;
+export const VerifyPayment_API = `${BACKEND}api/payment/verifypayment`;
