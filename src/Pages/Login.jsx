@@ -7,8 +7,11 @@ import { profile, updateProfile } from "../Helpers/user";
 import { useDispatch, useSelector } from "react-redux";
 import { setAccessToken, setRefreshToken, setUserData, setCheckChange } from "../Store/storingData";
 import { uploadToS3 } from "../Utilities/uploadToS3";
+import { Country, State } from "country-state-city";
 
 const Login = () => {
+	const [countryCode, setCountryCode] = useState();
+	const [phoneCode, setPhoneCode] = useState();
 	const [file, setFile] = useState();
 	const [getMoreDetails, setGetMoreDetails] = useState(false);
 	const userData = useSelector((state) => state.userData);
@@ -28,7 +31,13 @@ const Login = () => {
 	const navigate = useNavigate();
 	const { email, password, lastName, profilePicture, mobileNumber, state, country, industry, department } = values;
 	const handleChange = (name) => (event) => {
-		setValues({ ...values, [name]: event.target.value });
+		if (name === "countryCode") {
+			setCountryCode(event.target.value);
+			setValues({ ...values, country: Country.getCountryByCode(event.target.value).name });
+			setPhoneCode(Country.getCountryByCode(event.target.value).phonecode);
+		} else {
+			setValues({ ...values, [name]: event.target.value });
+		}
 	};
 	const loginUser = (e) => {
 		e.preventDefault();
@@ -102,7 +111,7 @@ const Login = () => {
 					firstName: userData.firstName,
 					lastName: lastName,
 					profilePicture: imageLink,
-					mobileNumber: mobileNumber,
+					mobileNumber: `${phoneCode}${mobileNumber}`,
 					state: state,
 					country: country,
 					industry: industry,
@@ -123,6 +132,7 @@ const Login = () => {
 							industry: "",
 							department: "",
 						});
+						setPhoneCode("");
 						dispatch(
 							setUserData(
 								await profile(accessToken)
@@ -178,7 +188,6 @@ const Login = () => {
 									name="email"
 									type="email"
 									autoComplete="email"
-									required
 									className="my-1 w-full placeholder:text-[15px]"
 									placeholder="Enter Your Email Address"
 									value={email}
@@ -194,7 +203,6 @@ const Login = () => {
 									name="password"
 									type="password"
 									pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
-									required
 									placeholder="Enter Your Password"
 									className="my-1 w-full placeholder:text-[15px]"
 									value={password}
@@ -243,12 +251,53 @@ const Login = () => {
 										id="lastName"
 										name="lastName"
 										type="text"
-										required
 										className="mb-2 w-full placeholder:text-[15px]"
 										placeholder="Enter Your Lastname"
 										value={lastName}
 										onChange={handleChange("lastName")}
 									/>
+								</div>
+								<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+									<label htmlFor="country" className="font-semibold text-[#272343]">
+										Country
+									</label>
+									<select
+										id="country"
+										name="country"
+										value={countryCode}
+										onChange={handleChange("countryCode")}
+										className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm font-medium bg-transparent border-0 border-b-4 border-[#EED132] mb-2 text-[15px]"
+									>
+										<option value="">Choose a country</option>
+										{Country.getAllCountries().map((data, index) => {
+											return (
+												<option key={index} value={data.isoCode}>
+													{data.name}
+												</option>
+											);
+										})}
+									</select>
+								</div>
+								<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+									<label htmlFor="state" className="font-semibold text-[#272343]">
+										State
+									</label>
+									<select
+										id="state"
+										name="state"
+										value={state}
+										onChange={handleChange("state")}
+										className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm font-medium bg-transparent border-0 border-b-4 border-[#EED132] mb-2 text-[15px]"
+									>
+										<option value="">Choose a state</option>
+										{State.getStatesOfCountry(countryCode).map((data, index) => {
+											return (
+												<option key={index} value={data.name}>
+													{data.name}
+												</option>
+											);
+										})}
+									</select>
 								</div>
 								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
 									<label htmlFor="mobileNumber" className="font-semibold text-[#272343]">
@@ -258,42 +307,12 @@ const Login = () => {
 										id="mobileNumber"
 										name="mobileNumber"
 										type="text"
-										autoComplete="mobileNumber"
-										required
+										pattern="[56789][0-9]{9}"
+										maxLength="10"
 										className="mb-2 w-full placeholder:text-[15px]"
 										placeholder="Enter Your Mobile Number"
 										value={mobileNumber}
 										onChange={handleChange("mobileNumber")}
-									/>
-								</div>
-								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
-									<label htmlFor="state" className="font-semibold text-[#272343]">
-										State
-									</label>
-									<input
-										id="state"
-										name="state"
-										type="text"
-										required
-										className="mb-2 w-full placeholder:text-[15px]"
-										placeholder="Enter Your State"
-										value={state}
-										onChange={handleChange("state")}
-									/>
-								</div>
-								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
-									<label htmlFor="country" className="font-semibold text-[#272343]">
-										Country
-									</label>
-									<input
-										id="country"
-										name="country"
-										type="text"
-										required
-										className="mb-2 w-full placeholder:text-[15px]"
-										placeholder="Enter Your Country"
-										value={country}
-										onChange={handleChange("country")}
 									/>
 								</div>
 								<div className="border-b-4 border-solid border-b-[#EED132] my-3 flex flex-col justify-center items-start">
@@ -304,7 +323,6 @@ const Login = () => {
 										id="department"
 										name="department"
 										type="text"
-										required
 										placeholder="Enter Your Department"
 										className="mb-2 w-full placeholder:text-[15px]"
 										value={department}

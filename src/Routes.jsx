@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes as RouterRoutes, Navigate } from "react-router-dom";
-import { Account, AddHazard, EditPostPage, Home, Landing, Leaderboard, Login, MyPosts, PostPage, Register, Saved, Verify } from "./Pages/Library";
+import { Account, AddHazard, EditPostPage, Home, Landing, Leaderboard, Login, MyPosts, PageNotFound, PostPage, Register, Saved, Verify } from "./Pages/Library";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { readAllHazards } from "./Helpers/hazard";
@@ -117,6 +117,7 @@ const Routes = () => {
 						</PrivateRoute>
 					}
 				/>
+				<Route path="*" element={<PageNotFound />} />
 			</RouterRoutes>
 		</BrowserRouter>
 	);

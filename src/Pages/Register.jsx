@@ -72,7 +72,6 @@ const Register = () => {
 							id="firstName"
 							name="firstName"
 							type="text"
-							required
 							className="my-1 w-full placeholder:text-[15px]"
 							placeholder="Enter Your First Name"
 							value={firstName}
@@ -88,7 +87,6 @@ const Register = () => {
 							name="email"
 							type="email"
 							autoComplete="email"
-							required
 							className="my-1 w-full placeholder:text-[15px]"
 							placeholder="Enter Your Email Address"
 							value={email}
@@ -103,7 +101,6 @@ const Register = () => {
 							id="companyName"
 							name="companyName"
 							type="text"
-							required
 							className="my-1 w-full placeholder:text-[15px]"
 							placeholder="Enter Your Company Name"
 							value={companyName}
@@ -119,7 +116,6 @@ const Register = () => {
 							name="password1"
 							type="password"
 							pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
-							required
 							placeholder="Enter Your Password"
 							className="my-1 w-full placeholder:text-[15px]"
 							value={password1}
@@ -135,7 +131,6 @@ const Register = () => {
 							name="password2"
 							type="password"
 							pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
-							required
 							placeholder="Enter Your Password Again"
 							className="my-1 w-full placeholder:text-[15px]"
 							value={password2}
