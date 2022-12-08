@@ -3,7 +3,10 @@ import { useSelector } from "react-redux";
 import { NoResult } from "../Assets/library";
 
 const NationalRank = ({ leaderboardList }) => {
+	//getting user data from backend
 	const userData = useSelector((state) => state.userData);
+
+	//setting user rank based on number of hazards shared
 	const [userRank, setUserRank] = useState(
 		leaderboardList
 			.filter((data) => data.country === userData.country)

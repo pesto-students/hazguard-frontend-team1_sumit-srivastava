@@ -1,4 +1,4 @@
-const Features = ({featureRef}) => {
+const Features = ({ featureRef }) => {
 	return (
 		<section ref={featureRef} className="max-w-8xl px-16 bg-white pb-16">
 			<h1 className="text-5xl text-center my-16 font-bold">Features</h1>
@@ -15,8 +15,8 @@ const Features = ({featureRef}) => {
 							</g>
 						</g>
 					</svg>
-					<h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Initial Contact</h4>
-					<p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Easy Hazard Sharing</h4>
+					<p className="text-gray-600 text-center">You can share your hazard with solution easily</p>
 				</div>
 				<div className="relative flex flex-col items-center p-6 bg-white rounded shadow-md">
 					<svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -35,8 +35,8 @@ const Features = ({featureRef}) => {
 							</g>
 						</g>
 					</svg>
-					<h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Discovery Session</h4>
-					<p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Location based Filter</h4>
+					<p className="text-gray-600 text-center">You can sort and Filter hazards by location</p>
 				</div>
 				<div className="relative flex flex-col items-center p-6 bg-white rounded shadow-md">
 					<svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -51,54 +51,8 @@ const Features = ({featureRef}) => {
 							</g>
 						</g>
 					</svg>
-					<h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Contracting</h4>
-					<p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-				</div>
-				<div className="relative flex flex-col items-center p-6 bg-white rounded shadow-md">
-					<svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-						<g fill="none" fillRule="evenodd">
-							<rect className="fill-current text-[#272343]" width="64" height="64" rx="32" />
-							<g transform="translate(22.857 19.429)" strokeWidth="2">
-								<path className="stroke-current text-[#eed132]" strokeLinecap="square" d="M12.571 4.571V0H0v25.143h12.571V20.57" />
-								<path className="stroke-current text-[#eed132]" d="M16 12.571h8" />
-								<path className="stroke-current text-[#eed132]" strokeLinecap="square" d="M19.429 8L24 12.571l-4.571 4.572" />
-								<circle className="stroke-current text-[#eed132]" strokeLinecap="square" cx="12.571" cy="12.571" r="3.429" />
-							</g>
-						</g>
-					</svg>
-					<h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Fast Prototyping</h4>
-					<p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-				</div>
-				<div className="relative flex flex-col items-center p-6 bg-white rounded shadow-md">
-					<svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-						<g fill="none" fillRule="evenodd">
-							<rect className="fill-current text-[#272343]" width="64" height="64" rx="32" />
-							<g strokeLinecap="square" strokeWidth="2">
-								<path className="stroke-current text-[#eed132]" d="M20.571 20.571h13.714v17.143H20.571z" />
-								<path className="stroke-current text-[#eed132]" d="M38.858 26.993l6.397 1.73-4.473 16.549-13.24-3.58" />
-							</g>
-						</g>
-					</svg>
-					<h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Design Phase</h4>
-					<p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-				</div>
-				<div className="relative flex flex-col items-center p-6 bg-white rounded shadow-md">
-					<svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-						<g fill="none" fillRule="evenodd">
-							<rect className="fill-current text-[#272343]" width="64" height="64" rx="32" />
-							<g strokeWidth="2">
-								<path className="stroke-current text-[#eed132]" d="M32 37.714A5.714 5.714 0 0037.714 32a5.714 5.714 0 005.715 5.714" />
-								<path
-									className="stroke-current text-[#eed132]"
-									d="M32 37.714a5.714 5.714 0 015.714 5.715 5.714 5.714 0 015.715-5.715M20.571 26.286a5.714 5.714 0 005.715-5.715A5.714 5.714 0 0032 26.286"
-								/>
-								<path className="stroke-current text-[#eed132]" d="M20.571 26.286A5.714 5.714 0 0126.286 32 5.714 5.714 0 0132 26.286" />
-								<path className="stroke-current text-[#eed132]" d="M21.714 40h4.572M24 37.714v4.572M37.714 24h4.572M40 21.714v4.572" strokeLinecap="square" />
-							</g>
-						</g>
-					</svg>
-					<h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Develop & Launch</h4>
-					<p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Safety Leaderboard</h4>
+					<p className="text-gray-600 text-center">Hazguard has safety Leaderboard based on number of post shared</p>
 				</div>
 			</div>
 		</section>

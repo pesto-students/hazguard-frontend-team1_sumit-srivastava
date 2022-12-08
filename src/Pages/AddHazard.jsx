@@ -20,6 +20,7 @@ import { uploadToS3 } from "../Utilities/uploadToS3";
 import { useDropzone } from "react-dropzone";
 import { v4 } from "uuid";
 
+//Styles
 const baseStyle = {
 	padding: "20px",
 	borderWidth: 2,
@@ -43,7 +44,10 @@ const rejectStyle = {
 };
 
 const AddHazard = () => {
+	//State handler for images
 	const [files, setFiles] = useState([]);
+
+	//Creating URl for Images
 	const onDrop = useCallback((acceptedFiles) => {
 		setFiles(
 			acceptedFiles.map((file) =>
@@ -53,6 +57,8 @@ const AddHazard = () => {
 			)
 		);
 	}, []);
+
+	//hook for drop images
 	const { getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject } = useDropzone({
 		maxFiles: 4,
 		accept: {
@@ -61,6 +67,8 @@ const AddHazard = () => {
 		},
 		onDrop,
 	});
+
+	//preview of uploaded images
 	const thumbs = files.map((file) => (
 		<div className="inline-flex mb-2 mr-2 w-24 h-24 p-1 box-border" key={file.name}>
 			<div className="flex min-w-0 overflow-hidden rounded-md">
@@ -68,6 +76,8 @@ const AddHazard = () => {
 			</div>
 		</div>
 	));
+
+	//condition based styling
 	const style = useMemo(
 		() => ({
 			...baseStyle,
@@ -77,6 +87,7 @@ const AddHazard = () => {
 		}),
 		[isDragActive, isDragReject, isDragAccept]
 	);
+	//Collecting data from stores
 	const userData = useSelector((state) => state.userData);
 	const accessToken = useSelector((state) => state.accessToken);
 	const newPostDataIndustry = useSelector((state) => state.newPostDataIndustry);
@@ -87,8 +98,14 @@ const AddHazard = () => {
 	const newPostDataSolution = useSelector((state) => state.newPostDataSolution);
 	const newPostDataDateOccurred = useSelector((state) => state.newPostDataDateOccurred);
 	const newPostDataIsPublic = useSelector((state) => state.newPostDataIsPublic);
+
+	//Action Dispatcher
 	const dispatch = useDispatch();
+
+	//Hook for Navigation
 	const navigate = useNavigate();
+
+	//handle to create hazard by setting changed state to store and store to backend
 	const createHazard = async (e) => {
 		e.preventDefault();
 		let hazardId = v4();
@@ -265,7 +282,7 @@ const AddHazard = () => {
 												name="isPublic"
 												type="radio"
 												value="true"
-												defaultChecked={true}
+												defaultChecked={newPostDataIsPublic}
 												className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094] mt-2"
 											/>
 											<label htmlFor="yes" className="text-[#272343] ml-1">
@@ -276,6 +293,7 @@ const AddHazard = () => {
 												name="isPublic"
 												type="radio"
 												value="false"
+												defaultChecked={!newPostDataIsPublic}
 												className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094] mt-2 ml-5"
 											/>
 											<label htmlFor="no" className="text-[#272343] ml-1">
