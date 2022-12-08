@@ -7,13 +7,7 @@ import { filterAll, sortAll } from "../Utilities/sortAndFilters";
 
 const Home = () => {
 	const loading = useSelector((state) => state.loading);
-	const userData = useSelector((state) => state.userData);
-	const allHazards =
-		userData.subscriptionType === "National"
-			? useSelector((state) => state.allHazards.filter((data) => data.country === userData.country))
-			: userData.subscriptionType === "International"
-			? useSelector((state) => state.allHazards)
-			: useSelector((state) => state.dummyData);
+	const allHazards = useSelector((state) => state.allHazards);
 	const [filterHazards, setFilterHazards] = useState(allHazards);
 	const locationData = new Map();
 	const locationOptions = [];
