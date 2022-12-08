@@ -27,19 +27,17 @@ Please Note:
 
 Test Credentials:
 
--   For User With No Subscription
-
-    -   Email:
-    -   Password:
+-   For User With Free Subscription
+    -   Email: testuser1@pestoproject.com
+    -   Password: 1234567890
 
 -   For User With National Subscription
-
-    -   Email:
-    -   Password:
+    -   Email: testuser2@pestoproject.com
+    -   Password: 1234567890
 
 -   For User With International Subscription
-    -   Email:
-    -   Password:
+    -   Email: testuser3@pestoproject.com
+    -   Password: 1234567890
 
 # Installation
 
