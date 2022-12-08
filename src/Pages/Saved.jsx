@@ -9,12 +9,12 @@ const Saved = () => {
 	const loading = useSelector((state) => state.loading);
 	const userData = useSelector((state) => state.userData);
 	const allHazards = useSelector((state) => state.allHazards);
-	const [filterHazards, setFilterHazards] = useState(allHazards);
+	const savedHazards = allHazards.filter((data) => userData.saved.includes(data._id));
+	const [filterHazards, setFilterHazards] = useState(savedHazards);
 	const locationData = new Map();
 	const locationOptions = [];
-	if (allHazards.length > 0) {
-		allHazards.filter((data) => userData.saved.includes(data._id));
-		allHazards.forEach((data) => {
+	if (savedHazards.length > 0) {
+		savedHazards.forEach((data) => {
 			locationData.set(`${data.state}, ${data.country}`, data._id);
 		});
 		locationData.forEach((value, key) => locationOptions.push([key, value]));
@@ -28,14 +28,14 @@ const Saved = () => {
 	});
 	const { industryType, hazardType, hazardLevel, location, sort } = values;
 	useEffect(() => {
-		setFilterHazards([...filterAll(allHazards, industryType, hazardType, hazardLevel, location)]);
+		setFilterHazards([...filterAll(savedHazards, industryType, hazardType, hazardLevel, location)]);
 		setValues({ ...values, ["sort"]: "latest" });
 	}, [industryType, hazardType, hazardLevel, location]);
 	useEffect(() => {
 		setFilterHazards([...sortAll(filterHazards, sort)]);
 	}, [sort]);
 	useEffect(() => {
-		setFilterHazards(allHazards);
+		setFilterHazards(savedHazards);
 	}, [loading]);
 	return (
 		<Base>
