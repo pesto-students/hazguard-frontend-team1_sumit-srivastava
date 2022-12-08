@@ -1,13 +1,12 @@
 Work Left -
-1. Manage Subscription
-2. Lock Post Page
-3. Check Location Filter
-4. Improve CSS
-5. Demo Users
-6. Paid Demo Users
-7. Make auth better
-8. Optimizations
-9. Edit Hazard Images
+1. Lock Post Page
+2. Check Location Filter
+3. Improve CSS
+4. Demo Users
+5. Paid Demo Users
+6. Make auth better
+7. Optimizations
+8. Edit Hazard Images
 
 LazyLoad
 Error Components

@@ -15,7 +15,7 @@ const MyPosts = () => {
 	if (allHazards.length > 0) {
 		allHazards.filter((data) => userData.userId === data.userId);
 		allHazards.forEach((data) => {
-			locationData.set(`${data.state},${data.country}`, data._id);
+			locationData.set(`${data.state}, ${data.country}`, data._id);
 		});
 		locationData.forEach((value, key) => locationOptions.push([key, value]));
 	}

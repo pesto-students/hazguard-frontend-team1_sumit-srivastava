@@ -15,7 +15,7 @@ const FreeUser = () => {
 			</div>
 			<div className="sxl:text-[18px] md:text-[25px] my-1 text-center font-[500] text-[#fff]">
 				<span className="text-red-600 font-semibold mr-2">&#10005;</span>
-				<span className="text-[#EED132]">Global</span> based company solution
+				<span className="text-[#EED132]">National</span> based company solution
 			</div>
 			<div className="sxl:text-[18px] md:text-[25px] my-1 text-center font-[500] text-[#fff]">
 				<span className="text-red-600 font-semibold mr-2">&#10005;</span>Sort by Hazard level
