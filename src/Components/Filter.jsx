@@ -1,7 +1,9 @@
 const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, location, locationOptions, sort }) => {
+	//sending selected value to state based on filter type applied
 	const handleChange = (name) => (event) => {
 		setValues({ ...values, [name]: event.target.value });
 	};
+
 	return (
 		<div className="w-[100vw] mt-[30px] h-[120px] flex sxl:px-[15px] md:px-[30px]">
 			<div className="flex w-[100%] sxl:h-[180px] md:h-[120px] rounded-[20px] overflow-hidden sxl:flex-wrap md:flex-nowrap sxl:justify-between md:justify-center items-center sxl:bg-[#ffffff] md:bg-transparent sxl:px-5 md:px-0 sxl:py-1">

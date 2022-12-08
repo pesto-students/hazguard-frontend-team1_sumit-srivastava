@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { homeScreen, loginScreen, myPostsScreen, newHazardScreen, profileScreen, registerScreen, savedPostsScreen } from "../Assets/Landing_Page/library";
 
 const Product = ({ productRef }) => {
+	//Next arrow click handler
 	const NextArrow = ({ className, onClick }) => {
 		return (
 			<button className={className} onClick={onClick}>
@@ -13,6 +14,8 @@ const Product = ({ productRef }) => {
 			</button>
 		);
 	};
+
+	//Prev arrow click handler
 	const PrevArrow = ({ className, onClick }) => {
 		return (
 			<button className={className} onClick={onClick}>
@@ -23,6 +26,7 @@ const Product = ({ productRef }) => {
 			</button>
 		);
 	};
+
 	return (
 		<section ref={productRef} className="heroslider bg-white pb-16">
 			<h1 className="text-5xl text-center my-16 font-bold">Product</h1>
