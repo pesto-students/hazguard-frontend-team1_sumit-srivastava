@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Account = () => {
+	
+	//hook for navigation
 	const navigate = useNavigate();
 	const userData = useSelector((state) => state.userData);
 	return (

@@ -8,17 +8,17 @@ const FreeUser = () => {
 				<span className="text-[Baloo] font-[400] sxl:text-[50px] md:text-[100px] text-[#fff]">₹ 0</span>
 			</div>
 			<div className="sxl:text-[18px] md:text-[25px] my-1 text-center font-[500] text-[#fff]">
-				<span className="text-red-600 font-semibold mr-2">&#10005;</span>All level of Hazards Solution
+				<span className="text-green-600 font-semibold mr-2">&#10003;</span>Low level Hazards Solution
 			</div>
 			<div className="sxl:text-[18px] md:text-[25px] my-1 text-center font-[500] text-[#fff]">
-				<span className="text-red-600 font-semibold mr-2">&#10005;</span>Filter by Hazards level
+				<span className="text-green-600 font-semibold mr-2">&#10003;</span>Filter by Industry Type and Hazard Type
 			</div>
 			<div className="sxl:text-[18px] md:text-[25px] my-1 text-center font-[500] text-[#fff]">
-				<span className="text-red-600 font-semibold mr-2">&#10005;</span>
-				<span className="text-[#EED132]">National</span> based company solution
+				<span className="text-green-600 font-semibold mr-2">&#10003;</span>
+				<span className="text-[#EED132]">National</span>Country based company solution
 			</div>
 			<div className="sxl:text-[18px] md:text-[25px] my-1 text-center font-[500] text-[#fff]">
-				<span className="text-red-600 font-semibold mr-2">&#10005;</span>Sort by Hazard level
+				<span className="text-green-600 font-semibold mr-2">&#10003;</span>Share every level Hazards
 			</div>
 			<div className="w-[100%] mt-10 flex justify-center items-center">
 				<Link
