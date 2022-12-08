@@ -8,13 +8,12 @@ import { filterAll, sortAll } from "../Utilities/sortAndFilters";
 const MyPosts = () => {
 	const loading = useSelector((state) => state.loading);
 	const userData = useSelector((state) => state.userData);
-	const allHazards = useSelector((state) => state.allHazards);
-	const myHazards = allHazards.filter((data) => userData.userId === data.userId);
-	const [filterHazards, setFilterHazards] = useState(myHazards);
+	const allHazards = useSelector((state) => state.allHazards) ? useSelector((state) => state.allHazards).filter((data) => userData.userId === data.userId) : [];
+	const [filterHazards, setFilterHazards] = useState(allHazards);
 	const locationData = new Map();
 	const locationOptions = [];
-	if (myHazards.length > 0) {
-		myHazards.forEach((data) => {
+	if (allHazards.length > 0) {
+		allHazards.forEach((data) => {
 			locationData.set(`${data.state}, ${data.country}`, data._id);
 		});
 		locationData.forEach((value, key) => locationOptions.push([key, value]));
@@ -28,14 +27,14 @@ const MyPosts = () => {
 	});
 	const { industryType, hazardType, hazardLevel, location, sort } = values;
 	useEffect(() => {
-		setFilterHazards([...filterAll(myHazards, industryType, hazardType, hazardLevel, location)]);
+		setFilterHazards([...filterAll(allHazards, industryType, hazardType, hazardLevel, location)]);
 		setValues({ ...values, ["sort"]: "latest" });
 	}, [industryType, hazardType, hazardLevel, location]);
 	useEffect(() => {
 		setFilterHazards([...sortAll(filterHazards, sort)]);
 	}, [sort]);
 	useEffect(() => {
-		setFilterHazards(myHazards);
+		setFilterHazards(allHazards);
 	}, [loading]);
 	return (
 		<Base>

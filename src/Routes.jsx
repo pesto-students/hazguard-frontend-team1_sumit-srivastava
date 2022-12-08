@@ -30,7 +30,6 @@ const Routes = () => {
 					} else if (response?.error) {
 						dispatch(setAllHazards([]));
 						dispatch(setLoading(false));
-						console.log(response?.message);
 					}
 				})
 				.catch((e) => {
