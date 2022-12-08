@@ -7,13 +7,12 @@ import { filterAll, sortAll } from "../Utilities/sortAndFilters";
 
 const Home = () => {
 	const loading = useSelector((state) => state.loading);
-	const allHazards = useSelector((state) => state.allHazards);
-	const publicHazards = allHazards.filter((data) => data.isPublic === true);
-	const [filterHazards, setFilterHazards] = useState(publicHazards);
+	const allHazards = useSelector((state) => state.allHazards) ? useSelector((state) => state.allHazards).filter((data) => data.isPublic === true) : [];
+	const [filterHazards, setFilterHazards] = useState(allHazards);
 	const locationData = new Map();
 	const locationOptions = [];
-	if (publicHazards.length > 0) {
-		publicHazards.forEach((data) => {
+	if (allHazards.length > 0) {
+		allHazards.forEach((data) => {
 			locationData.set(`${data.state}, ${data.country}`, data._id);
 		});
 		locationData.forEach((value, key) => locationOptions.push([key, value]));
@@ -27,14 +26,14 @@ const Home = () => {
 	});
 	const { industryType, hazardType, hazardLevel, location, sort } = values;
 	useEffect(() => {
-		setFilterHazards([...filterAll(publicHazards, industryType, hazardType, hazardLevel, location)]);
+		setFilterHazards([...filterAll(allHazards, industryType, hazardType, hazardLevel, location)]);
 		setValues({ ...values, ["sort"]: "latest" });
 	}, [industryType, hazardType, hazardLevel, location]);
 	useEffect(() => {
 		setFilterHazards([...sortAll(filterHazards, sort)]);
 	}, [sort]);
 	useEffect(() => {
-		setFilterHazards(publicHazards);
+		setFilterHazards(allHazards);
 	}, [loading]);
 	return (
 		<Base>
