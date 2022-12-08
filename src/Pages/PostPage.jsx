@@ -259,7 +259,7 @@ const PostPage = () => {
 							</div>
 						</div>
 					) : (
-						<button className="w-[250px] h-[40px] bg-[#EED132] rounded-[30px] font-[700] text-[#08] sxl:text-[15px] lg:text-[18px] hover:bg-[rgba(238,209,50,0.8)] relative left-[50%] translate-x-[-50%] sxl:translate-y-[-10%] md:translate-y-[-100px] mt-10">
+						<button className="w-[250px] h-[40px] bg-[#EED132] rounded-[30px] font-[700] text-[#08] sxl:text-[15px] lg:text-[18px] hover:bg-[rgba(238,209,50,0.8)]  mt-10">
 							Subscribe to Unlock
 						</button>
 					)}
