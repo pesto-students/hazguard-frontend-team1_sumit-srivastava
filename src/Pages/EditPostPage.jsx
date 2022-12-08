@@ -198,7 +198,7 @@ const EditPostPage = () => {
 												name="isPublic"
 												type="radio"
 												value="true"
-												defaultChecked={editPostDataIsPublic}
+												defaultChecked={hazard.isPublic}
 												className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094] mt-2"
 											/>
 											<label htmlFor="yes" className="text-[#272343] ml-1">
@@ -209,7 +209,7 @@ const EditPostPage = () => {
 												name="isPublic"
 												type="radio"
 												value="false"
-												defaultChecked={!editPostDataIsPublic}
+												defaultChecked={!hazard.isPublic}
 												className="sxl:py-1 sm:py-2 px-0 w-auto text-md font-medium bg-transparent border-0 border-b-2 border-[#677094] mt-2 ml-5"
 											/>
 											<label htmlFor="no" className="text-[#272343] ml-1">
