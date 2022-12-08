@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+
 const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, location, locationOptions, sort }) => {
+	const userData = useSelector((state) => state.userData);
 	const handleChange = (name) => (event) => {
 		setValues({ ...values, [name]: event.target.value });
 	};
@@ -47,7 +51,10 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						<option value="Chemical">Chemical</option>
 					</select>
 				</div>
-				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full sm:mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+				<div
+					onClick={() => userData.subscriptionType === "Free" && toast.warning("Buy subscription!")}
+					className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full sm:mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center"
+				>
 					<label htmlFor="hazardLevel" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Hazard Level
 					</label>
@@ -56,6 +63,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						name="hazardLevel"
 						value={hazardLevel}
 						onChange={handleChange("hazardLevel")}
+						disabled={userData.subscriptionType === "Free" && true}
 						className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm text-blue-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 					>
 						<option value="">Hazard Level</option>
@@ -64,7 +72,10 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						<option value="High">High</option>
 					</select>
 				</div>
-				<div className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full sm:mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center">
+				<div
+					onClick={() => userData.subscriptionType === "Free" && toast.warning("Buy subscription!")}
+					className="sxl:w-fit md:w-[20%] sxl:h-fit md:h-full sm:mx-[15px] bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center items-center"
+				>
 					<label htmlFor="location" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold">
 						Location
 					</label>
@@ -73,6 +84,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						name="location"
 						value={location}
 						onChange={handleChange("location")}
+						disabled={userData.subscriptionType === "Free" && true}
 						className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm text-[#677094] font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 					>
 						<option value="">Location</option>
@@ -85,7 +97,10 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						})}
 					</select>
 				</div>
-				<div className="sxl:w-full xs:w-fit sm:w-[20%] sxl:h-fit md:h-full sxl:mt-1 md:mt-0 bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center sxl:items-start xs:items-center">
+				<div
+					onClick={() => userData.subscriptionType === "Free" && toast.warning("Buy subscription!")}
+					className="sxl:w-full xs:w-fit sm:w-[20%] sxl:h-fit md:h-full sxl:mt-1 md:mt-0 bg-[#ffffff] md:rounded-[20px] flex flex-col justify-center sxl:items-start xs:items-center"
+				>
 					<label htmlFor="sort" className="text-[#272343] sxl:text-[15px] sm:text-[22px] font-semibold sxl:ml-5 xs:ml-0">
 						Sort By
 					</label>
@@ -94,6 +109,7 @@ const Filter = ({ values, setValues, industryType, hazardType, hazardLevel, loca
 						name="sort"
 						value={sort}
 						onChange={handleChange("sort")}
+						disabled={userData.subscriptionType === "Free" && true}
 						className="text-center sxl:py-1 md:py-2 px-0 w-auto text-sm text-blue-400 font-medium bg-transparent border-0 border-b-2 border-[#677094]"
 					>
 						<option value="latest">Date Occurred: Latest</option>

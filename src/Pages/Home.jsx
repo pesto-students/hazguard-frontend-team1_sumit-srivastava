@@ -13,7 +13,7 @@ const Home = () => {
 			? useSelector((state) => state.allHazards.filter((data) => data.country === userData.country))
 			: userData.subscriptionType === "International"
 			? useSelector((state) => state.allHazards)
-			: useSelector((state) => state.dummyData);
+			: useSelector((state) => state.allHazards.filter((data) => data.hazardLevel === "Low" && data.country === userData.country));
 	const [filterHazards, setFilterHazards] = useState(allHazards);
 	const locationData = new Map();
 	const locationOptions = [];
