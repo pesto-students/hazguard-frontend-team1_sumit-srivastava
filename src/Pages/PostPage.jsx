@@ -180,7 +180,8 @@ const PostPage = () => {
 						<div className="font-[700] text-[#677094] sxl:text-[15px] md:text-[24px] mb-3">Problem</div>
 						<div className="font-[500] text-[#272343] sxl:text-[15px] md:text-[20px] md:leading-[21px] sxl:overflow-y-scroll md:overflow-auto">{hazard.problem}</div>
 					</div>
-					{(userData.subscriptionType === "Free" && userData.country === hazard.country && hazard.hazardLevel === "Low") ||
+					{userData.userId === hazard.userId ||
+					(userData.subscriptionType === "Free" && userData.country === hazard.country && hazard.hazardLevel === "Low") ||
 					(userData.subscriptionType === "National" && userData.country === hazard.country) ||
 					userData.subscriptionType === "International" ? (
 						<div className="w-[100%] h-[65%] flex justify-between items-start flex-wrap">
