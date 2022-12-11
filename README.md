@@ -47,15 +47,23 @@ Test Credentials:
     git clone https://github.com/pesto-students/hazguard-frontend-team1_sumit-srivastava.git
     ```
 
-2. Install NPM packages
+2. Set environment variables
+
+    ```sh
+    VITE_S3_BUCKET_NAME=
+    VITE_S3_REGION_NAME=
+    VITE_S3_ACCESS_KEY_ID=
+    VITE_S3_SECRET_ACCESS_KEY=
+    ```
+3. Install NPM packages
     ```sh
     cd hazguard-frontend-team1_sumit-srivastava && npm install
     ```
-3. Run
+4. Run
     ```sh
     npm run dev
     ```
-4. Open http://localhost:3000 to view it in the browser
+5. Open http://localhost:3000 to view it in the browser
 
 # Technology Stack
 
