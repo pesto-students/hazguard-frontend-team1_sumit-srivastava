@@ -40,6 +40,7 @@ const Routes = () => {
 		getAllHazards();
 	}, [checkChange]);
 	return (
+		// All Routes
 		<BrowserRouter>
 			<RouterRoutes>
 				<Route exact path="/" element={userData ? <Home /> : <Landing />} />
