@@ -39,7 +39,6 @@ const Routes = () => {
 		};
 		getAllHazards();
 	}, [checkChange]);
-	console.log(import.meta.env.VITE_S3_BUCKET_NAME, import.meta.env.VITE_S3_REGION_NAME, import.meta.env.VITE_S3_ACCESS_KEY_ID, import.meta.env.VITE_S3_SECRET_ACCESS_KEY);
 	return (
 		<BrowserRouter>
 			<RouterRoutes>
