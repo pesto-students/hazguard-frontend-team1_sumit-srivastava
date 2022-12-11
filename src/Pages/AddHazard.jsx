@@ -125,7 +125,6 @@ const AddHazard = () => {
 			newPostDataEffectDuration !== "" &&
 			newPostDataProblem !== "" &&
 			newPostDataSolution !== "" &&
-			newPostDataDateOccurred !== "" &&
 			newPostDataIsPublic !== "" &&
 			userData.companyName !== "" &&
 			userData.state !== "" &&
@@ -141,7 +140,7 @@ const AddHazard = () => {
 					effectDuration: newPostDataEffectDuration,
 					problem: newPostDataProblem,
 					solution: newPostDataSolution,
-					dateOccurred: newPostDataDateOccurred,
+					dateOccurred: newPostDataDateOccurred || new Date().toISOString().slice(0, 10),
 					isPublic: newPostDataIsPublic,
 					companyName: userData.companyName,
 					state: userData.state,
