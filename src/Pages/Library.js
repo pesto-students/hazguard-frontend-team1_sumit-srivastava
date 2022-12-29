@@ -1,6 +1,7 @@
 import Account from "./Account";
 import AddHazard from "./AddHazard";
 import BuyPlan from "./BuyPlan";
+import DemoLogin from "./DemoLogin";
 import EditPostPage from "./EditPostPage";
 import Home from "./Home";
 import Landing from "./Landing";
@@ -13,4 +14,4 @@ import Register from "./Register";
 import Saved from "./Saved";
 import Verify from "./Verify";
 
-export { Account, AddHazard, BuyPlan, EditPostPage, Home, Landing, Leaderboard, Login, MyPosts, PageNotFound, PostPage, Register, Saved, Verify };
+export { Account, AddHazard, BuyPlan, DemoLogin, EditPostPage, Home, Landing, Leaderboard, Login, MyPosts, PageNotFound, PostPage, Register, Saved, Verify };

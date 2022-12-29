@@ -51,6 +51,9 @@ const Header = ({ productRef, featureRef, pricingRef, aboutUsRef }) => {
 							<Link to="/register" className="inline-block rounded-lg bg-[#EED132] px-4 py-1.5 text-base font-semibold leading-7 text-black">
 								Get Started
 							</Link>
+							<Link to="/demologin" className="inline-block rounded-lg bg-[#EED132] px-4 py-1.5 text-base font-semibold leading-7 text-black">
+								Guest Login
+							</Link>
 						</div>
 					</div>
 				</div>
