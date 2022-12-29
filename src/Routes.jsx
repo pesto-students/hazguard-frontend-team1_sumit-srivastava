@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes as RouterRoutes, Navigate } from "react-router-dom";
-import { Account, AddHazard, BuyPlan, EditPostPage, Home, Landing, Leaderboard, Login, MyPosts, PageNotFound, PostPage, Register, Saved, Verify } from "./Pages/Library";
+import { Account, AddHazard, BuyPlan, DemoLogin, EditPostPage, Home, Landing, Leaderboard, Login, MyPosts, PageNotFound, PostPage, Register, Saved, Verify } from "./Pages/Library";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { readAllHazards } from "./Helpers/hazard";
@@ -47,6 +47,7 @@ const Routes = () => {
 				<Route exact path="/register" element={<Register />} />
 				<Route exact path="/verify/:token" element={<Verify />} />
 				<Route exact path="/login" element={<Login />} />
+				<Route exact path="/demologin" element={<DemoLogin />} />
 				<Route
 					exact
 					path="/home"
