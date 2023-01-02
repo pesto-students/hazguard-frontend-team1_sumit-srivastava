@@ -177,6 +177,10 @@ const Login = () => {
 						<h1 className="text-[100px] font-[Almendra] font-bold text-[#EED132]">Welcome</h1>
 					</div>
 					<div className="sxl:w-full py-20 md:w-1/2 h-full flex flex-col justify-center items-center">
+						<Link to="/demologin" className="inline-block rounded-lg bg-[#EED132] px-4 py-1.5 text-base font-semibold leading-7 text-black mb-5 mt-10">
+							Guest Login
+						</Link>
+						<h2 className="font-semibold text-2xl text-[#272343] mb-5">OR</h2>
 						<h2 className="font-semibold text-4xl text-[#272343]">Sign In</h2>
 						<form className="w-3/5 h-[75%] flex flex-col justify-center items-center">
 							<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
@@ -214,7 +218,7 @@ const Login = () => {
 									loginUser(e);
 								}}
 								type="submit"
-								className="bg-[#EED132] text-black sxl:text-[15px] md:text-[17px] rounded-3xl font-semibold w-3/5 h-[12%] py-2 mt-10"
+								className="bg-[#EED132] text-black sxl:text-[15px] md:text-[17px] rounded-3xl font-semibold w-3/5 h-[100%] py-2 mt-10"
 							>
 								LOGIN
 							</button>

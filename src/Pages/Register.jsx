@@ -56,15 +56,19 @@ const Register = () => {
 		}
 	};
 	return (
-		<div className="bg-white w-4/5 h-4/5 absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%] min-h-[600px] rounded-3xl flex justify-center items-center">
+		<div className="bg-white w-4/5 h-4/5 absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%] min-h-[700px] rounded-3xl flex justify-center items-center">
 			<div className="sxl:hidden w-1/2 h-full bg-[#677094] rounded-tl-3xl rounded-bl-3xl md:flex flex-col justify-center items-center">
 				<img src={Logo} alt="app logo" className="w-[200px]" />
 				<h1 className="text-[100px] font-[Almendra] font-bold text-[#EED132]">Welcome</h1>
 			</div>
 			<div className="sxl:w-full md:w-1/2 h-full flex flex-col justify-center items-center">
+				<Link to="/demologin" className="inline-block rounded-lg bg-[#EED132] px-4 py-1.5 text-base font-semibold leading-7 text-black mb-5 mt-10">
+					Guest Login
+				</Link>
+				<h2 className="font-semibold text-2xl text-[#272343] mb-5">OR</h2>
 				<h2 className="font-semibold text-4xl text-[#272343]">Sign Up</h2>
 				<form className="w-3/5 h-[75%] flex flex-col justify-center items-center">
-					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
+					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-2">
 						<label htmlFor="firstName" className="font-semibold text-[#272343]">
 							First Name
 						</label>
@@ -78,7 +82,7 @@ const Register = () => {
 							onChange={handleChange("firstName")}
 						/>
 					</div>
-					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
+					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-2">
 						<label htmlFor="email" className="font-semibold text-[#272343]">
 							Email Address
 						</label>
@@ -93,7 +97,7 @@ const Register = () => {
 							onChange={handleChange("email")}
 						/>
 					</div>
-					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
+					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-2">
 						<label htmlFor="companyName" className="font-semibold text-[#272343]">
 							Company Name
 						</label>
@@ -107,7 +111,7 @@ const Register = () => {
 							onChange={handleChange("companyName")}
 						/>
 					</div>
-					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
+					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-2">
 						<label htmlFor="password1" className="font-semibold text-[#272343]">
 							New Password
 						</label>
@@ -122,7 +126,7 @@ const Register = () => {
 							onChange={handleChange("password1")}
 						/>
 					</div>
-					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-3">
+					<div className="w-full border-b-4 border-solid border-b-[#EED132] my-2">
 						<label htmlFor="password2" className="font-semibold text-[#272343]">
 							Confirm Password
 						</label>
@@ -147,7 +151,7 @@ const Register = () => {
 						REGISTER
 					</button>
 				</form>
-				<div className="mt-5 text-sm">
+				<div className="mb-10 mt-5 text-sm">
 					<p>
 						Already registered?&nbsp;
 						<Link className="text-black font-bold" to="/login">
