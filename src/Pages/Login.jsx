@@ -218,7 +218,7 @@ const Login = () => {
 									loginUser(e);
 								}}
 								type="submit"
-								className="bg-[#EED132] text-black sxl:text-[15px] md:text-[17px] rounded-3xl font-semibold w-3/5 h-[100%] py-2 mt-10"
+								className="bg-[#EED132] text-black sxl:text-[15px] md:text-[17px] rounded-3xl font-semibold w-3/5 py-2 mt-10"
 							>
 								LOGIN
 							</button>
