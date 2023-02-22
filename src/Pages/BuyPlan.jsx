@@ -26,7 +26,7 @@ const BuyPlan = () => {
 						switch (plan) {
 							case "internationalplan": {
 								const paymentObject = new Razorpay({
-									key: "rzp_test_lYM1tsSUjMnWSG",
+									key: "rzp_test_87pRZSKzD8nZQN",
 									subscription_id: response.data.id,
 									name: "HazGuard International Plan",
 									description: "This will give you access to all countries.",
@@ -69,7 +69,7 @@ const BuyPlan = () => {
 							}
 							case "nationalplan": {
 								const paymentObject = new Razorpay({
-									key: "rzp_test_lYM1tsSUjMnWSG",
+									key: "rzp_test_87pRZSKzD8nZQN",
 									subscription_id: response.data.id,
 									name: "HazGuard National Plan",
 									description: "This will give you access to one country.",
