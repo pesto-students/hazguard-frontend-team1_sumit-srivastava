@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	-webkit-transition: 0.25s all ease;
+	-moz-transition: 0.25s all ease;
+	-ms-transition: 0.25s all ease;
+	-o-transition: 0.25s all ease;
+	transition: 0.25s all ease;
+}
+
+body {
+	box-sizing: border-box;
+	font-family: "Inter", sans-serif;
+	background-color: #e8e8e8;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+input,
+textarea,
+select,
+img {
+	outline: none;
+}
+
+.justify-center.items-center.outline-none {
+	display: flex !important;
+}
+
+.heroslider .slick-next {
+	position: absolute;
+	top: 45%;
+	right: 15px;
+}
+
+.heroslider .slick-prev {
+	position: absolute;
+	top: 45%;
+	margin-left: 15px;
+	z-index: 1;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+.inputShadow {
+	box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.addScrollBar::-webkit-scrollbar {
+	display: inline !important;
+	width: 5px;
+	background-color: white;
+}
+
+.addScrollBar::-webkit-scrollbar-thumb {
+	display: inline-block;
+	background-color: #eed132;
+	border-radius: 2.5px;
+}
+
+.image-gallery-image {
+	height: 350px !important;
+}
+
+.image-gallery-svg {
+	height: 60px !important;
+	width: 30px !important;
+}
+
+.custom-file-upload {
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.img-wrap {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.img-upload:before {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M4 19h16v-7h2v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-8h2v7zM14 9v6h-4V9H5l7-7 7 7h-5z' fill='rgb(238, 209, 50)'/%3E%3C/svg%3E");
+	font-size: 40px;
+	position: absolute;
+	padding-top: 45px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: #eed132;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	opacity: 0;
+	transition: 0.25s all ease;
+	background-color: #272343 !important;
+}
+
+.img-upload:hover:before {
+	opacity: 1;
+}
+
+.img-wrap img {
+	width: auto;
+	height: 100%;
+}
